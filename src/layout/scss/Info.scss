@@ -1,0 +1,13 @@
+.footerInfo {
+  &__list {
+    display: flex;
+    align-items: center;
+  }
+
+  &__list-item + &__list-item {
+    margin-left: 15px;
+  }
+
+  &__list-item {
+  }
+}

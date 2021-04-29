@@ -1,0 +1,19 @@
+.app-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+
+  grid-template-areas:
+        "header"
+        "main"
+        "footer";
+  max-width: 1920px;
+  margin: 0 auto;
+  overflow: hidden;
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+.content {
+  grid-area: main;
+}
