@@ -6,7 +6,7 @@ import NavAction from './NavAction';
 
 const Header = () => {
   return (
-    <div className="header">
+    <section className="header">
       <div className="container">
         <div className="header__inner">
           <Logo />
@@ -14,7 +14,7 @@ const Header = () => {
           <NavAction />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

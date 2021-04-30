@@ -1,8 +1,12 @@
 .header {
+  width: 100%;
+  box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5), 2px 2px 5px rgba(154, 147, 140, 0.5);
+  margin-top: 0;
   &__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 0;
+
   }
 }

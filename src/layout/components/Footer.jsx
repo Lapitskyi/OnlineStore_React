@@ -4,7 +4,7 @@ import Social from './Social';
 import FooterInfo from './FooterInfo';
 
 const Footer = () => (
-  <div className="footer">
+  <section className="footer">
     <div className="container">
       <div className="footer__inner">
         <div className="footer__copyright">Copyright © 2021 Христофор колумб</div>
@@ -12,6 +12,6 @@ const Footer = () => (
         <Social />
       </div>
     </div>
-  </div>
+  </section>
 );
 export default Footer;
