@@ -5,6 +5,7 @@ const Login = () => (
   <div className="login">
     <div className="login__inner">
       <h2 className="login__title">Sign in</h2>
+
     </div>
   </div>
 );

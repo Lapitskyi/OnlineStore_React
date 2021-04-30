@@ -1,39 +1,37 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { closeShowMenu, showMenu } from '../../redux/menu-reducer';
 import Header from './Header';
+import MenuShowContext from './MenuShowContext';
 
-const HeaderContainer = ({ isMenuShow, ...props }) => {
+const HeaderContainer = () => {
+  const [showMenu, setShowMenu] = useState(false);
   const onShowMenu = () => {
-    props.showMenu(isMenuShow);
+    setShowMenu(!!showMenu === false);
   };
   const closeMenu = () => {
-    props.closeShowMenu();
+    setShowMenu(false);
   };
 
-  return <Header isMenuShow={isMenuShow} onShowMenu={onShowMenu} closeMenu={closeMenu} />;
+  return (
+    <MenuShowContext.Provider value={{
+      showMenu,
+      onShowMenu,
+      closeMenu
+    }}
+    >
+      <Header />
+    </MenuShowContext.Provider>
+
+  );
 };
 
-const mapStateToProps = ({ menu }) => ({
-  isMenuShow: menu.isMenuShow
-});
+const mapStateToProps = () => ({});
 
 export default compose(
-  connect(mapStateToProps, { showMenu, closeShowMenu })
+  connect(mapStateToProps, {})
 )(HeaderContainer);
 
-HeaderContainer.defaultProps = {
-  isMenuShow: false,
-  showMenu: () => {
-  },
-  closeShowMenu: () => {
-  },
-};
+HeaderContainer.defaultProps = {};
 
-HeaderContainer.propTypes = {
-  isMenuShow: PropTypes.bool,
-  showMenu: PropTypes.func,
-  closeShowMenu: PropTypes.func,
-};
+HeaderContainer.propTypes = {};

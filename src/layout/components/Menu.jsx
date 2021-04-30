@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import '../scss/Menu.scss';
 import Burger from '../../components/Burger';
+import withShowMenu from '../../hoc/withShowMenu';
+import '../scss/Menu.scss';
 
-const Menu = ({ isMenuShow, onShowMenu, closeMenu }) => (
+const Menu = ({ showMenu, onShowMenu, closeMenu }) => (
   <>
-    <div className={!isMenuShow ? 'menu' : 'menu active'}>
+    <div className={!showMenu ? 'menu' : 'menu active'}>
       <ul className="menu__list">
         <li className="menu__list-item">
           <NavLink className="menu__list-link" to="/" onClick={closeMenu}>Home</NavLink>
@@ -19,20 +20,20 @@ const Menu = ({ isMenuShow, onShowMenu, closeMenu }) => (
         </li>
       </ul>
     </div>
-    <Burger isMenuShow={isMenuShow} onShowMenu={onShowMenu} />
+    <Burger showMenu={showMenu} onShowMenu={onShowMenu} />
   </>
 );
 Menu.defaultProps = {
-  isMenuShow: false,
+  showMenu: false,
   onShowMenu: () => {
   },
   closeMenu: () => {
   }
 };
 Menu.propTypes = {
-  isMenuShow: PropTypes.bool,
+  showMenu: PropTypes.bool,
   onShowMenu: PropTypes.func,
   closeMenu: PropTypes.func
 };
 
-export default Menu;
+export default withShowMenu(Menu);

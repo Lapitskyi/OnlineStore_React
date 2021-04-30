@@ -2,19 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './scss/Burger.scss';
 
-const Burger = ({ isMenuShow, onShowMenu }) => (
-  <button type="button" className={!isMenuShow ? 'burger' : 'burger active'} onClick={onShowMenu}>
+const Burger = ({ showMenu, onShowMenu }) => (
+  <button type="button" className={!showMenu ? 'burger' : 'burger active'} onClick={onShowMenu}>
     <span />
   </button>
 );
 
 Burger.defaultProps = {
-  isMenuShow: false,
+  showMenu: false,
   onShowMenu: () => {
   }
 };
 Burger.propTypes = {
-  isMenuShow: PropTypes.bool,
+  showMenu: PropTypes.bool,
   onShowMenu: PropTypes.func
 };
 
