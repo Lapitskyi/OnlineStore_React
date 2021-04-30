@@ -2,11 +2,18 @@
   width: 100%;
   box-shadow: inset 0px 1px 5px rgba(154, 147, 140, 0.5), 0px 1px 5px rgba(154, 147, 140, 0.5);
   margin-top: 0;
+
   &__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 0;
 
+  }
+}
+
+@media(max-width: 768px) {
+  .burger {
+    order: 1;
   }
 }

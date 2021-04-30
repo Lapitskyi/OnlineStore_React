@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import Header from './components/Header';
+import HeaderContainer from './components/HeaderContainer';
 import Footer from './components/Footer';
 import './scss/MainLayout.scss';
 import DiliveryPayment from '../page/Dilivery/DiliveryPayment';
@@ -11,7 +11,7 @@ import Merch from '../page/Merch/Merch';
 
 const MainLayuot = () => (
   <div className="wrapper">
-    <Header />
+    <HeaderContainer />
     <div className="content">
       <Route path="/" exact render={() => <Home />} />
       <Route path="/about" render={() => <About />} />

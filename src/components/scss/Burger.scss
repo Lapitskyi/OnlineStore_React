@@ -26,7 +26,7 @@
     display: block;
     width: 35px;
     height: 4px;
-    background: #00A4E5;
+    background: #0b6623;
 
     position: relative;
 
@@ -37,7 +37,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: #00A4E5;
+      background: #0b6623;
       transition: transform 0.2s ease-in, top 0.2s linear 0.2s;
     }
 
@@ -58,23 +58,15 @@
       top: 0;
       transform: rotate(45deg);
       transition: top 0.2s linear, transform 0.2s ease-in 0.2s;
-      background: #00A4E5;
+      background: #0b6623;
     }
 
     &::before {
       top: 0;
       transform: rotate(-45deg);
       transition: top 0.2s linear, transform 0.2s ease-in 0.2s;
-      background: #00A4E5;
+      background: #0b6623;
     }
   }
 
-
-  .burger.active {
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    z-index: 50;
-    transition: fixed 0.2s linear;
-  }
 }
