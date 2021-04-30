@@ -1,8 +1,16 @@
 .footer{
   background-color: #888;
   &__inner{
+    padding: 10px 0;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer__inner{
+    flex-direction: column-reverse;
   }
 }

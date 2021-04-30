@@ -5,7 +5,7 @@ import Social from '../../layout/components/Social';
 
 const About = () => {
   return (
-    <div className="about">
+    <section className="about">
       <div className="container">
         <div className="about__inner">
           <Poster />
@@ -22,7 +22,7 @@ const About = () => {
           <Social />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
