@@ -1,6 +1,6 @@
 import React from 'react';
 import './scss/Auth.scss';
-import Login from './components/Login';
+import Login from './Login';
 
 const Auth = () => (
   <div className="auth">

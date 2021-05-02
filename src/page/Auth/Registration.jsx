@@ -1,5 +1,5 @@
 import React from 'react';
-import '../scss/Registration.scss';
+import './scss/Registration.scss';
 
 const Registration = () => (
   <div className="registration">

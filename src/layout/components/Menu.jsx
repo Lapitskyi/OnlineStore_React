@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import Burger from '../../components/Burger';
-import withShowMenu from '../../hoc/withShowMenu';
+
 import '../scss/Menu.scss';
 
 const Menu = ({ showMenu, onShowMenu, closeMenu }) => (
@@ -36,4 +36,4 @@ Menu.propTypes = {
   closeMenu: PropTypes.func
 };
 
-export default withShowMenu(Menu);
+export default Menu;

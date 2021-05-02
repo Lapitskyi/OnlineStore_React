@@ -1,0 +1,21 @@
+.pagination {
+  padding: 10px 0;
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__item {
+  }
+
+  &__item + &__item {
+    margin-left: 10px;
+  }
+
+  &__link {
+    color: #333333;
+  }
+
+}
+
