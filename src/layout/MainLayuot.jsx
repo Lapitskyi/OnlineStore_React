@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import HeaderContainer from './components/HeaderContainer';
 import Footer from './components/Footer';
 import DiliveryPayment from '../page/Dilivery/DiliveryPayment';
-import Auth from '../page/Auth/Auth';
+import AuthConteiner from '../page/Auth/AuthConteiner';
 import About from '../page/About/About';
 import Home from '../page/Home/Home';
 import MerchContainer from '../page/Merch/MerchContainer';
@@ -17,7 +17,7 @@ const MainLayuot = () => (
       <Route path="/about" render={() => <About />} />
       <Route path="/merch" render={() => <MerchContainer />} />
       <Route path="/dilivery" render={() => <DiliveryPayment />} />
-      <Route path="/auth" render={() => <Auth />} />
+      <Route path="/auth" render={() => <AuthConteiner />} />
     </div>
     <Footer />
   </div>
