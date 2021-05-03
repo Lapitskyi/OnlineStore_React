@@ -7,6 +7,7 @@ import AuthConteiner from '../page/Auth/AuthConteiner';
 import About from '../page/About/About';
 import Home from '../page/Home/Home';
 import MerchContainer from '../page/Merch/MerchContainer';
+import BasketContainer from '../page/Basket/BasketConteiner';
 import './scss/MainLayout.scss';
 
 const MainLayuot = () => (
@@ -18,6 +19,8 @@ const MainLayuot = () => (
       <Route path="/merch" render={() => <MerchContainer />} />
       <Route path="/dilivery" render={() => <DiliveryPayment />} />
       <Route path="/auth" render={() => <AuthConteiner />} />
+      <Route path="/cart" render={() => <BasketContainer product="text" />} />
+
     </div>
     <Footer />
   </div>
