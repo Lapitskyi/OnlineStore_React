@@ -9,29 +9,30 @@ const Login = ({
   auth: {
     login: {
       input,
-      btnText,
+      name,
       link
     }
   }
 }) => {
-  console.log(input, btnText, link);
   return (
     <div className="auth">
       <div className="container">
         <div className="auth__inner">
           <Logo />
-          <h2 className="auth__title">Sign in</h2>
+          <h2 className="auth__title">{name}</h2>
           <form className="auth__form">
-
-            <label className="auth__form-label" htmlFor="id">
-              email
-              <input className="auth__form-input" type="text" id="id" />
-            </label>
-            <label className="auth__form-label" htmlFor="id1">
-              password
-              <input className="auth__form-input" type="text" id="id1" />
-            </label>
-            <button type="button" className="auth__form-btn">{btnText}</button>
+            {input.map((inputItem) => (
+              <label className="auth__form-label" htmlFor={inputItem.id} key={inputItem.id}>
+                {inputItem.label}
+                <input
+                  className="auth__form-input"
+                  type={inputItem.type}
+                  id={inputItem.id}
+                  placeholder={inputItem.placeholder}
+                />
+              </label>
+            ))}
+            <button type="button" className="auth__form-btn">{name}</button>
           </form>
           <LinkAuth link={link} />
         </div>
@@ -44,7 +45,7 @@ Login.defaultProps = {
   auth: {
     login: {
       input: [],
-      btnText: '',
+      name: '',
       link: []
     }
   }
@@ -53,7 +54,7 @@ Login.propTypes = {
   auth: PropTypes.shape({
     login: PropTypes.shape({
       input: PropTypes.arrayOf(PropTypes.object),
-      btnText: PropTypes.string,
+      name: PropTypes.string,
       link: PropTypes.arrayOf(PropTypes.object)
     })
   })

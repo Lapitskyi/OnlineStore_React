@@ -4,10 +4,15 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Login from './Login';
 import './scss/Auth.scss';
+import Registration from './Registration';
 
 const AuthConteiner = ({ auth }) => {
   return (
-    <Login auth={auth.en} />
+    <>
+      <Registration auth={auth.en} />
+      <Login auth={auth.en} />
+    </>
+
   );
 };
 

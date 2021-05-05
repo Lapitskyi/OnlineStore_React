@@ -31,7 +31,7 @@ const initialState = {
       {
         id: 3,
         name: 'Товар',
-        link: '/product'
+        link: '/goods'
       },
 
     ],
@@ -70,7 +70,7 @@ const initialState = {
             placeholder: 'password'
           }
         ],
-        btnText: 'Sing in',
+        name: 'Sing in',
         link: [
           {
             id: 1,
@@ -102,7 +102,7 @@ const initialState = {
             placeholder: 'repassword'
           }
         ],
-        btnText: 'Sing Up',
+        name: 'Sing Up',
         link: [
           {
             id: 1,
@@ -119,7 +119,7 @@ const initialState = {
             placeholder: 'email'
           },
         ],
-        btnText: 'Reset password',
+        name: 'Reset password',
         link: [
           {
             id: 1,
@@ -145,7 +145,7 @@ const initialState = {
             placeholder: 'Пароль'
           }
         ],
-        btnText: 'Увійти',
+        name: 'Увійти',
         link: [
           {
             id: 1,
@@ -177,7 +177,7 @@ const initialState = {
             placeholder: 'Повторіть пароль'
           }
         ],
-        btnText: 'Зареєструватися',
+        name: 'Зареєструватися',
         link: [
           {
             id: 1,
@@ -220,7 +220,7 @@ const initialState = {
             placeholder: 'Пароль'
           }
         ],
-        btnText: 'Войти',
+        name: 'Войти',
         link: [
           {
             id: 1,
@@ -252,7 +252,7 @@ const initialState = {
             placeholder: 'Повторить пароль'
           }
         ],
-        btnText: 'Зарегистрироваться',
+        name: 'Зарегистрироваться',
         link: [
           {
             id: 1,
@@ -269,7 +269,7 @@ const initialState = {
             placeholder: 'Електронна пошта'
           },
         ],
-        btnText: 'Сбросить пароль',
+        name: 'Сбросить пароль',
         link: [
           {
             id: 1,
