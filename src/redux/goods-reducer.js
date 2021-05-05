@@ -1,5 +1,8 @@
+const SET_PRODUCT = 'SET_PRODUCT';
+const SET_GOODS = 'SET_PRODUCT';
+
 const initialState = {
-  products: [
+  goods: [
     {
       id: 1,
       name: 'Name product',
@@ -7,7 +10,7 @@ const initialState = {
       photo: 'https://via.placeholder.com/400x350',
       photoCollection: ['img1', 'img2', 'img3', 'img4'],
       size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
-
+      description: {}
     },
     {
       id: 2,
@@ -16,7 +19,7 @@ const initialState = {
       photo: 'https://via.placeholder.com/400',
       photoCollection: ['img1', 'img2', 'img3', 'img4'],
       size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
-
+      description: {}
     },
     {
       id: 3,
@@ -25,7 +28,7 @@ const initialState = {
       photo: 'https://via.placeholder.com/350',
       photoCollection: ['img1', 'img2', 'img3', 'img4'],
       size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
-
+      description: {}
     },
     {
       id: 4,
@@ -34,7 +37,7 @@ const initialState = {
       photo: 'https://via.placeholder.com/200',
       photoCollection: ['img1', 'img2', 'img3', 'img4'],
       size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
-
+      description: {}
     },
     {
       id: 5,
@@ -43,16 +46,32 @@ const initialState = {
       photo: 'https://via.placeholder.com/600',
       photoCollection: ['img1', 'img2', 'img3', 'img4'],
       size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
-
+      description: {}
     },
-  ]
+  ],
+  product: undefined,
 };
 
-const productReducer = (state = initialState, action) => {
+const goodsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case SET_GOODS: {
+      return {
+        ...state, goods: action.goods
+      };
+    }
+
+    case SET_PRODUCT: {
+      return {
+        ...state, product: action.product
+      };
+    }
+
     default:
       return state;
   }
 };
 
-export default productReducer;
+export const setGoods = (goods) => ({ type: SET_PRODUCT, goods });
+export const setProduct = (product) => ({ type: SET_PRODUCT, product });
+
+export default goodsReducer;

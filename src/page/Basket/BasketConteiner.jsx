@@ -22,14 +22,7 @@ const BasketContainer = () => {
 
   return (
     <Basket
-      products={[{
-        id: 2,
-        name: 'Name product',
-        price: '200',
-        photo: 'https://via.placeholder.com/400',
-        photoCollection: ['img1', 'img2', 'img3', 'img4'],
-        size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
-      }]}
+      products={undefined}
       deleteProduct={deleteProduct}
       orderProduct={orderProduct}
       continueShopping={continueShopping}

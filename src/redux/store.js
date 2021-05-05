@@ -1,12 +1,14 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import menuReducer from './menu-reducer';
-import productReducer from './product-reducer';
+import goodsReducer from './goods-reducer';
 import authReducer from './auth-reducer';
+import basketReducer from './basket-reducer';
+import langReducer from './lang-reducer';
 
 const reducers = combineReducers({
-  menu: menuReducer,
-  productPage: productReducer,
+  lang: langReducer,
+  goods: goodsReducer,
+  basket: basketReducer,
   auth: authReducer
 });
 

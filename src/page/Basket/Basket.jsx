@@ -55,7 +55,15 @@ const Basket = ({
 
 Basket.defaultProps = {
   count: 0,
-  products: [],
+  products: [{
+    id: 1,
+    name: 'Name product',
+    price: '100',
+    photo: 'https://via.placeholder.com/400x350',
+    photoCollection: ['img1', 'img2', 'img3', 'img4'],
+    size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
+    description: {}
+  }],
   deleteProduct: () => {
   },
   orderProduct: () => {

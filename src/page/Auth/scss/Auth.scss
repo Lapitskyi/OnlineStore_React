@@ -65,4 +65,25 @@
 
   &__form-link {
   }
+
+}
+
+.auth-link {
+  &__list-item {
+    margin-top: 20px;
+  }
+
+  &__list-item + &__list-item {
+    margin-top: 10px;
+  }
+
+  &__list-link {
+    color: #000000;
+    font-size: 12px;
+
+    &:hover {
+      text-decoration: underline;
+      color: #00a4e5;
+    }
+  }
 }

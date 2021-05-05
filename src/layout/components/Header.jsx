@@ -5,13 +5,18 @@ import NavAction from './NavAction';
 import Menu from './Menu';
 import '../scss/Header.scss';
 
-const Header = ({ showMenu, onShowMenu, closeMenu }) => {
+const Header = ({
+  showMenu, 
+  onShowMenu,
+  closeMenu, 
+  menu 
+}) => {
   return (
     <section className="header">
       <div className="container">
         <div className="header__inner">
           <Logo />
-          <Menu showMenu={showMenu} onShowMenu={onShowMenu} closeMenu={closeMenu} />
+          <Menu showMenu={showMenu} onShowMenu={onShowMenu} closeMenu={closeMenu} menu={menu} />
           <NavAction />
         </div>
       </div>
@@ -19,6 +24,7 @@ const Header = ({ showMenu, onShowMenu, closeMenu }) => {
   );
 };
 Header.defaultProps = {
+  menu: [],
   showMenu: false,
   onShowMenu: () => {
   },
@@ -26,6 +32,7 @@ Header.defaultProps = {
   }
 };
 Header.propTypes = {
+  menu: PropTypes.arrayOf(PropTypes.object),
   showMenu: PropTypes.bool,
   onShowMenu: PropTypes.func,
   closeMenu: PropTypes.func
