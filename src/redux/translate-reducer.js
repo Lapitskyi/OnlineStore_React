@@ -1,3 +1,9 @@
+import en from '../assets/icon/eng.png';
+import ua from '../assets/icon/ua.png';
+import ru from '../assets/icon/rus.png';
+
+const TOGGLE_LANG = 'TOGGLE_LANG';
+
 const initialState = {
   menu: {
     en: [
@@ -279,14 +285,53 @@ const initialState = {
         ]
       }
     },
-  }
+  },
+  langT: [
+    {
+      id: 'en',
+      lang: true,
+      imgLang: en
+    },
+    {
+      id: 'ua',
+      lang: false,
+      imgLang: ua
+    },
+    {
+      id: 'ru',
+      lang: false,
+      imgLang: ru
+    }
+  ],
+  theme: false,
 };
 
-const langReducer = (state = initialState, action) => {
+const translateReducer = (state = initialState, action) => {
   switch (action.type) {
+    case TOGGLE_LANG: {
+      return {
+        ...state,
+        langT: state.langT.map((itemLang) => {
+          if (itemLang.id === action.langId) {
+            return {
+              ...itemLang,
+              lang: true
+            };
+          }
+          if (itemLang.id !== action.langId) {
+            return {
+              ...itemLang,
+              lang: false
+            };
+          }
+          return itemLang;
+        })
+      };
+    }
     default:
       return state;
   }
 };
+export const toggleLang = (langId) => ({ type: TOGGLE_LANG, langId });
 
-export default langReducer;
+export default translateReducer;

@@ -22,8 +22,8 @@ const AuthConteiner = ({ auth }) => {
   );
 };
 
-const mapStateToProps = ({ lang }) => ({
-  auth: lang.auth
+const mapStateToProps = ({ translate }) => ({
+  auth: translate.auth
 });
 
 export default compose(

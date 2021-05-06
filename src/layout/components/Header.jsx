@@ -4,12 +4,15 @@ import Logo from '../../components/Logo';
 import NavAction from './NavAction';
 import Menu from './Menu';
 import '../scss/Header.scss';
+import Lang from './Lang';
 
 const Header = ({
   showMenu, 
   onShowMenu,
   closeMenu, 
-  menu 
+  menu,
+  langT,
+  langToggle
 }) => {
   return (
     <section className="header">
@@ -17,6 +20,7 @@ const Header = ({
         <div className="header__inner">
           <Logo />
           <Menu showMenu={showMenu} onShowMenu={onShowMenu} closeMenu={closeMenu} menu={menu} />
+          <Lang langT={langT} langToggle={langToggle} />
           <NavAction />
         </div>
       </div>
@@ -25,7 +29,9 @@ const Header = ({
 };
 Header.defaultProps = {
   menu: [],
+  langT: [],
   showMenu: false,
+  langToggle: () => {},
   onShowMenu: () => {
   },
   closeMenu: () => {
@@ -33,7 +39,9 @@ Header.defaultProps = {
 };
 Header.propTypes = {
   menu: PropTypes.arrayOf(PropTypes.object),
+  langT: PropTypes.arrayOf(PropTypes.object),
   showMenu: PropTypes.bool,
+  langToggle: PropTypes.func,
   onShowMenu: PropTypes.func,
   closeMenu: PropTypes.func
 };
