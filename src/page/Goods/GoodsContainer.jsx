@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import {
-  Redirect, Route, Switch, withRouter
-} from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import Goods from './Goods';
 import Product from './components/Product';
 
@@ -18,11 +16,10 @@ const GoodsContainer = ({
 }) => {
   console.log(productId);
   return (
-    <Switch>
+    <>
       <Route exact path="/goods" render={() => <Goods goods={goods} />} />
       <Route path="/goods/:productId" render={() => <Product goods={goods} />} />
-      <Redirect to="/goods" />
-    </Switch>
+    </>
   );
 };
 

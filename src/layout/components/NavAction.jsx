@@ -6,7 +6,7 @@ import sprite from '../../assets/spriteSvg/sprite.svg';
 const NavAction = () => (
   <ul className="action__list">
     <li className="action__list-item">
-      <NavLink to="/auth" className="action__list-link">
+      <NavLink to="/auth/login" className="action__list-link">
         <svg className="action__list-icon">
           <use href={`${sprite}#user`} />
         </svg>

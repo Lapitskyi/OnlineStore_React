@@ -10,7 +10,7 @@ const FooterInfo = () => (
       </NavLink>
     </li>
     <li className="footerInfo__list-item">
-      <NavLink className="footerInfo__list-link" to="/dilivery">
+      <NavLink className="footerInfo__list-link" to="/delivery">
         Доставка и оплата
       </NavLink>
     </li>

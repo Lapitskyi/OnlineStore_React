@@ -75,12 +75,12 @@ const initialState = {
           {
             id: 1,
             title: 'Forgot your password?',
-            path: '/reset'
+            path: '/auth/reset'
           },
           {
             id: 2,
             title: 'Don\'t have an account yet? Register now',
-            path: '/registration'
+            path: '/auth/registration'
           }
         ]
       },
@@ -107,7 +107,7 @@ const initialState = {
           {
             id: 1,
             title: 'Already have login and password? Sign in',
-            path: '/login'
+            path: '/auth/login'
           }
         ]
       },
@@ -124,7 +124,7 @@ const initialState = {
           {
             id: 1,
             title: 'Already have login and password? Sign in',
-            path: '/login'
+            path: '/auth/login'
           }
         ]
       }
@@ -150,12 +150,12 @@ const initialState = {
           {
             id: 1,
             title: 'Забули свій пароль?',
-            path: '/reset'
+            path: '/auth/reset'
           },
           {
             id: 2,
             title: 'Ще не маєте облікового запису? Зареєструйтесь зараз',
-            path: '/registration'
+            path: '/auth/registration'
           }
         ]
       },
@@ -182,7 +182,7 @@ const initialState = {
           {
             id: 1,
             title: 'Уже маєте логін та пароль? Увійти',
-            path: '/login'
+            path: '/auth/login'
           }
         ]
       },
@@ -199,7 +199,7 @@ const initialState = {
           {
             id: 1,
             title: 'Згадали логін та пароль? ',
-            path: '/login'
+            path: '/auth/login'
           }
         ]
       }
@@ -225,12 +225,12 @@ const initialState = {
           {
             id: 1,
             title: 'Забыли Ваш пароль?',
-            path: '/reset'
+            path: '/auth/reset'
           },
           {
             id: 2,
             title: 'Еще нет учетной записи? Зарегистрироваться',
-            path: '/registration'
+            path: '/auth/registration'
           }
         ]
       },
@@ -257,7 +257,7 @@ const initialState = {
           {
             id: 1,
             title: 'Уже есть логин и пароль? Войти',
-            path: '/login'
+            path: '/auth/login'
           }
         ]
       },
@@ -274,7 +274,7 @@ const initialState = {
           {
             id: 1,
             title: 'Вспомнили логин и пароль?',
-            path: '/login'
+            path: '/auth/login'
           }
         ]
       }

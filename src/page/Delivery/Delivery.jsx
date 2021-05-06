@@ -1,9 +1,8 @@
 import React from 'react';
 import Poster from '../../components/Poster';
-import './scss/DiliveryPayment.scss';
+import './scss/Delivery.scss';
 
-const DiliveryPayment = () => (
-
+const Delivery = () => (
   <section className="dilivery">
     <div className="container">
       <div className="dilivey__inner">
@@ -42,4 +41,4 @@ const DiliveryPayment = () => (
     </div>
   </section>
 );
-export default DiliveryPayment;
+export default Delivery;
