@@ -3,6 +3,7 @@ import ua from '../assets/icon/ua.png';
 import ru from '../assets/icon/rus.png';
 
 const TOGGLE_LANG = 'TOGGLE_LANG';
+const TOGGLE_THEME = 'TOGGLE_THEME';
 
 const initialState = {
   menu: {
@@ -306,7 +307,7 @@ const initialState = {
   theme: false,
 };
 
-const translateReducer = (state = initialState, action) => {
+const showActionReducer = (state = initialState, action) => {
   switch (action.type) {
     case TOGGLE_LANG: {
       return {
@@ -328,10 +329,18 @@ const translateReducer = (state = initialState, action) => {
         })
       };
     }
+
+    case TOGGLE_THEME: {
+      return {
+        ...state,
+        themeT: !!state.themeT === false
+      };
+    }
+
     default:
       return state;
   }
 };
 export const toggleLang = (langId) => ({ type: TOGGLE_LANG, langId });
-
-export default translateReducer;
+export const themeToggle = () => ({ type: TOGGLE_THEME });
+export default showActionReducer;

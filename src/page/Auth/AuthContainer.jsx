@@ -8,7 +8,7 @@ import Registration from './Registration';
 import Reset from './Reset';
 import './scss/Auth.scss';
 
-const AuthConteiner = ({ auth }) => {
+const AuthContainer = ({ auth }) => {
   return (
     <>
       <Switch>
@@ -22,17 +22,17 @@ const AuthConteiner = ({ auth }) => {
   );
 };
 
-const mapStateToProps = ({ translate }) => ({
-  auth: translate.auth
+const mapStateToProps = ({ showAction }) => ({
+  auth: showAction.auth
 });
 
 export default compose(
   connect(mapStateToProps, {})
-)(AuthConteiner);
+)(AuthContainer);
 
-AuthConteiner.defaultProps = {
+AuthContainer.defaultProps = {
   auth: {}
 };
-AuthConteiner.propTypes = {
+AuthContainer.propTypes = {
   auth: PropTypes.objectOf(PropTypes.object)
 };

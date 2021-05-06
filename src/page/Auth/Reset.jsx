@@ -31,7 +31,7 @@ const Reset = ({
                 />
               </label>
             ))}
-            <button type="button" className="auth__form-btn">{name}</button>
+            <button type="button" className="auth__form-btn btn btn__size-medium btn--color">{name}</button>
           </form>
           <LinkAuth link={link} />
         </div>

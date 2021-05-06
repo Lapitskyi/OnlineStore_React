@@ -12,8 +12,41 @@
   overflow: hidden;
   min-height: 100vh;
   background: #ffffff;
+
+  &__white {
+    background: #ffffff;
+    transition: background 0.2s linear;
+  }
+
+  &__dark {
+    background: #111111;
+    color: #f5f5f5;
+    transition: background 0.2s linear;
+
+    a {
+      color: #f5f5f5;
+    }
+
+    .auth__form-input{
+      background-color: #f5f5f5;
+
+    }
+    .btn {
+      color: #f5f5f5;
+    }
+
+    .social__list-icon {
+      fill: #f5f5f5;
+    }
+
+
+    .drag {
+      box-shadow: 0 14px 28px rgba(255, 255, 255, 0.25), 0 10px 10px rgba(255, 255, 255, 0.22);
+    }
+  }
 }
 
 .content {
   grid-area: main;
 }
+

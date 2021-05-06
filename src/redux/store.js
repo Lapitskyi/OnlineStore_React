@@ -3,10 +3,10 @@ import thunkMiddleware from 'redux-thunk';
 import goodsReducer from './goods-reducer';
 import authReducer from './auth-reducer';
 import basketReducer from './basket-reducer';
-import translateReducer from './translate-reducer';
+import showActionReducer from './showAction-reducer';
 
 const reducers = combineReducers({
-  translate: translateReducer,
+  showAction: showActionReducer,
   goods: goodsReducer,
   basket: basketReducer,
   auth: authReducer

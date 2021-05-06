@@ -2,15 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import sprite from '../../assets/spriteSvg/sprite.svg';
 import './scss/Basket.scss';
-import BasketList from './BasketList';
+import BasketList from './component/BasketList';
 
 const Basket = ({
   products,
   deleteProduct,
   orderProduct,
   continueShopping,
-  count,
-  setCount,
 }) => {
   return (
     <div className="basket">
@@ -39,8 +37,6 @@ const Basket = ({
               deleteProduct={deleteProduct}
               orderProduct={orderProduct}
               continueShopping={continueShopping}
-              count={count}
-              setCount={setCount}
             />
 
           </div>
@@ -54,7 +50,6 @@ const Basket = ({
 };
 
 Basket.defaultProps = {
-  count: 0,
   products: [{
     id: 1,
     name: 'Name product',
@@ -70,12 +65,9 @@ Basket.defaultProps = {
   },
   continueShopping: () => {
   },
-  setCount: () => {
-  },
+
 };
 Basket.propTypes = {
-  count: PropTypes.number,
-  setCount: PropTypes.func,
   products: PropTypes.arrayOf(PropTypes.object),
   deleteProduct: PropTypes.func,
   orderProduct: PropTypes.func,

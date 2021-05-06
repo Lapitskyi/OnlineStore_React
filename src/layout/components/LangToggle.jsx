@@ -1,18 +1,20 @@
 import React from 'react';
-import '../scss/Lang.scss';
+import '../scss/LangToggle.scss';
 import PropTypes from 'prop-types';
 
-const Lang = ({
+const LangToggle = ({
   langToggle,
   langT
 }) => {
+  const langSelect = langT.filter((item) => item.lang);
+  const langNotSelect = langT.filter((item) => !item.lang);
   return (
     <div className="lang">
       <ul className="lang__list ">
-        {langT.map((item) => (
-          <li key={item.id}>
+        {[...langSelect, ...langNotSelect].map((item) => (
+          <li key={item.id} className={!item.lang ? 'lang__item ' : 'lang__item active'}>
             <button
-              className={!item.lang ? 'lang__item ' : 'lang__item active'}
+              className="lang__btn btn"
               type="button"
               onClick={() => langToggle(item.id)}
             >
@@ -30,15 +32,15 @@ const Lang = ({
   );
 };
 
-Lang.defaultProps = {
+LangToggle.defaultProps = {
   langToggle: () => {
   },
   langT: []
 };
 
-Lang.propTypes = {
+LangToggle.propTypes = {
   langToggle: PropTypes.func,
   langT: PropTypes.arrayOf(PropTypes.object)
 };
 
-export default Lang;
+export default LangToggle;

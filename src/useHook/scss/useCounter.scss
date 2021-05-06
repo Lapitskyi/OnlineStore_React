@@ -1,0 +1,37 @@
+.counter {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+
+  &__btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    padding: 0;
+  }
+  &__icon{
+    width: 24px;
+    height: 24px;
+  }
+
+  &__label {
+
+  }
+
+  &__input {
+    width: 56px;
+    height: 40px;
+    margin-left: 4px;
+    margin-right: 4px;
+    text-align: center;
+    padding: 0 10px;
+
+    border: 1px solid #d2d2d2;
+    border-radius: 4px;
+    outline: none;
+    transition: border .2s ease-in-out;
+
+  }
+}

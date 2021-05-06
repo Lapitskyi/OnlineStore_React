@@ -22,14 +22,15 @@
   &__title {
     text-align: center;
     font-size: 20px;
-    margin-bottom: 20px;
+    margin-top: 20px;
   }
 
   &__form {
-
+    margin-top: 20px;
   }
 
   &__form-label {
+    display: block;
     flex: 0 1 auto;
     width: 100%;
   }
@@ -48,19 +49,16 @@
 
     &:focus {
       outline: none;
-      border-color: #00a4e5;
+      border-color: #00a046;
     }
   }
 
   &__form-btn {
-    text-transform: uppercase;
-    margin: 0 auto;
-    margin-top: 30px;
-    background-color: #99938b;
-    color: #ffffff;
+    display: block;
+    text-align: center;
+    margin: 30px auto 0;
+
     font-size: 16px;
-    padding: 10px 30px;
-    border-radius: 10px;
   }
 
   &__form-link {
@@ -69,6 +67,10 @@
 }
 
 .auth-link {
+  &__list {
+    width: 100%;
+  }
+
   &__list-item {
     margin-top: 20px;
   }

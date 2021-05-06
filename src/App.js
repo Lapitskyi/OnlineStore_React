@@ -1,11 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './App.scss';
-import MainLayuot from './layout/MainLayuot';
+import MainLayout from './layout/MainLayuot';
 
-const App = () => {
+const App = ({ themeT }) => {
   return (
-    <MainLayuot />
+    <MainLayout themeT={themeT} />
   );
+};
+
+App.defaultProps = {
+  themeT: false,
+};
+
+App.propTypes = {
+  themeT: PropTypes.bool,
 };
 
 export default App;

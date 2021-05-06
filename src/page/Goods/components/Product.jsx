@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../scss/Product.scss';
+import UseCounter from '../../../useHook/useCounter';
 
 const Product = ({ product }) => {
   return (
@@ -53,11 +54,9 @@ const Product = ({ product }) => {
                 <button className="product__list-sizeBtn btn" type="button">XXL</button>
               </li>
             </ul>
-            <div className="product__total">
-              <button className="product__total-btn" type="button">-</button>
-              <div className="product__total-quantity">1</div>
-              <button className="product__total-btn" type="button">+</button>
-            </div>
+
+            <UseCounter />
+
             <div className="product__table-size">Таблица размеров(Просмотреть)</div>
             <button className="product__btn btn btn_size_large" type="button">
               В корзину

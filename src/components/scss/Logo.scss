@@ -1,15 +1,22 @@
 .logo {
-  width: 80px;
+  width: 70px;
+  height: 70px;
   overflow: hidden;
+  position: relative;
 
-  &__img {
-    display: block;
-    max-width: 100%;
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    fill: #0b6623;
   }
 }
 
 @media (max-width: 768px) {
-  .logo{
+  .logo {
     width: 60px;
   }
 }

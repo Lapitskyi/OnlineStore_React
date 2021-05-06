@@ -1,16 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import sprite from '../../assets/spriteSvg/sprite.svg';
-import './scss/BasketList.scss';
+import sprite from '../../../assets/spriteSvg/sprite.svg';
+import '../scss/BasketList.scss';
+import UseCounter from '../../../useHook/useCounter';
 
 const BasketList = ({
   products,
   deleteProduct,
   orderProduct,
-  continueShopping,
-  count,
-  setCount,
+  continueShopping
 }) => {
   return (
     <>
@@ -20,7 +19,7 @@ const BasketList = ({
             <li className="basketProduct__list-item" key={product.id}>
               <div>
                 <img className="basketProduct__list-img" src="https://via.placeholder.com/100" alt="product" />
-                <NavLink className="basketProduct__list-link" to="/">
+                <NavLink className="basketProduct__list-link" to={`/goods/${product.id}`}>
                   <div className="basketProduct__list-name">
                     {product.name ? product.name : 'name'}
                   </div>
@@ -33,27 +32,7 @@ const BasketList = ({
                 </svg>
               </button>
 
-              <div className="basketProduct__list-counter">
-                <button
-                  className="basketProduct__list-counterBtn"
-                  type="button"
-                  onClick={() => {
-                    setCount(count - 1);
-                  }}
-                >
-                  -
-                </button>
-                <div className="basketProduct__list-couterTotal">{count}</div>
-                <button
-                  className="basketProduct__list-counterBtn"
-                  type="button"
-                  onClick={() => {
-                    setCount(count + 1);
-                  }}
-                >
-                  +
-                </button>
-              </div>
+              <UseCounter />
 
               <div className="basketProduct__list-total">100 UAH</div>
 
@@ -65,7 +44,7 @@ const BasketList = ({
       <div className="basketProduct__footer">
 
         <button
-          className="basketProduct__footer-btn btn btn_size_medium"
+          className="basketProduct__footer-btn btn btn__size-medium "
           type="button"
           onClick={continueShopping}
         >
@@ -78,7 +57,7 @@ const BasketList = ({
             <span>UAH</span>
           </div>
           <button
-            className="basketProduct__footer-orderBtn btn btn_size_large"
+            className="basketProduct__footer-orderBtn btn btn__size-large btn--color"
             type="button"
             onClick={orderProduct}
           >
@@ -91,7 +70,6 @@ const BasketList = ({
   );
 };
 BasketList.defaultProps = {
-  count: 0,
   products: [{
     id: 1,
     name: 'Name product',
@@ -107,13 +85,8 @@ BasketList.defaultProps = {
   },
   continueShopping: () => {
   },
-  setCount: () => {
-  },
 };
 BasketList.propTypes = {
-  count: PropTypes.number,
-  setCount:
-  PropTypes.func,
   products: PropTypes.arrayOf(PropTypes.object),
   deleteProduct:
   PropTypes.func,

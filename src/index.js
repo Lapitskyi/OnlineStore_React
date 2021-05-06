@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import App from './App';
+import AppContainer from './AppContainer';
+
 import reportWebVitals from './reportWebVitals';
 import store from './redux/store';
 
@@ -11,7 +12,7 @@ ReactDOM.render(
   <BrowserRouter>
     <React.StrictMode>
       <Provider store={store}>
-        <App />
+        <AppContainer />
       </Provider>
     </React.StrictMode>
   </BrowserRouter>,

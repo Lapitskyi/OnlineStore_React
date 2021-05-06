@@ -1,12 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Columb from '../assets/icon/Columb.svg';
 import './scss/Logo.scss';
+import sprite from '../assets/spriteSvg/sprite.svg';
 
 const Logo = () => (
   <NavLink to="/">
     <div className="logo">
-      <img className="logo__img" src={Columb} alt="Columb" />
+      <svg className="logo__icon">
+        <use href={`${sprite}#logo`} />
+      </svg>
     </div>
   </NavLink>
 );

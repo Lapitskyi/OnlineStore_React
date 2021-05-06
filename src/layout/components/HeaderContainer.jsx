@@ -3,9 +3,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import Header from './Header';
-import { toggleLang } from '../../redux/translate-reducer';
+import { themeToggle, toggleLang } from '../../redux/showAction-reducer';
 
-const HeaderContainer = ({ menu, langT, ...props }) => {
+const HeaderContainer = ({
+  menu,
+  langT,
+  themeT,
+  ...props
+}) => {
   const [showMenu, setShowMenu] = useState(false);
   const onShowMenu = () => {
     setShowMenu(!!showMenu === false);
@@ -18,6 +23,10 @@ const HeaderContainer = ({ menu, langT, ...props }) => {
     props.toggleLang(langId);
   };
 
+  const toggleTheme = () => {
+    props.themeToggle();
+  };
+
   return (
     <Header
       showMenu={showMenu}
@@ -26,28 +35,36 @@ const HeaderContainer = ({ menu, langT, ...props }) => {
       menu={menu.en}
       langT={langT}
       langToggle={langToggle}
+      toggleTheme={toggleTheme}
+      themeT={themeT}
     />
   );
 };
 
-const mapStateToProps = ({ translate }) => ({
-  menu: translate.menu,
-  langT: translate.langT,
-
+const mapStateToProps = ({ showAction }) => ({
+  menu: showAction.menu,
+  langT: showAction.langT,
+  themeT: showAction.themeT
 });
 
 export default compose(
-  connect(mapStateToProps, { toggleLang })
+  connect(mapStateToProps, { toggleLang, themeToggle })
 )(HeaderContainer);
 
 HeaderContainer.defaultProps = {
   menu: [],
   langT: [],
-  toggleLang: () => {},
+  themeT: false,
+  toggleLang: () => {
+  },
+  themeToggle: () => {
+  }
 };
 
 HeaderContainer.propTypes = {
+  themeT: PropTypes.bool,
   menu: PropTypes.arrayOf(PropTypes.object),
   langT: PropTypes.arrayOf(PropTypes.object),
   toggleLang: PropTypes.func,
+  themeToggle: PropTypes.func
 };
