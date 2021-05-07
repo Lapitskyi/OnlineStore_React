@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import Logo from '../../components/Logo';
 import NavAction from './NavAction';
 import Menu from './Menu';
-import LangToggle from './LangToggle';
-import ThemeToggle from './ThemeToggle';
 
 import '../scss/Header.scss';
 
@@ -25,11 +23,14 @@ const Header = ({
         <div className="header__inner">
           <Logo />
           <Menu showMenu={showMenu} onShowMenu={onShowMenu} closeMenu={closeMenu} menu={menu} />
-          <div className="header__toggle">
-            <LangToggle langT={langT} langToggle={langToggle} />
-            <ThemeToggle toggleTheme={toggleTheme} themeT={themeT} />
-          </div>
-          <NavAction />
+
+          <NavAction
+            langT={langT}
+            langToggle={langToggle}
+            toggleTheme={toggleTheme}
+            themeT={themeT}
+          />
+
         </div>
       </div>
     </section>
@@ -40,10 +41,14 @@ Header.defaultProps = {
   langT: [],
   themeT: false,
   showMenu: false,
-  langToggle: () => {},
-  onShowMenu: () => {},
-  closeMenu: () => {},
-  toggleTheme: () => {}
+  langToggle: () => {
+  },
+  onShowMenu: () => {
+  },
+  closeMenu: () => {
+  },
+  toggleTheme: () => {
+  }
 };
 Header.propTypes = {
   themeT: PropTypes.bool,

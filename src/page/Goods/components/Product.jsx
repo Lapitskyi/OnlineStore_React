@@ -58,7 +58,7 @@ const Product = ({ product }) => {
             <UseCounter />
 
             <div className="product__table-size">Таблица размеров(Просмотреть)</div>
-            <button className="product__btn btn btn_size_large" type="button">
+            <button className="product__btn btn btn__size-large" type="button">
               В корзину
             </button>
             <div className="product__description">

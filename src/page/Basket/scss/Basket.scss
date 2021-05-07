@@ -36,8 +36,18 @@
     color: #0b6623;
   }
 
+}
 
 
+@media (max-width: 768px) {
+  .basket {
+    &__inner {
+      padding: 10px;
+    }
+    &__content {
+      padding: 10px;
+    }
+  }
 }
 
 

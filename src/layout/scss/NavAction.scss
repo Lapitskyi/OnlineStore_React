@@ -1,6 +1,7 @@
 .action {
   &__list {
     display: flex;
+    align-items: center;
   }
 
   &__list-item {
@@ -14,8 +15,8 @@
   &__list-link {
     display: block;
     color: #0b6623;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     position: relative;
 
     &__hover {
@@ -25,8 +26,8 @@
 
   &__list-icon {
     fill: #0b6623;
-    width: 30px;
-    height: 30px;
+    width: 100%;
+    height: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -40,17 +41,17 @@
     position: absolute;
     right: 0;
     top: 0;
-    transform: translate(20%,-10%);
+    transform: translate(20%, -10%);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    min-width: 20px;
-    height: 20px;
+    min-width: 18px;
+    height: 18px;
     padding-left: 4px;
     padding-right: 4px;
     border-radius: 50px;
-    font-size: 12px;
+    font-size: 10px;
     color: #fff;
     background-color: #FF0000;
   }

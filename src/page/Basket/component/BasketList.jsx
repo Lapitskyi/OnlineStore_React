@@ -13,51 +13,56 @@ const BasketList = ({
 }) => {
   return (
     <>
-      <ul className="basketProduct__list">
+      <ul className="basket__list">
         {
           products.map((product) => (
-            <li className="basketProduct__list-item" key={product.id}>
-              <div>
-                <img className="basketProduct__list-img" src="https://via.placeholder.com/100" alt="product" />
-                <NavLink className="basketProduct__list-link" to={`/goods/${product.id}`}>
-                  <div className="basketProduct__list-name">
+            <li className="basket__list-item" key={product.id}>
+
+              <div className="basket__list-header">
+                <div className="basket__list-photo">
+                  <img className="basket__list-img" src="https://via.placeholder.com/100" alt="product" />
+                </div>
+                <NavLink className="basket__list-link" to={`/goods/${product.id}`}>
+                  <div className="basket__list-name">
                     {product.name ? product.name : 'name'}
                   </div>
                 </NavLink>
+
+                <button className="basket__list-btn btn" type="button" onClick={deleteProduct}>
+                  <svg className="basket__list-icon ">
+                    <use href={`${sprite}#remove`} />
+                  </svg>
+                </button>
+
               </div>
 
-              <button className="basketProduct__list-btn btn" type="button" onClick={deleteProduct}>
-                <svg className="basketProduct__list-icon ">
-                  <use href={`${sprite}#remove`} />
-                </svg>
-              </button>
-
-              <UseCounter />
-
-              <div className="basketProduct__list-total">100 UAH</div>
+              <div className="basket__list-footer">
+                <UseCounter />
+                <div className="basket__list-total">100 UAH</div>
+              </div>
 
             </li>
+
           ))
         }
       </ul>
 
-      <div className="basketProduct__footer">
-
+      <div className="basket__footer">
         <button
-          className="basketProduct__footer-btn btn btn__size-medium "
+          className="basket__footer-btn btn btn__size-medium "
           type="button"
           onClick={continueShopping}
         >
           Продолжить покупки
         </button>
 
-        <div className="basketProduct__footer-total">
-          <div className="basketProduct__footer-sum">
+        <div className="basket__footer-total">
+          <div className="basket__footer-sum">
             600
             <span>UAH</span>
           </div>
           <button
-            className="basketProduct__footer-orderBtn btn btn__size-large btn--color"
+            className="basket__footer-orderBtn btn btn__size-large btn--color"
             type="button"
             onClick={orderProduct}
           >

@@ -32,7 +32,7 @@ const initialState = {
       },
       {
         id: 2,
-        name: 'Обо мне',
+        name: 'Про мене',
         link: '/about'
       },
       {
@@ -291,7 +291,7 @@ const initialState = {
     {
       id: 'en',
       lang: true,
-      imgLang: en
+      imgLang: en,
     },
     {
       id: 'ua',
@@ -326,7 +326,7 @@ const showActionReducer = (state = initialState, action) => {
             };
           }
           return itemLang;
-        })
+        }),
       };
     }
 

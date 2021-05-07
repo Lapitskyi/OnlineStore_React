@@ -24,9 +24,11 @@ const UseCounter = () => {
           className="counter__input"
           id="count"
           type="text"
+          min={1}
+          max={10}
           value={count}
           onChange={(e) => {
-            setCount(e.target.value);
+            setCount(+e.target.value);
           }}
         />
       </label>

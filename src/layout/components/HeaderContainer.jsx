@@ -12,6 +12,8 @@ const HeaderContainer = ({
   ...props
 }) => {
   const [showMenu, setShowMenu] = useState(false);
+  const [menuT, setMenuT] = useState(menu.en);
+
   const onShowMenu = () => {
     setShowMenu(!!showMenu === false);
   };
@@ -21,6 +23,7 @@ const HeaderContainer = ({
 
   const langToggle = (langId) => {
     props.toggleLang(langId);
+    setMenuT(menu[langId]);
   };
 
   const toggleTheme = () => {
@@ -32,7 +35,7 @@ const HeaderContainer = ({
       showMenu={showMenu}
       onShowMenu={onShowMenu}
       closeMenu={closeMenu}
-      menu={menu.en}
+      menu={menuT}
       langT={langT}
       langToggle={langToggle}
       toggleTheme={toggleTheme}
@@ -52,7 +55,9 @@ export default compose(
 )(HeaderContainer);
 
 HeaderContainer.defaultProps = {
-  menu: [],
+  menu: {
+    en: []
+  },
   langT: [],
   themeT: false,
   toggleLang: () => {
@@ -63,7 +68,9 @@ HeaderContainer.defaultProps = {
 
 HeaderContainer.propTypes = {
   themeT: PropTypes.bool,
-  menu: PropTypes.arrayOf(PropTypes.object),
+  menu: PropTypes.shape({
+    en: PropTypes.arrayOf(PropTypes.object)
+  }),
   langT: PropTypes.arrayOf(PropTypes.object),
   toggleLang: PropTypes.func,
   themeToggle: PropTypes.func

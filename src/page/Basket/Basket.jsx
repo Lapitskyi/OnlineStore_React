@@ -52,7 +52,8 @@ const Basket = ({
 Basket.defaultProps = {
   products: [{
     id: 1,
-    name: 'Name product',
+    name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis sem quis lectus lacinia pretium.'
+      + ' Nulla vitae dui interdum, pharetra leo id, ornare massa.',
     price: '100',
     photo: 'https://via.placeholder.com/400x350',
     photoCollection: ['img1', 'img2', 'img3', 'img4'],
