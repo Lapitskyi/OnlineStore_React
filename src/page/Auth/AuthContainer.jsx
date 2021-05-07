@@ -10,15 +10,12 @@ import './scss/Auth.scss';
 
 const AuthContainer = ({ auth }) => {
   return (
-    <>
-      <Switch>
-        <Route exact path="/auth/login" render={() => <Login auth={auth.en} />} />
-        <Route path="/auth/registration" render={() => <Registration auth={auth.en} />} />
-        <Route path="/auth/reset" render={() => <Reset auth={auth.en} />} />
-        <Redirect to="/" />
-      </Switch>
-    </>
-
+    <Switch>
+      <Route exact path="/auth/login" render={() => <Login auth={auth.en} />} />
+      <Route path="/auth/registration" render={() => <Registration auth={auth.en} />} />
+      <Route path="/auth/reset" render={() => <Reset auth={auth.en} />} />
+      <Redirect to="/" />
+    </Switch>
   );
 };
 

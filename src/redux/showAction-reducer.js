@@ -104,9 +104,9 @@ const initialState = {
             placeholder: 'password'
           },
           {
-            id: 'repassword',
-            label: 'Repassword',
-            placeholder: 'repassword'
+            id: 'confirmPassword',
+            label: 'confirmPassword',
+            placeholder: 'confirmPassword'
           }
         ],
         name: 'Sing Up',
@@ -179,7 +179,7 @@ const initialState = {
             placeholder: 'Пароль'
           },
           {
-            id: 'repassword',
+            id: 'confirmPassword',
             label: 'Повторіть пароль',
             placeholder: 'Повторіть пароль'
           }
@@ -254,7 +254,7 @@ const initialState = {
             placeholder: 'Пароль'
           },
           {
-            id: 'repassword',
+            id: 'confirmPassword',
             label: 'Повторить пароль',
             placeholder: 'Повторить пароль'
           }
