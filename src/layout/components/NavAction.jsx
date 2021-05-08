@@ -5,12 +5,14 @@ import PropTypes from 'prop-types';
 import sprite from '../../assets/spriteSvg/sprite.svg';
 import LangToggle from './LangToggle';
 import ThemeToggle from './ThemeToggle';
+import userPhoto from '../../assets/images/userPhoto.svg';
 
 const NavAction = ({
   langT,
   langToggle,
   themeT,
-  toggleTheme 
+  toggleTheme,
+  isAuth
 }) => (
   <ul className="action__list">
     <li className="action__list-item">
@@ -22,9 +24,20 @@ const NavAction = ({
 
     <li className="action__list-item">
       <NavLink to="/auth/login" className="action__list-link">
-        <svg className="action__list-icon">
-          <use href={`${sprite}#user`} />
-        </svg>
+        {isAuth
+          ? (
+            <NavLink to="/cabinet">
+              <div className="profile__menu">
+                <img className="action__list-icon" src={userPhoto} alt="" />
+              </div>
+            </NavLink>
+          )
+          : (
+            <svg className="action__list-icon">
+              <use href={`${sprite}#user`} />
+            </svg>
+          )}
+
       </NavLink>
     </li>
     <li className="action__list-item ">
@@ -40,14 +53,18 @@ const NavAction = ({
 NavAction.defaultProps = {
   langT: [],
   themeT: false,
-  langToggle: () => {},
-  toggleTheme: () => {}
+  langToggle: () => {
+  },
+  toggleTheme: () => {
+  },
+  isAuth: true
 };
 NavAction.propTypes = {
   themeT: PropTypes.bool,
   langT: PropTypes.arrayOf(PropTypes.object),
   langToggle: PropTypes.func,
-  toggleTheme: PropTypes.func
+  toggleTheme: PropTypes.func,
+  isAuth: PropTypes.bool,
 };
 
 export default NavAction;

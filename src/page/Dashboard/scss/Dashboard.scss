@@ -1,0 +1,21 @@
+.dashboard {
+
+  &__inner {
+  }
+
+  &__list {
+  }
+
+  &__list-item {
+  }
+
+  &__list-item + &__list-item {
+    margin-top: 10px;
+  }
+
+  &__list-btn {
+    border: 1px solid #888888;
+    font-size: 16px;
+    color: #333333;
+  }
+}
