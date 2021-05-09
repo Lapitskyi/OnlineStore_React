@@ -10,7 +10,7 @@ import Home from '../page/Home/Home';
 import GoodsContainer from '../page/Goods/GoodsContainer';
 import BasketContainer from '../page/Basket/BasketConteiner';
 import './scss/MainLayout.scss';
-import UserCabinet from '../page/Profile/UserCabinet';
+import Cabinet from '../page/Profile/Cabinet';
 
 const MainLayout = ({ themeT }) => (
   <div className={!themeT
@@ -26,7 +26,7 @@ const MainLayout = ({ themeT }) => (
         <Route path="/delivery" render={() => <Delivery />} />
         <Route path="/auth" render={() => <AuthContainer />} />
         <Route path="/cart" render={() => <BasketContainer product="text" />} />
-        <Route path="/cabinet" render={() => <UserCabinet />} />
+        <Route path="/cabinet" render={() => <Cabinet />} />
         <Redirect to="/" />
       </Switch>
     </div>

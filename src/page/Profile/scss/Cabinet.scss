@@ -16,6 +16,7 @@
     box-shadow: inset 0px 1px 5px rgba(154, 147, 140, 0.5), 0px 1px 5px rgba(154, 147, 140, 0.5);
   }
   &__user{
+    flex-direction: column;
     padding: 10px;
     border: 1px solid #d2d2d2;
   }
