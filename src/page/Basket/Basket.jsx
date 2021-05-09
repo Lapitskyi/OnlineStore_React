@@ -5,7 +5,7 @@ import './scss/Basket.scss';
 import BasketList from './component/BasketList';
 
 const Basket = ({
-  products,
+  goodsOrder,
   deleteProduct,
   orderProduct,
   continueShopping,
@@ -18,7 +18,7 @@ const Basket = ({
             <h2 className="basket__title">Корзина</h2>
           </div>
           <div className="basket__content">
-            {!products
+            {!goodsOrder
             && (
               <>
                 <svg className="basket__img ">
@@ -33,7 +33,7 @@ const Basket = ({
             )}
 
             <BasketList
-              products={products}
+              goodsOrder={goodsOrder}
               deleteProduct={deleteProduct}
               orderProduct={orderProduct}
               continueShopping={continueShopping}
@@ -50,16 +50,7 @@ const Basket = ({
 };
 
 Basket.defaultProps = {
-  products: [{
-    id: 1,
-    name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis sem quis lectus lacinia pretium.'
-      + ' Nulla vitae dui interdum, pharetra leo id, ornare massa.',
-    price: '100',
-    photo: 'https://via.placeholder.com/400x350',
-    photoCollection: ['img1', 'img2', 'img3', 'img4'],
-    size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
-    description: {}
-  }],
+  goodsOrder: {},
   deleteProduct: () => {
   },
   orderProduct: () => {
@@ -69,7 +60,7 @@ Basket.defaultProps = {
 
 };
 Basket.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.object),
+  goodsOrder: PropTypes.objectOf(PropTypes.object),
   deleteProduct: PropTypes.func,
   orderProduct: PropTypes.func,
   continueShopping: PropTypes.func,

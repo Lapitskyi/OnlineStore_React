@@ -1,11 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import Basket from './Basket';
+import { deleteProductOrder } from '../../redux/basket-reducer';
 
-const BasketContainer = () => {
-  const deleteProduct = () => {
-
+const BasketContainer = ({ goodsOrder, ...props }) => {
+  const deleteProduct = (productId) => {
+    props.deleteProductOrder(productId);
+    console.log(productId);
   };
   const orderProduct = () => {
 
@@ -20,7 +23,7 @@ const BasketContainer = () => {
 
   return (
     <Basket
-      products={undefined}
+      goodsOrder={goodsOrder}
       deleteProduct={deleteProduct}
       orderProduct={orderProduct}
       continueShopping={continueShopping}
@@ -29,8 +32,19 @@ const BasketContainer = () => {
   );
 };
 
-const mapStateToProps = () => ({});
+const mapStateToProps = ({ basket }) => ({
+  goodsOrder: basket.goodsOrder
+});
 
 export default compose(
-  connect(mapStateToProps, {})
+  connect(mapStateToProps, { deleteProductOrder })
 )(BasketContainer);
+
+BasketContainer.defaultProps = {
+  goodsOrder: {},
+  deleteProductOrder: () => {}
+};
+BasketContainer.propTypes = {
+  goodsOrder: PropTypes.objectOf(PropTypes.object),
+  deleteProductOrder: PropTypes.func
+};

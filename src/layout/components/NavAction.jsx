@@ -23,22 +23,19 @@ const NavAction = ({
     </li>
 
     <li className="action__list-item">
-      <NavLink to="/auth/login" className="action__list-link">
-        {isAuth
-          ? (
-            <NavLink to="/cabinet">
-              <div className="profile__menu">
-                <img className="action__list-icon" src={userPhoto} alt="" />
-              </div>
-            </NavLink>
-          )
-          : (
+      {isAuth
+        ? (
+          <NavLink to="/cabinet" className="action__list-link">
+            <img className="action__list-icon" src={userPhoto} alt="" />
+          </NavLink>
+        )
+        : (
+          <NavLink to="/auth/login" className="action__list-link">
             <svg className="action__list-icon">
               <use href={`${sprite}#user`} />
             </svg>
-          )}
-
-      </NavLink>
+          </NavLink>
+        )}
     </li>
     <li className="action__list-item ">
       <NavLink to="/cart" className="action__list-link cart">

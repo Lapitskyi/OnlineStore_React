@@ -49,7 +49,20 @@ const initialState = {
       description: {}
     },
   ],
-  product: undefined,
+  product: {
+    id: 1,
+    name: 'Name product',
+    price: '500',
+    photo: 'https://via.placeholder.com/400x350',
+    photoCollection: [
+      'https://via.placeholder.com/200',
+      'https://via.placeholder.com/300',
+      'https://via.placeholder.com/100',
+      'https://via.placeholder.com/400'
+    ],
+    size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
+    description: [],
+  },
 };
 
 const goodsReducer = (state = initialState, action) => {
