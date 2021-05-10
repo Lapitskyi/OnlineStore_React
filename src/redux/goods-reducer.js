@@ -52,7 +52,7 @@ const initialState = {
   product: {
     id: 1,
     name: 'Name product',
-    price: '500',
+    price: 500,
     photo: 'https://via.placeholder.com/400x350',
     photoCollection: [
       'https://via.placeholder.com/200',

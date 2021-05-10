@@ -5,7 +5,10 @@ import './scss/Basket.scss';
 import BasketList from './component/BasketList';
 
 const Basket = ({
-  goodsOrder,
+  goodsOrder: {
+    products,
+    goodsTotalPrice
+  },
   deleteProduct,
   orderProduct,
   continueShopping,
@@ -18,26 +21,28 @@ const Basket = ({
             <h2 className="basket__title">Корзина</h2>
           </div>
           <div className="basket__content">
-            {!goodsOrder
-            && (
-              <>
-                <svg className="basket__img ">
-                  <use href={`${sprite}#cart`} />
-                </svg>
-                <div className="basket__text">
-                  <p>
-                    Корзина пустая
-                  </p>
-                </div>
-              </>
-            )}
-
-            <BasketList
-              goodsOrder={goodsOrder}
-              deleteProduct={deleteProduct}
-              orderProduct={orderProduct}
-              continueShopping={continueShopping}
-            />
+            { products !== 0 && goodsTotalPrice
+              ? (
+                <BasketList
+                  products={products}
+                  goodsTotalPrice={goodsTotalPrice}
+                  deleteProduct={deleteProduct}
+                  orderProduct={orderProduct}
+                  continueShopping={continueShopping}
+                />
+              )
+              : (
+                <>
+                  <svg className="basket__img ">
+                    <use href={`${sprite}#cart`} />
+                  </svg>
+                  <div className="basket__text">
+                    <p>
+                      Корзина пустая
+                    </p>
+                  </div>
+                </>
+              )}
 
           </div>
 
@@ -50,7 +55,10 @@ const Basket = ({
 };
 
 Basket.defaultProps = {
-  goodsOrder: {},
+  goodsOrder: {
+    products: [],
+    goodsTotalPrice: null
+  },
   deleteProduct: () => {
   },
   orderProduct: () => {
@@ -60,7 +68,10 @@ Basket.defaultProps = {
 
 };
 Basket.propTypes = {
-  goodsOrder: PropTypes.objectOf(PropTypes.object),
+  goodsOrder: PropTypes.shape({
+    products: PropTypes.arrayOf(PropTypes.object),
+    goodsTotalPrice: PropTypes.number
+  }),
   deleteProduct: PropTypes.func,
   orderProduct: PropTypes.func,
   continueShopping: PropTypes.func,

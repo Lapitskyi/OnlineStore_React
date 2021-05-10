@@ -45,6 +45,9 @@ BasketContainer.defaultProps = {
   deleteProductOrder: () => {}
 };
 BasketContainer.propTypes = {
-  goodsOrder: PropTypes.objectOf(PropTypes.object),
+  goodsOrder: PropTypes.shape({
+    product: PropTypes.arrayOf(PropTypes.object),
+    goodsTotalPrice: PropTypes.number
+  }),
   deleteProductOrder: PropTypes.func
 };

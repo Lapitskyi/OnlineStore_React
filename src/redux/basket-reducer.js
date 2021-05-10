@@ -8,7 +8,7 @@ const initialState = {
       {
         id: 1,
         product: {
-          id: 1,
+          id: 21,
           name: 'Name product',
           price: '500',
           photo: 'https://via.placeholder.com/400x350',
@@ -32,16 +32,19 @@ const basketReducer = (state = initialState, action) => {
     case ADD_PRODUCT_ORDER: {
       return {
         ...state,
-        ...state.goodsOrder,
-        ...state.goodsOrder.products,
-        products: [...state.goodsOrder.products, { orderId: 2, product: action.product }]
+        goodsOrder: {
+          ...state.goodsOrder,
+          products: [...state.goodsOrder.products, { id: 2, product: action.product }]
+        }
       };
     }
     case DELETE_PRODUCT_ORDER: {
       return {
         ...state,
-        ...state.goodsOrder,
-        products: [state.goodsOrder.products.filter((item) => item.product.id !== action.productDeleteId)]
+        goodsOrder: {
+          ...state.goodsOrder,
+          products: [state.goodsOrder.products.filter((item) => item.id !== action.productDeleteId)]
+        }
       };
     }
 

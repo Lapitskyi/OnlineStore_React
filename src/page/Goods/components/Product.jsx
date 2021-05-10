@@ -64,7 +64,15 @@ Product.defaultProps = {
   }
 };
 Product.propTypes = {
-  product: PropTypes.objectOf(PropTypes.object),
+  product: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    price: PropTypes.number,
+    photo: PropTypes.string,
+    photoCollection: PropTypes.arrayOf(PropTypes.string),
+    size: PropTypes.arrayOf(PropTypes.string),
+    description: PropTypes.arrayOf(PropTypes.string),
+  }),
   addProductBasket: PropTypes.func
 };
 
