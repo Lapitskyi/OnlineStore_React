@@ -1,0 +1,43 @@
+.breadCrumbs {
+  padding: 20px 0;
+
+  &__list {
+    display: flex;
+  }
+
+
+  &__list-item {
+  }
+
+  &__list-item + &__list-item {
+    margin-left: 45px;
+    position: relative;
+
+    &::after {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: #00a046;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -25px;
+    }
+  }
+
+  &__list-item:last-child a {
+    color: #FF0000;
+    text-decoration: none;
+  }
+
+
+  &__list-link {
+    color: #00a046;
+
+    &:hover {
+      text-decoration: underline;
+      color: #FF0000;
+    }
+  }
+}

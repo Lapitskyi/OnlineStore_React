@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import './scss/useCounter.scss';
 import sprite from '../assets/spriteSvg/sprite.svg';
 
-const UseCounter = () => {
-  const [count, setCount] = useState(1);
+const UseCounter = ({ productCount }) => {
+  const [count, setCount] = useState(productCount);
 
   return (
     <div className="counter">
@@ -49,16 +49,10 @@ const UseCounter = () => {
 };
 
 UseCounter.defaultProps = {
-  count: 0,
-  setCount: () => {
-  },
-  onChangeCount: () => {
-  }
+  productCount: 0,
 };
-UseCounter.propsTypes = {
-  count: PropTypes.number,
-  setCount: PropTypes.func,
-  onChangeCount: PropTypes.func
+UseCounter.propTypes = {
+  productCount: PropTypes.number
 };
 
 export default UseCounter;

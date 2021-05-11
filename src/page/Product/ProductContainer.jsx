@@ -63,6 +63,7 @@ ProductContainer.propTypes = {
     id: PropTypes.number,
     name: PropTypes.string,
     price: PropTypes.number,
+    count: PropTypes.number,
     photo: PropTypes.string,
     photoCollection: PropTypes.arrayOf(PropTypes.string),
     size: PropTypes.arrayOf(PropTypes.string),

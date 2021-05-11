@@ -11,7 +11,8 @@ const initialState = {
     {
       id: 1,
       name: 'Name product_1',
-      price: '100',
+      price: 100,
+      count: 1,
       photo: 'https://via.placeholder.com/400x350',
       photoCollection: ['img1', 'img2', 'img3', 'img4'],
       size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
@@ -20,7 +21,8 @@ const initialState = {
     {
       id: 2,
       name: 'Name product_2',
-      price: '200',
+      price: 200,
+      count: 1,
       photo: 'https://via.placeholder.com/400',
       photoCollection: ['img1', 'img2', 'img3', 'img4'],
       size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
@@ -29,35 +31,20 @@ const initialState = {
     {
       id: 3,
       name: 'Name product_3',
-      price: '300',
+      price: 300,
+      count: 1,
       photo: 'https://via.placeholder.com/350',
       photoCollection: ['img1', 'img2', 'img3', 'img4'],
       size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
       description: {}
     },
-    {
-      id: 4,
-      name: 'Name product_4',
-      price: '400',
-      photo: 'https://via.placeholder.com/200',
-      photoCollection: ['img1', 'img2', 'img3', 'img4'],
-      size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
-      description: {}
-    },
-    {
-      id: 5,
-      name: 'Name product_5',
-      price: '500',
-      photo: 'https://via.placeholder.com/600',
-      photoCollection: ['img1', 'img2', 'img3', 'img4'],
-      size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
-      description: {}
-    },
+
   ],
   product: {
     id: 1,
     name: 'Name product',
     price: 500,
+    count: 2,
     photo: 'https://via.placeholder.com/400x350',
     photoCollection: [
       'https://via.placeholder.com/200',
@@ -69,7 +56,7 @@ const initialState = {
     description: [],
   },
   pageSize: 5,
-  totalCount: 0,
+  totalCount: 10,
   currentPage: 1,
   isFetching: false,
 };

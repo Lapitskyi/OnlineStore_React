@@ -13,7 +13,6 @@ const Pagination = ({
   for (let i = 1; i <= pageCount; i += 1) {
     pages.push(i);
   }
-
   return (
     <div className="pagination">
       <ul className="pagination__list">
@@ -22,7 +21,8 @@ const Pagination = ({
             <li className="pagination__item" key={page.id}>
               <button
                 type="button"
-                className={(currentPage === page && 'pagination__link') || 'pagination__link'}
+                className={(currentPage === page && 'pagination__link btn pagination__link-active')
+                || 'pagination__link btn'}
                 onClick={() => onPageChanged(page)}
               >
                 {page}

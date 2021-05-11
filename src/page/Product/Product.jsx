@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import './scss/Product.scss';
 import { NavLink } from 'react-router-dom';
 import UseCounter from '../../useHook/useCounter';
+import BreadCrumbs from '../../components/BreadCrumbs';
 
 const Product = ({ product, addProductBasket }) => {
   const [inBasket, setInBasket] = useState(false);
   return (
     <>
+      <BreadCrumbs path="/goods" name="nameProduct" />
       <div className="product" key={product.id}>
         <div className="product__photo">
           <div className="product__photoBox">
@@ -41,7 +43,7 @@ const Product = ({ product, addProductBasket }) => {
             ))}
           </ul>
 
-          <UseCounter />
+          <UseCounter productCount={product.count} />
 
           <div className="product__table-size">Таблица размеров(Просмотреть)</div>
           <>
@@ -89,6 +91,7 @@ Product.propTypes = {
     id: PropTypes.number,
     name: PropTypes.string,
     price: PropTypes.number,
+    count: PropTypes.number,
     photo: PropTypes.string,
     photoCollection: PropTypes.arrayOf(PropTypes.string),
     size: PropTypes.arrayOf(PropTypes.string),

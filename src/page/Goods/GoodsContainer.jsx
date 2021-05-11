@@ -20,6 +20,7 @@ const GoodsContainer = ({
     setCurrentPage(pageNumber);
     getCurrentPage(pageNumber, pageSize);
   };
+
   return (
     <>
       { isFetching
