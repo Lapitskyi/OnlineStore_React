@@ -12,7 +12,6 @@ const BasketList = ({
   orderProduct,
   continueShopping
 }) => {
-  console.log('BasketList', products);
   return (
     <>
       <ul className="basket__list">

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import sprite from '../../assets/spriteSvg/sprite.svg';
 import './scss/Basket.scss';
 import BasketList from './component/BasketList';
+import BasketEmpty from './component/BasketEmpty';
 
 const Basket = ({
   goodsOrder: {
@@ -13,7 +13,6 @@ const Basket = ({
   orderProduct,
   continueShopping,
 }) => {
-  console.log('Basket', products);
   return (
     <div className="basket">
       <div className="container">
@@ -23,18 +22,7 @@ const Basket = ({
           </div>
           <div className="basket__content">
             {products.length === 0
-            && (
-              <>
-                <svg className="basket__img ">
-                  <use href={`${sprite}#cart`} />
-                </svg>
-                <div className="basket__text">
-                  <p>
-                    Корзина пустая
-                  </p>
-                </div>
-              </>
-            )}
+            && <BasketEmpty />}
         
             <BasketList
               products={products}

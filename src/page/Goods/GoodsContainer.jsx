@@ -4,11 +4,12 @@ import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import Goods from './Goods';
-import { addProductOrder } from '../../redux/basket-reducer';
+import { getGoods } from '../../redux/goods-reducer';
 
 const GoodsContainer = ({
   goods
 }) => {
+  getGoods();
   return (
     <Goods goods={goods} />
   );
@@ -19,7 +20,7 @@ const mapStateToProps = ({ goods }) => ({
 });
 
 export default compose(
-  connect(mapStateToProps, { addProductOrder }),
+  connect(mapStateToProps, { getGoods }),
   withRouter
 )(GoodsContainer);
 

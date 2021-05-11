@@ -42,7 +42,11 @@ const Product = ({ product, addProductBasket }) => {
           <UseCounter />
 
           <div className="product__table-size">Таблица размеров(Просмотреть)</div>
-          <button className="product__btn btn btn__size-large" type="button" onClick={() => addProductBasket(product)}>
+          <button
+            className="product__btn btn btn__size-large"
+            type="button"
+            onClick={() => addProductBasket(product)}
+          >
             В корзину
           </button>
           <ul className="product__description">

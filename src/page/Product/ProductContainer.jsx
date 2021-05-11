@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { addProductOrder } from '../../redux/basket-reducer';
 import Product from './Product';
+import { getProduct } from '../../redux/goods-reducer';
 
 const ProductContainer = ({
   product,
@@ -15,8 +16,7 @@ const ProductContainer = ({
   },
   ...props
 }) => {
-  console.log(productId);
-
+  getProduct(productId);
   const addProductBasket = (item) => {
     props.addProductOrder(item);
   };
@@ -30,7 +30,7 @@ const mapStateToProps = ({ goods }) => ({
 });
 
 export default compose(
-  connect(mapStateToProps, { addProductOrder }),
+  connect(mapStateToProps, { addProductOrder, getProduct }),
   withRouter
 )(ProductContainer);
 

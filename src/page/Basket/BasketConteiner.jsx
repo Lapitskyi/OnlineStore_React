@@ -19,7 +19,6 @@ const BasketContainer = ({ goodsOrder, ...props }) => {
   const quantityProduct = () => {
 
   };
-  console.log('Container', goodsOrder);
   return (
     <Basket
       goodsOrder={goodsOrder}
