@@ -13,6 +13,7 @@ const Basket = ({
   orderProduct,
   continueShopping,
 }) => {
+  console.log('Basket', products);
   return (
     <div className="basket">
       <div className="container">
@@ -21,35 +22,31 @@ const Basket = ({
             <h2 className="basket__title">Корзина</h2>
           </div>
           <div className="basket__content">
-            { products !== 0 && goodsTotalPrice
-              ? (
-                <BasketList
-                  products={products}
-                  goodsTotalPrice={goodsTotalPrice}
-                  deleteProduct={deleteProduct}
-                  orderProduct={orderProduct}
-                  continueShopping={continueShopping}
-                />
-              )
-              : (
-                <>
-                  <svg className="basket__img ">
-                    <use href={`${sprite}#cart`} />
-                  </svg>
-                  <div className="basket__text">
-                    <p>
-                      Корзина пустая
-                    </p>
-                  </div>
-                </>
-              )}
+            {products.length === 0
+            && (
+              <>
+                <svg className="basket__img ">
+                  <use href={`${sprite}#cart`} />
+                </svg>
+                <div className="basket__text">
+                  <p>
+                    Корзина пустая
+                  </p>
+                </div>
+              </>
+            )}
+        
+            <BasketList
+              products={products}
+              goodsTotalPrice={goodsTotalPrice}
+              deleteProduct={deleteProduct}
+              orderProduct={orderProduct}
+              continueShopping={continueShopping}
+            />
 
           </div>
-
         </div>
-
       </div>
-
     </div>
   );
 };

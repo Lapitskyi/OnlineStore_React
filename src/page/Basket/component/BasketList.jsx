@@ -5,13 +5,14 @@ import sprite from '../../../assets/spriteSvg/sprite.svg';
 import '../scss/BasketList.scss';
 import UseCounter from '../../../useHook/useCounter';
 
-const BasketList = ({
+const BasketList = ({ 
   products,
   goodsTotalPrice,
   deleteProduct,
   orderProduct,
   continueShopping
 }) => {
+  console.log('BasketList', products);
   return (
     <>
       <ul className="basket__list">
@@ -19,9 +20,9 @@ const BasketList = ({
           <li className="basket__list-item" key={productItem.id}>
             <div className="basket__list-header">
               <div className="basket__list-photo">
-                <img className="basket__list-img" src="https://via.placeholder.com/100" alt="product" />
+                <img className="basket__list-img" src={`${productItem.product.photo}`} alt="product" />
               </div>
-              <NavLink className="basket__list-link" to={`/goods/${productItem.product.id}`}>
+              <NavLink className="basket__list-link" to={`/goods/:${productItem.product.id}`}>
                 <div className="basket__list-name">
                   {productItem.product.name}
                 </div>
@@ -29,7 +30,7 @@ const BasketList = ({
               <button
                 className="basket__list-btn btn"
                 type="button"
-                onClick={() => deleteProduct(productItem.id)}
+                onClick={() => deleteProduct(productItem)}
               >
                 <svg className="basket__list-icon ">
                   <use href={`${sprite}#remove`} />
@@ -72,13 +73,14 @@ const BasketList = ({
 
       </div>
       )}
-    </>    
+    </>
   );
 };
 BasketList.defaultProps = {
+
   products: [],
   goodsTotalPrice: null,
- 
+
   deleteProduct: () => {
   },
   orderProduct: () => {
@@ -89,6 +91,7 @@ BasketList.defaultProps = {
 BasketList.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object),
   goodsTotalPrice: PropTypes.number,
+
   deleteProduct: PropTypes.func,
   orderProduct: PropTypes.func,
   continueShopping: PropTypes.func,

@@ -4,27 +4,9 @@ const DELETE_PRODUCT_ORDER = 'DELETE_PRODUCT_ORDER';
 
 const initialState = {
   goodsOrder: {
-    products: [
-      {
-        id: 1,
-        product: {
-          id: 21,
-          name: 'Name product',
-          price: '500',
-          photo: 'https://via.placeholder.com/400x350',
-          photoCollection: [
-            'https://via.placeholder.com/200',
-            'https://via.placeholder.com/300',
-            'https://via.placeholder.com/100',
-            'https://via.placeholder.com/400'
-          ],
-          size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
-          description: [],
-        }
-      }],
-    goodsTotalPrice: 500
+    products: [],
+    goodsTotalPrice: null
   }
-
 };
 
 const basketReducer = (state = initialState, action) => {
@@ -43,8 +25,9 @@ const basketReducer = (state = initialState, action) => {
         ...state,
         goodsOrder: {
           ...state.goodsOrder,
-          products: [state.goodsOrder.products.filter((item) => item.id !== action.productDeleteId)]
-        }
+          products:
+            state.goodsOrder.products.filter((item) => item.id !== action.productDeleteId)
+        },
       };
     }
 

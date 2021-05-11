@@ -8,7 +8,6 @@ import { deleteProductOrder } from '../../redux/basket-reducer';
 const BasketContainer = ({ goodsOrder, ...props }) => {
   const deleteProduct = (productId) => {
     props.deleteProductOrder(productId);
-    console.log(productId);
   };
   const orderProduct = () => {
 
@@ -20,7 +19,7 @@ const BasketContainer = ({ goodsOrder, ...props }) => {
   const quantityProduct = () => {
 
   };
-
+  console.log('Container', goodsOrder);
   return (
     <Basket
       goodsOrder={goodsOrder}

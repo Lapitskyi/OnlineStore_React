@@ -19,7 +19,7 @@ const GoodsContainer = ({
     <>
       <Route exact path="/goods" render={() => <Goods goods={goods} />} />
       <Route
-        path="/goods/:productId"
+        path={`/goods/:${product.id}`}
         render={() => <Product product={product} addProductBasket={addProductBasket} />}
       />
     </>
