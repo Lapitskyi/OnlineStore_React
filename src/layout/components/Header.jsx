@@ -14,8 +14,8 @@ const Header = ({
   langT,
   langToggle,
   themeT,
-  toggleTheme
-
+  toggleTheme,
+  products
 }) => {
   return (
     <section className="header">
@@ -29,6 +29,7 @@ const Header = ({
             langToggle={langToggle}
             toggleTheme={toggleTheme}
             themeT={themeT}
+            products={products}
           />
 
         </div>
@@ -37,6 +38,7 @@ const Header = ({
   );
 };
 Header.defaultProps = {
+  products: [],
   menu: [],
   langT: [],
   themeT: false,
@@ -51,6 +53,7 @@ Header.defaultProps = {
   }
 };
 Header.propTypes = {
+  products: PropTypes.arrayOf(PropTypes.object),
   themeT: PropTypes.bool,
   showMenu: PropTypes.bool,
 

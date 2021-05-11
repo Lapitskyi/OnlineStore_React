@@ -6,6 +6,7 @@ import Header from './Header';
 import { themeToggle, toggleLang } from '../../redux/showAction-reducer';
 
 const HeaderContainer = ({
+  products,
   menu,
   langT,
   themeT,
@@ -32,6 +33,7 @@ const HeaderContainer = ({
 
   return (
     <Header
+      products={products}
       showMenu={showMenu}
       onShowMenu={onShowMenu}
       closeMenu={closeMenu}
@@ -44,10 +46,11 @@ const HeaderContainer = ({
   );
 };
 
-const mapStateToProps = ({ showAction }) => ({
+const mapStateToProps = ({ showAction, basket }) => ({
   menu: showAction.menu,
   langT: showAction.langT,
-  themeT: showAction.themeT
+  themeT: showAction.themeT,
+  products: basket.goodsOrder.products
 });
 
 export default compose(
@@ -55,6 +58,7 @@ export default compose(
 )(HeaderContainer);
 
 HeaderContainer.defaultProps = {
+  products: [],
   menu: {
     en: []
   },
@@ -67,6 +71,7 @@ HeaderContainer.defaultProps = {
 };
 
 HeaderContainer.propTypes = {
+  products: PropTypes.arrayOf(PropTypes.object),
   themeT: PropTypes.bool,
   menu: PropTypes.shape({
     en: PropTypes.arrayOf(PropTypes.object)

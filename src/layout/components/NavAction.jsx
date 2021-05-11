@@ -8,6 +8,7 @@ import ThemeToggle from './ThemeToggle';
 import userPhoto from '../../assets/images/userPhoto.svg';
 
 const NavAction = ({
+  products,
   langT,
   langToggle,
   themeT,
@@ -42,12 +43,13 @@ const NavAction = ({
         <svg className="action__list-icon ">
           <use href={`${sprite}#cart`} />
         </svg>
-        <div className="cart__badge">0</div>
+        <div className="cart__badge">{products.length}</div>
       </NavLink>
     </li>
   </ul>
 );
 NavAction.defaultProps = {
+  products: [],
   langT: [],
   themeT: false,
   langToggle: () => {
@@ -57,6 +59,7 @@ NavAction.defaultProps = {
   isAuth: true
 };
 NavAction.propTypes = {
+  products: PropTypes.arrayOf(PropTypes.object),
   themeT: PropTypes.bool,
   langT: PropTypes.arrayOf(PropTypes.object),
   langToggle: PropTypes.func,
