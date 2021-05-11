@@ -6,8 +6,10 @@ import { withRouter } from 'react-router-dom';
 import { addProductOrder } from '../../redux/basket-reducer';
 import Product from './Product';
 import { getProduct } from '../../redux/goods-reducer';
+import Preloader from '../../components/Preloader';
 
 const ProductContainer = ({
+  isFetching,
   product,
   match: {
     params: {
@@ -21,12 +23,17 @@ const ProductContainer = ({
     props.addProductOrder(item);
   };
   return (
-    <Product product={product} addProductBasket={addProductBasket} />
+    <>
+      { isFetching
+        ? <Preloader />
+        : <Product product={product} addProductBasket={addProductBasket} />}
+    </>
   );
 };
 
 const mapStateToProps = ({ goods }) => ({
-  product: goods.product
+  product: goods.product,
+  isFetching: goods.isFetching
 });
 
 export default compose(
@@ -35,6 +42,7 @@ export default compose(
 )(ProductContainer);
 
 ProductContainer.defaultProps = {
+  isFetching: false,
   match: {
     params: {
       productId: 0
@@ -45,6 +53,7 @@ ProductContainer.defaultProps = {
 };
 
 ProductContainer.propTypes = {
+  isFetching: PropTypes.bool,
   match: PropTypes.shape({
     params: PropTypes.shape({
       productId: PropTypes.string

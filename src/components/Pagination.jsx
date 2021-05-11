@@ -1,26 +1,53 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './scss/Pagination.scss';
 
-const Pagination = () => {
+const Pagination = ({
+  pageSize,
+  totalCount,
+  currentPage,
+  onPageChanged
+}) => {
+  const pageCount = Math.ceil(totalCount / pageSize);
+  const pages = [];
+  for (let i = 1; i <= pageCount; i += 1) {
+    pages.push(i);
+  }
+
   return (
     <div className="pagination">
       <ul className="pagination__list">
-        <li className="pagination__item">
-          <NavLink to="" className="pagination__link"> prev </NavLink>
-        </li>
-        <li className="pagination__item">
-          <NavLink to="" className="pagination__link"> 1 </NavLink>
-        </li>
-        <li className="pagination__item">
-          <NavLink to="" className="pagination__link"> 2 </NavLink>
-        </li>
-        <li className="pagination__item">
-          <NavLink to="" className="pagination__link"> next </NavLink>
-        </li>
+        {
+          pages.map((page) => (
+            <li className="pagination__item" key={page.id}>
+              <button
+                type="button"
+                className={(currentPage === page && 'pagination__link') || 'pagination__link'}
+                onClick={() => onPageChanged(page)}
+              >
+                {page}
+              </button>
+            </li>
+
+          ))
+        }
+
       </ul>
     </div>
   );
+};
+
+Pagination.defaultProps = {
+  pageSize: 5,
+  totalCount: 0,
+  currentPage: 1,
+  onPageChanged: () => {}
+};
+Pagination.propTypes = {
+  pageSize: PropTypes.number,
+  totalCount: PropTypes.number,
+  currentPage: PropTypes.number,
+  onPageChanged: PropTypes.func
 };
 
 export default Pagination;

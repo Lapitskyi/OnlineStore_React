@@ -7,7 +7,8 @@ const instance = axios.create({
 });
 
 const goodsAPI = {
-  getGoods() {
+  // eslint-disable-next-line no-unused-vars
+  getGoods(currentPage, pageSize) {
     return instance.get('')
       .then((response) => {
         return response.data;
@@ -20,6 +21,13 @@ const goodsAPI = {
       .then((response) => {
         return response.data;
       });
-  }
+  },
+  // eslint-disable-next-line no-unused-vars
+  getCurrentPage(pageNumber, pageSize) {
+    return instance.get('')
+      .then((response) => {
+        return response.data;
+      });
+  },
 };
 export default goodsAPI;

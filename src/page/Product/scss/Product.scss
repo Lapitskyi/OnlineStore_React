@@ -92,7 +92,6 @@
   }
 
 
-
   &__table-size {
     margin-top: 24px;
   }
@@ -100,7 +99,14 @@
   &__btn {
     margin-top: 24px;
     background-color: #00a046;
+
+    &-inCart {
+      background-color: #f5f5f5;
+      color:#000000;
+      border: 1px solid #00a046;
+    }
   }
+
 
   &__description {
     margin-top: 24px;

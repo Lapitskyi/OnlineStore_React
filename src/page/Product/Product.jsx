@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './scss/Product.scss';
+import { NavLink } from 'react-router-dom';
 import UseCounter from '../../useHook/useCounter';
 
 const Product = ({ product, addProductBasket }) => {
+  const [inBasket, setInBasket] = useState(false);
   return (
     <>
       <div className="product" key={product.id}>
@@ -42,13 +44,28 @@ const Product = ({ product, addProductBasket }) => {
           <UseCounter />
 
           <div className="product__table-size">Таблица размеров(Просмотреть)</div>
-          <button
-            className="product__btn btn btn__size-large"
-            type="button"
-            onClick={() => addProductBasket(product)}
-          >
-            В корзину
-          </button>
+          <>
+            {!inBasket ? (
+              <button
+                className="product__btn btn btn__size-large"
+                type="button"
+                onClick={() => {
+                  addProductBasket(product); setInBasket(true);
+                }}
+              >
+                Купить
+              </button>
+            )
+              : (
+                <NavLink
+                  className="product__btn product__btn-inCart btn btn__size-large"
+                  to="/cart"
+                >
+                  в корзину
+                </NavLink>
+              )}
+
+          </>
           <ul className="product__description">
             {product.description.map((descriptionItem) => (
               <li className="product__description-item" key={descriptionItem}>

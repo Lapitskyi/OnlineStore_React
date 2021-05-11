@@ -29,7 +29,7 @@ const BasketList = ({
               <button
                 className="basket__list-btn btn"
                 type="button"
-                onClick={() => deleteProduct(productItem)}
+                onClick={() => deleteProduct(productItem.id)}
               >
                 <svg className="basket__list-icon ">
                   <use href={`${sprite}#remove`} />

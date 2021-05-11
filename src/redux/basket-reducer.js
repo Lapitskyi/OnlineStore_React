@@ -5,7 +5,32 @@ const TOTAL_PRODUCT = 'TOTAL_PRODUCT';
 
 const initialState = {
   goodsOrder: {
-    products: [],
+    products: [
+      {
+        id: 1,
+        product: {
+          id: 4,
+          name: 'Name product_4',
+          price: '400',
+          photo: 'https://via.placeholder.com/200',
+          photoCollection: ['img1', 'img2', 'img3', 'img4'],
+          size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
+          description: {}
+        }, 
+      },
+      {
+        id: 3,
+        product: {
+          id: 3,
+          name: 'Name product_4',
+          price: '400',
+          photo: 'https://via.placeholder.com/200',
+          photoCollection: ['img1', 'img2', 'img3', 'img4'],
+          size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
+          description: {}
+        },
+      }
+    ],
     goodsTotalPrice: null
   }
 };
@@ -18,9 +43,8 @@ const basketReducer = (state = initialState, action) => {
         goodsOrder: {
           ...state.goodsOrder,
           products: [...state.goodsOrder.products, { id: 2, product: action.product }],
-          goodsTotalPrice: [1, 2, 2].reduce((acc, cur) => {
-            return console.log(acc + cur);
-          }, 0)
+          goodsTotalPrice:
+          [...state.goodsOrder.products].reduce((prevPrice, currentPrice) => prevPrice + currentPrice.product.price, 0)
         }
       };
     }
@@ -30,7 +54,7 @@ const basketReducer = (state = initialState, action) => {
         goodsOrder: {
           ...state.goodsOrder,
           products:
-            state.goodsOrder.products.filter((item) => item.id !== action.productDeleteId)
+           state.goodsOrder.products.filter((item) => item.id !== action.productDeleteId)
         },
       };
     }

@@ -3,6 +3,8 @@ import goodsApi from '../service/goodsApi';
 const SET_PRODUCT = 'SET_PRODUCT';
 const SET_GOODS = 'SET_PRODUCT';
 const TOGGLE_ISFETCHING = 'SET_ISFETCHING';
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const SET_GOODS_TOTAL_COUNT = 'SET_GOODS_TOTAL_COUNT';
 
 const initialState = {
   goods: [
@@ -66,6 +68,9 @@ const initialState = {
     size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
     description: [],
   },
+  pageSize: 5,
+  totalCount: 0,
+  currentPage: 1,
   isFetching: false,
 };
 
@@ -88,6 +93,15 @@ const goodsReducer = (state = initialState, action) => {
       };
     }
 
+    case SET_CURRENT_PAGE: {
+      return { ...state, currentPage: action.currentPage };
+    }
+    case SET_GOODS_TOTAL_COUNT: {
+      return {
+        ...state, totalCount: action.totalCount
+      };
+    }
+
     default:
       return state;
   }
@@ -96,13 +110,15 @@ const goodsReducer = (state = initialState, action) => {
 export const setGoods = (goods) => ({ type: SET_PRODUCT, goods });
 export const setProduct = (product) => ({ type: SET_PRODUCT, product });
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_ISFETCHING, isFetching });
+export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage });
+export const setGoodsTotalCount = (totalCount) => ({ type: SET_GOODS_TOTAL_COUNT, totalCount });
 
 export default goodsReducer;
 
-export const getGoods = () => {
+export const getGoods = (currentPage, pageSize) => {
   return (dispatch) => {
     dispatch(toggleIsFetching(true));
-    goodsApi.getGoods()
+    goodsApi.getGoods(currentPage, pageSize)
       .then((data) => {
         dispatch(toggleIsFetching(false));
         dispatch(setGoods(data));
@@ -115,6 +131,17 @@ export const getProduct = (productId) => {
     goodsApi.getProduct(productId)
       .then((data) => {
         dispatch(setProduct(data));
+      });
+  };
+};
+
+export const getCurrentPage = (pageNumber, pageSize) => {
+  return (dispatch) => {
+    dispatch(toggleIsFetching(true));
+    goodsApi.getCurrentPage(pageNumber, pageSize)
+      .then((data) => {
+        dispatch(toggleIsFetching(false));
+        dispatch(setGoods(data));
       });
   };
 };
