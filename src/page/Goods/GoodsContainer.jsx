@@ -1,34 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { Route, withRouter } from 'react-router-dom';
 import Goods from './Goods';
-import Product from './components/Product';
 import { addProductOrder } from '../../redux/basket-reducer';
 
 const GoodsContainer = ({
-  goods,
-  product,
-  ...props
+  goods
 }) => {
-  const addProductBasket = (item) => {
-    props.addProductOrder(item);
-  };
   return (
-    <>
-      <Route exact path="/goods" render={() => <Goods goods={goods} />} />
-      <Route
-        path={`/goods/:${product.id}`}
-        render={() => <Product product={product} addProductBasket={addProductBasket} />}
-      />
-    </>
+    <Goods goods={goods} />
   );
 };
 
 const mapStateToProps = ({ goods }) => ({
-  goods: goods.goods,
-  product: goods.product
+  goods: goods.goods
 });
 
 export default compose(
@@ -37,15 +24,9 @@ export default compose(
 )(GoodsContainer);
 
 GoodsContainer.defaultProps = {
-  productId: 0,
   goods: [],
-  product: {},
-  addProductOrder: () => {}
 };
 
 GoodsContainer.propTypes = {
-  productId: PropTypes.number,
   goods: PropTypes.arrayOf(PropTypes.object),
-  product: PropTypes.shape([]),
-  addProductOrder: PropTypes.func
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../scss/Product.scss';
-import UseCounter from '../../../useHook/useCounter';
+import './scss/Product.scss';
+import UseCounter from '../../useHook/useCounter';
 
 const Product = ({ product, addProductBasket }) => {
   return (
