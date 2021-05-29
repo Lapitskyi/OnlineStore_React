@@ -1,10 +1,10 @@
-import goodsApi from '../service/goodsApi';
-
-const SET_PRODUCT = 'SET_PRODUCT';
-const SET_GOODS = 'SET_PRODUCT';
-const TOGGLE_ISFETCHING = 'SET_ISFETCHING';
-const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
-const SET_GOODS_TOTAL_COUNT = 'SET_GOODS_TOTAL_COUNT';
+import {
+  SET_PRODUCT,
+  SET_GOODS,
+  TOGGLE_ISFETCHING,
+  SET_CURRENT_PAGE,
+  SET_GOODS_TOTAL_COUNT
+} from '../type';
 
 const initialState = {
   goods: [
@@ -38,7 +38,36 @@ const initialState = {
       size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
       description: {}
     },
-
+    {
+      id: 4,
+      name: 'Name product_1',
+      price: 100,
+      count: 1,
+      photo: 'https://via.placeholder.com/400x350',
+      photoCollection: ['img1', 'img2', 'img3', 'img4'],
+      size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
+      description: {}
+    },
+    {
+      id: 5,
+      name: 'Name product_2',
+      price: 200,
+      count: 1,
+      photo: 'https://via.placeholder.com/400',
+      photoCollection: ['img1', 'img2', 'img3', 'img4'],
+      size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
+      description: {}
+    },
+    {
+      id: 6,
+      name: 'Name product_3',
+      price: 300,
+      count: 1,
+      photo: 'https://via.placeholder.com/350',
+      photoCollection: ['img1', 'img2', 'img3', 'img4'],
+      size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
+      description: {}
+    },
   ],
   product: {
     id: 1,
@@ -56,7 +85,8 @@ const initialState = {
     description: [],
   },
   pageSize: 5,
-  totalCount: 10,
+  portionSize: 10,
+  totalCount: 6,
   currentPage: 1,
   isFetching: false,
 };
@@ -81,8 +111,9 @@ const goodsReducer = (state = initialState, action) => {
     }
 
     case SET_CURRENT_PAGE: {
-      return { ...state, currentPage: action.currentPage };
+      return { ...state, currentPage: action.PageNumber };
     }
+
     case SET_GOODS_TOTAL_COUNT: {
       return {
         ...state, totalCount: action.totalCount
@@ -94,41 +125,4 @@ const goodsReducer = (state = initialState, action) => {
   }
 };
 
-export const setGoods = (goods) => ({ type: SET_PRODUCT, goods });
-export const setProduct = (product) => ({ type: SET_PRODUCT, product });
-export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_ISFETCHING, isFetching });
-export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage });
-export const setGoodsTotalCount = (totalCount) => ({ type: SET_GOODS_TOTAL_COUNT, totalCount });
-
 export default goodsReducer;
-
-export const getGoods = (currentPage, pageSize) => {
-  return (dispatch) => {
-    dispatch(toggleIsFetching(true));
-    goodsApi.getGoods(currentPage, pageSize)
-      .then((data) => {
-        dispatch(toggleIsFetching(false));
-        dispatch(setGoods(data));
-      });
-  };
-};
-
-export const getProduct = (productId) => {
-  return (dispatch) => {
-    goodsApi.getProduct(productId)
-      .then((data) => {
-        dispatch(setProduct(data));
-      });
-  };
-};
-
-export const getCurrentPage = (pageNumber, pageSize) => {
-  return (dispatch) => {
-    dispatch(toggleIsFetching(true));
-    goodsApi.getCurrentPage(pageNumber, pageSize)
-      .then((data) => {
-        dispatch(toggleIsFetching(false));
-        dispatch(setGoods(data));
-      });
-  };
-};

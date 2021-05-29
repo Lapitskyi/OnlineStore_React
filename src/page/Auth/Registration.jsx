@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import Logo from '../../components/Logo';
+import Logo from '../../components/Logo/Logo';
 import LinkAuth from './components/LinkAuth';
 import './scss/Registration.scss';
 

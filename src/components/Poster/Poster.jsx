@@ -1,5 +1,5 @@
 import React from 'react';
-import './scss/Poster.scss';
+import './Poster.scss';
 
 const Poster = () => (
   <div className="poster">

@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 
 import './scss/Login.scss';
 import LinkAuth from './components/LinkAuth';
-import Logo from '../../components/Logo';
+import Logo from '../../components/Logo/Logo';
 
 const Login = ({
   auth: {

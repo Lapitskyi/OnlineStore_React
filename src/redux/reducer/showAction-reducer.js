@@ -1,6 +1,6 @@
-import en from '../assets/icon/eng.png';
-import ua from '../assets/icon/ua.png';
-import ru from '../assets/icon/rus.png';
+import en from '../../assets/icon/eng.png';
+import ua from '../../assets/icon/ua.png';
+import ru from '../../assets/icon/rus.png';
 
 const TOGGLE_LANG = 'TOGGLE_LANG';
 const TOGGLE_THEME = 'TOGGLE_THEME';

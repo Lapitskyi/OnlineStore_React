@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import Burger from '../../components/Burger';
+import Burger from '../../components/Burger/Burger';
 
 import '../scss/Menu.scss';
 

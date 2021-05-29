@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Logo from '../../components/Logo';
+import Logo from '../../components/Logo/Logo';
 import NavAction from './NavAction';
 import Menu from './Menu';
 

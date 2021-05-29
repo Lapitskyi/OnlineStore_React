@@ -1,9 +1,9 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import goodsReducer from './goods-reducer';
-import authReducer from './auth-reducer';
-import basketReducer from './basket-reducer';
-import showActionReducer from './showAction-reducer';
+import goodsReducer from './reducer/goods-reducer';
+import authReducer from './reducer/auth-reducer';
+import basketReducer from './reducer/basket-reducer';
+import showActionReducer from './reducer/showAction-reducer';
 
 const reducers = combineReducers({
   showAction: showActionReducer,

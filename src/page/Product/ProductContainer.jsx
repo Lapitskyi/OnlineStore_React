@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { addProductOrder } from '../../redux/basket-reducer';
+import { addProductOrder, requestProduct } from '../../redux/actions';
 import Product from './Product';
-import { getProduct } from '../../redux/goods-reducer';
-import Preloader from '../../components/Preloader';
+import Preloader from '../../components/Preloader/Preloader';
+import { getIsFetching, getProduct } from '../../redux/selector';
 
 const ProductContainer = ({
   isFetching,
@@ -18,13 +18,13 @@ const ProductContainer = ({
   },
   ...props
 }) => {
-  getProduct(productId);
+  requestProduct(productId);
   const addProductBasket = (item) => {
     props.addProductOrder(item);
   };
   return (
     <>
-      { isFetching
+      {isFetching
         ? <Preloader />
         : <Product product={product} addProductBasket={addProductBasket} />}
     </>
@@ -32,12 +32,12 @@ const ProductContainer = ({
 };
 
 const mapStateToProps = ({ goods }) => ({
-  product: goods.product,
-  isFetching: goods.isFetching
+  product: getProduct(goods),
+  isFetching: getIsFetching(goods)
 });
 
 export default compose(
-  connect(mapStateToProps, { addProductOrder, getProduct }),
+  connect(mapStateToProps, { addProductOrder, requestProduct }),
   withRouter
 )(ProductContainer);
 
@@ -49,7 +49,8 @@ ProductContainer.defaultProps = {
     }
   },
   product: {},
-  addProductOrder: () => {}
+  addProductOrder: () => {
+  }
 };
 
 ProductContainer.propTypes = {

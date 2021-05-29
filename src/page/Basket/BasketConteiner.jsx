@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import Basket from './Basket';
-import { deleteProductOrder } from '../../redux/basket-reducer';
+import { deleteProductOrder } from '../../redux/actions';
+import { getGoodsOrder } from '../../redux/selector';
 
 const BasketContainer = ({ goodsOrder, ...props }) => {
   const deleteProduct = (productId) => {
@@ -31,7 +32,7 @@ const BasketContainer = ({ goodsOrder, ...props }) => {
 };
 
 const mapStateToProps = ({ basket }) => ({
-  goodsOrder: basket.goodsOrder
+  goodsOrder: getGoodsOrder(basket)
 });
 
 export default compose(
@@ -40,7 +41,8 @@ export default compose(
 
 BasketContainer.defaultProps = {
   goodsOrder: {},
-  deleteProductOrder: () => {}
+  deleteProductOrder: () => {
+  }
 };
 BasketContainer.propTypes = {
   goodsOrder: PropTypes.shape({

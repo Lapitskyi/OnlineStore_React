@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import Header from './Header';
-import { themeToggle, toggleLang } from '../../redux/showAction-reducer';
+import { themeToggle, toggleLang } from '../../redux/reducer/showAction-reducer';
 
 const HeaderContainer = ({
   products,

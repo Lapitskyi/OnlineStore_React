@@ -1,5 +1,5 @@
 import React from 'react';
-import Poster from '../../components/Poster';
+import Poster from '../../components/Poster/Poster';
 import './scss/Delivery.scss';
 
 const Delivery = () => (

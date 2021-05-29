@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import './scss/BreadCrumbs.scss';
+import './BreadCrumbs.scss';
 
 const BreadCrumbs = ({ path, name }) => (
   <div className="breadCrumbs">

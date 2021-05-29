@@ -56,7 +56,7 @@ NavAction.defaultProps = {
   },
   toggleTheme: () => {
   },
-  isAuth: true
+  isAuth: false
 };
 NavAction.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object),

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './scss/Product.scss';
 import { NavLink } from 'react-router-dom';
 import UseCounter from '../../useHook/useCounter';
-import BreadCrumbs from '../../components/BreadCrumbs';
+import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 
 const Product = ({ product, addProductBasket }) => {
   const [inBasket, setInBasket] = useState(false);

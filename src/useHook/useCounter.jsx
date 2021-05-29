@@ -6,14 +6,22 @@ import sprite from '../assets/spriteSvg/sprite.svg';
 const UseCounter = ({ productCount }) => {
   const [count, setCount] = useState(productCount);
 
+  const Increment = () => {
+    setCount(count + 1);
+  };
+  const Decrement = () => {
+    if (count === 0) {
+      return setCount(0);
+    }
+    return setCount(count - 1);
+  };
+
   return (
     <div className="counter">
       <button
         className="counter__btn btn"
         type="button"
-        onClick={() => {
-          setCount(count - 1);
-        }}
+        onClick={Decrement}
       >
         <svg className="counter__icon">
           <use href={`${sprite}#minus`} />
@@ -36,9 +44,7 @@ const UseCounter = ({ productCount }) => {
       <button
         className="counter__btn btn"
         type="button"
-        onClick={() => {
-          setCount(count + 1);
-        }}
+        onClick={Increment}
       >
         <svg className="counter__icon">
           <use href={`${sprite}#plus`} />

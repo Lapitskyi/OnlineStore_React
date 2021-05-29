@@ -1,6 +1,6 @@
 import React from 'react';
-import './scss/Social.scss';
-import sprite from '../assets/spriteSvg/sprite.svg';
+import './Social.scss';
+import sprite from '../../assets/spriteSvg/sprite.svg';
 
 const Social = () => (
   <ul className="social__list">

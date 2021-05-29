@@ -1,16 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import Pagination from '../../../components/Pagination';
 
 import '../scss/Goods.scss';
 
 const GoodsList = ({
   goods,
-  pageSize,
-  totalCount,
-  currentPage,
-  onPageChanged
 }) => (
   <>
     <ul className="goods__list">
@@ -28,27 +23,15 @@ const GoodsList = ({
           ))
         }
     </ul>
-    <Pagination
-      pageSize={pageSize}
-      totalCount={totalCount}
-      currentPage={currentPage}
-      onPageChanged={onPageChanged}
-    />
+
   </>
 );
 
 GoodsList.defaultProps = {
   goods: [],
-  pageSize: 5,
-  totalCount: 0,
-  currentPage: 1,
-  onPageChanged: () => {}
 };
 GoodsList.propTypes = {
   goods: PropTypes.arrayOf(PropTypes.object),
-  pageSize: PropTypes.number,
-  totalCount: PropTypes.number,
-  currentPage: PropTypes.number,
-  onPageChanged: PropTypes.func
+
 };
 export default GoodsList;

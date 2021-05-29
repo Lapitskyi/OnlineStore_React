@@ -1,7 +1,7 @@
 import React from 'react';
 import './scss/About.scss';
-import Poster from '../../components/Poster';
-import Social from '../../components/Social';
+import Poster from '../../components/Poster/Poster';
+import Social from '../../components/Social/Social';
 
 const About = () => {
   return (
