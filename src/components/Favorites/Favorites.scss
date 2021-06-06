@@ -1,0 +1,28 @@
+.favorites {
+  &__btn {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    z-index: 20;
+    top: 20px;
+    right: 20px;
+    padding: 0;
+  }
+
+  &__icon {
+    stroke: #FF0000;
+    fill: #FF0000;
+    width: 24px;
+    height: 24px;
+  }
+
+
+}
+
+.active {
+    .favorites__icon {
+      fill: #0b6623;
+      stroke: #0b6623;
+    }
+
+}

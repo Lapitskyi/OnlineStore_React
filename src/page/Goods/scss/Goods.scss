@@ -8,6 +8,14 @@
 
   &__list-item {
     padding: 10px;
+    position: relative;
+  }
+
+  &__list-header {
+  }
+
+  &__list-footer {
+    margin-top: 20px;
   }
 
   &__list-photo {
@@ -27,7 +35,6 @@
   }
 
   &__list-name {
-    margin-top: 20px;
     font-size: 20px;
   }
 
