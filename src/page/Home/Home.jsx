@@ -6,7 +6,6 @@ const Home = () => (
   <div className="home">
     <>
       <p>d</p>
-      <SliderSwiper />
     </>
   </div>
 );
