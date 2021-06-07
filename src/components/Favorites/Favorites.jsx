@@ -10,12 +10,21 @@ const Favorites = () => {
   return (
     <button
       type="button"
-      className={favorite === true ? 'btn favorites__btn active' : 'btn favorites__btn'}
+      className="btn favorites__btn"
       onClick={actionFavorites}
     >
-      <svg className="favorites__icon">
-        <use href={`${sprite}#favorites`} />
-      </svg>
+      {favorite
+        ? (
+          <svg className="favorites__icon">
+            <use href={`${sprite}#favorites-filled`} />
+          </svg>
+        )
+        : (
+          <svg className="favorites__icon">
+            <use href={`${sprite}#favorites`} />
+          </svg>
+        )}
+
     </button>
   );
 };

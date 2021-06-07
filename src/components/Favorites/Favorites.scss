@@ -10,8 +10,7 @@
   }
 
   &__icon {
-    stroke: #FF0000;
-    fill: #FF0000;
+
     width: 24px;
     height: 24px;
   }
@@ -19,10 +18,3 @@
 
 }
 
-.active {
-    .favorites__icon {
-      fill: #0b6623;
-      stroke: #0b6623;
-    }
-
-}
