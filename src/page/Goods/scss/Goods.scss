@@ -2,7 +2,7 @@
   &__list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    grid-gap: 20px;
+    grid-gap: 10px;
     justify-content: center;
   }
 
@@ -15,7 +15,7 @@
   }
 
   &__list-footer {
-    margin-top: 20px;
+    margin-top: 10px;
   }
 
   &__list-photo {
@@ -35,11 +35,12 @@
   }
 
   &__list-name {
+    margin-top: 5px;
     font-size: 20px;
   }
 
   &__list-price {
-    margin-top: 10px;
+    margin-top: 5px;
     font-size: 16px;
   }
 }
