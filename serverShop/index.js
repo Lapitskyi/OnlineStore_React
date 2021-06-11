@@ -7,7 +7,6 @@ const sequelize = require('./db');
 const router = require('./routes/index');
 const errorHandler = require('./middleware/ErrorHandingMiddleware');
 
-// eslint-disable-next-line no-unused-vars
 const models = require('./models/models');
 
 const PORT = process.env.PORT || 5000;
