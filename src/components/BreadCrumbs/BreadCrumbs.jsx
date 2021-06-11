@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './BreadCrumbs.scss';
 
-const BreadCrumbs = ({ path, name }) => (
+const BreadCrumbs = ({ pathname, name }) => (
   <div className="breadCrumbs">
     <div className="container">
       <ul className="breadCrumbs__list">
@@ -13,28 +13,21 @@ const BreadCrumbs = ({ path, name }) => (
           </NavLink>
         </li>
         <li className="breadCrumbs__list-item">
-          <NavLink className="breadCrumbs__list-link" to={path}>
+          <NavLink className="breadCrumbs__list-link" to={pathname}>
             {name}
           </NavLink>
         </li>
-        {/* {path.map((itemPath) => ( */}
-        {/*  <li className="breadCrumbs__list-item" key={itemPath}> */}
-        {/*    <NavLink className="breadCrumbs__list-link" to={itemPath.path}> */}
-        {/*      {name} */}
-        {/*    </NavLink> */}
-        {/*  </li> */}
-        {/* ))} */}
       </ul>
     </div>
   </div>
 );
 
 BreadCrumbs.defaultProps = {
-  path: '',
+  pathname: '',
   name: ''
 };
 BreadCrumbs.propTypes = {
-  path: PropTypes.string,
+  pathname: PropTypes.string,
   name: PropTypes.string,
 };
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { addProductOrder, requestProduct } from '../../redux/actions';
+import { addProductOrder, productPrice, requestProduct } from '../../redux/actions';
 import Product from './Product';
 import Preloader from '../../components/Preloader/Preloader';
 import { getIsFetching, getProduct } from '../../redux/selector';
@@ -16,17 +16,32 @@ const ProductContainer = ({
       productId
     }
   },
+  location: {
+    pathname
+  },
   ...props
 }) => {
   requestProduct(productId);
   const addProductBasket = (item) => {
     props.addProductOrder(item);
   };
+
+  const productCounterPrice = (id, countType) => {
+    console.log(id, countType);
+    props.productPrice();
+  };
   return (
     <>
       {isFetching
         ? <Preloader />
-        : <Product product={product} addProductBasket={addProductBasket} />}
+        : (
+          <Product
+            product={product}
+            addProductBasket={addProductBasket}
+            pathname={pathname}
+            productCounterPrice={productCounterPrice}
+          />
+        )}
     </>
   );
 };
@@ -37,7 +52,7 @@ const mapStateToProps = ({ goods }) => ({
 });
 
 export default compose(
-  connect(mapStateToProps, { addProductOrder, requestProduct }),
+  connect(mapStateToProps, { addProductOrder, requestProduct, productPrice }),
   withRouter
 )(ProductContainer);
 
@@ -48,8 +63,13 @@ ProductContainer.defaultProps = {
       productId: 0
     }
   },
+  location: {
+    pathname: ''
+  },
   product: {},
   addProductOrder: () => {
+  },
+  productPrice: () => {
   }
 };
 
@@ -60,6 +80,9 @@ ProductContainer.propTypes = {
       productId: PropTypes.string
     })
   }),
+  location: PropTypes.shape({
+    pathname: PropTypes.string
+  }),
   product: PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
@@ -67,8 +90,9 @@ ProductContainer.propTypes = {
     count: PropTypes.number,
     photo: PropTypes.string,
     photoCollection: PropTypes.arrayOf(PropTypes.string),
-    size: PropTypes.arrayOf(PropTypes.string),
+    size: PropTypes.shape({}),
     description: PropTypes.arrayOf(PropTypes.string),
   }),
-  addProductOrder: PropTypes.func
+  addProductOrder: PropTypes.func,
+  productPrice: PropTypes.func
 };

@@ -1,23 +1,28 @@
 .product {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   grid-gap: 10px;
-  padding: 24px;
+  padding: 0;
 
   &__photo {
-
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-gap: 10px;
   }
 
   &__content {
+    padding: 0 24px;
+  }
 
+  &__content-inner {
   }
 
   &__photoBox {
     margin: 0 auto;
-    width: 400px;
+    width: 610px;
     position: relative;
     overflow: hidden;
-    padding: 0 0 55% 0;
+    padding: 0 0 80% 0;
   }
 
   &__img {
@@ -31,20 +36,24 @@
 
   &__list-photo {
     margin-top: 10px;
+    max-height: 600px;
     display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    justify-content: center;
+    overflow-y: auto;
   }
 
   &__list-itemPhoto + &__list-itemPhoto {
-    margin-left: 10px;
+    margin-top: 10px;
   }
 
   &__list-itemPhoto {
-    width: 80px;
+    width: 92px;
     position: relative;
     overflow: hidden;
-    padding: 0 0 10% 0;
+    padding: 0 0 60% 0;
+    flex-shrink: 0;
   }
 
   &__list-photoImg {
@@ -87,6 +96,15 @@
     }
   }
 
+  &__list-sizeBtnDisable {
+    background: linear-gradient(
+                    150deg, #fafafa 0, #fafafa 49%, #999 50%, #fafafa 51%, #fafafa 100%);
+    border: 1px dashed #e0e0e0;
+    font-size: 16px;
+    color: #333333;
+    cursor: auto;
+  }
+
   &__list-itemSize + &__list-itemSize {
     margin-left: 10px;
   }
@@ -94,6 +112,10 @@
 
   &__table-size {
     margin-top: 24px;
+    span {
+      color: #00a046;
+      text-decoration: underline;
+    }
   }
 
   &__btn {
@@ -102,7 +124,7 @@
 
     &-inCart {
       background-color: #f5f5f5;
-      color:#000000;
+      color: #000000;
       border: 1px solid #00a046;
     }
   }
@@ -111,4 +133,9 @@
   &__description {
     margin-top: 24px;
   }
+}
+
+.active {
+  border-color: #00a046;
+
 }

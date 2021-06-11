@@ -11,18 +11,28 @@ import {
   SET_GOODS,
   TOGGLE_ISFETCHING,
   SET_CURRENT_PAGE,
-  SET_GOODS_TOTAL_COUNT
+  SET_GOODS_TOTAL_COUNT,
+  PRODUCT_DECRIMENT_INCRIMENT
 } from './type';
 
+// goods, product
 export const setGoods = (goods) => ({ type: SET_GOODS, goods });
 export const setProduct = (product) => ({ type: SET_PRODUCT, product });
+export const productPrice = (productId, countType) => ({ type: PRODUCT_DECRIMENT_INCRIMENT, productId, countType });
+
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_ISFETCHING, isFetching });
+
+// page goods
 export const setCurrentPage = (PageNumber) => ({ type: SET_CURRENT_PAGE, PageNumber });
 export const setGoodsTotalCount = (totalCount) => ({ type: SET_GOODS_TOTAL_COUNT, totalCount });
+
+// basket
 export const addProductOrder = (product) => ({ type: ADD_PRODUCT_ORDER, product });
 export const deleteProductOrder = (productDeleteId) => ({ type: DELETE_PRODUCT_ORDER, productDeleteId });
 export const updateProductOrder = () => ({ type: UPDATE_PRODUCT_ORDER });
 export const totalProducts = () => ({ type: TOTAL_PRODUCT, });
+
+// user
 export const setAuthUserData = (userId, login, email) => ({ type: SET_AUTH_USER_DATA, data: { userId, login, email } });
 
 export const getAuthUserData = () => (dispatch) => {

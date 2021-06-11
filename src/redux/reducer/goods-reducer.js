@@ -3,7 +3,8 @@ import {
   SET_GOODS,
   TOGGLE_ISFETCHING,
   SET_CURRENT_PAGE,
-  SET_GOODS_TOTAL_COUNT
+  SET_GOODS_TOTAL_COUNT,
+  PRODUCT_DECRIMENT_INCRIMENT
 } from '../type';
 
 const initialState = {
@@ -78,10 +79,17 @@ const initialState = {
     photoCollection: [
       'https://via.placeholder.com/200',
       'https://via.placeholder.com/300',
-      'https://via.placeholder.com/100',
+      '',
       'https://via.placeholder.com/400'
     ],
-    size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
+    size: {
+      s: true,
+      m: true,
+      l: false,
+      xl: true,
+      xxl: true,
+      xxxl: false,
+    },
     description: [],
   },
   pageSize: 5,
@@ -102,6 +110,11 @@ const goodsReducer = (state = initialState, action) => {
     case SET_PRODUCT: {
       return {
         ...state, product: action.product
+      };
+    }
+    case PRODUCT_DECRIMENT_INCRIMENT: {
+      return {
+        ...state
       };
     }
     case TOGGLE_ISFETCHING: {

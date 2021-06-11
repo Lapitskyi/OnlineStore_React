@@ -3,7 +3,8 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import sprite from '../../../assets/spriteSvg/sprite.svg';
 import '../scss/BasketList.scss';
-import UseCounter from '../../../useHook/useCounter';
+import Counter from '../../../components/Counter/Counter';
+import useCounter from '../../../useHook/useCounter';
 
 const BasketList = ({ 
   products,
@@ -12,6 +13,9 @@ const BasketList = ({
   orderProduct,
   continueShopping
 }) => {
+  const {
+    count, Increment, Decrement, changeValue
+  } = useCounter(1);
   return (
     <>
       <ul className="basket__list">
@@ -38,7 +42,8 @@ const BasketList = ({
             </div>
 
             <div className="basket__list-footer">
-              <UseCounter />
+              <Counter count={count} Increment={Increment} Decrement={Decrement} changeValue={changeValue} />
+
               <div className="basket__list-total">{`${productItem.product.price} UAH`}</div>
             </div>
 

@@ -4,13 +4,13 @@ import './scss/useCounter.scss';
 import sprite from '../../assets/spriteSvg/sprite.svg';
 
 const Counter = ({
-  count, Decrement, Increment, changeValue 
+  count, productCounterPrice, productId
 }) => (
   <div className="counter">
     <button
       className="counter__btn btn"
       type="button"
-      onClick={Decrement}
+      onClick={() => productCounterPrice(productId, 'increment')}
     >
       <svg className="counter__icon">
         <use href={`${sprite}#minus`} />
@@ -24,14 +24,14 @@ const Counter = ({
         min={1}
         max={10}
         value={count}
-        onChange={changeValue}
+        onChange={(e) => productCounterPrice(productId, +e.target.value)}
       />
     </label>
 
     <button
       className="counter__btn btn"
       type="button"
-      onClick={Increment}
+      onClick={() => productCounterPrice(productId, 'decrement')}
     >
       <svg className="counter__icon">
         <use href={`${sprite}#plus`} />
@@ -42,15 +42,14 @@ const Counter = ({
 
 Counter.defaultProps = {
   count: 0,
-  Decrement: () => {},
-  Increment: () => {},
-  changeValue: () => {}
+  productId: 0,
+  productCounterPrice: () => {},
 };
 Counter.propTypes = {
   count: PropTypes.number,
-  Decrement: PropTypes.func,
-  Increment: PropTypes.func,
-  changeValue: PropTypes.func
+  productId: PropTypes.number,
+  productCounterPrice: PropTypes.func,
+
 };
 
 export default Counter;

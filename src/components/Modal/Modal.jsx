@@ -2,39 +2,42 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Modal.scss';
 
-const useModals = ({
+const Modal = ({
   modal,
-  closeModal,
+  closeModals,
   keyPress,
   children
-}) => {
-  return (
+}) => (
+  <div
+    className={modal ? 'modal active' : 'modal'}
+    role="presentation"
+    tabIndex="-1"
+    onClick={closeModals}
+    onKeyDown={keyPress}
+  >
     <div
-      className={modal ? 'modal active' : 'modal'}
-      onClick={closeModal || keyPress}
+      className={modal ? 'modal__inner active' : 'modal__inner'}
       role="presentation"
+      onClick={(e) => e.stopPropagation()}
     >
-      <div
-        className={modal ? 'modal__inner active' : 'modal__inner'}
-        onClick={(e) => e.stopPropagation()}
-        role="presentation"
-      >
-        {children}
-      </div>
+      {children}
     </div>
-  );
-};
-useModals.defaultProps = {
+
+  </div>
+);
+
+Modal.defaultProps = {
   modal: false,
-  closeModal: () => {
+  closeModals: () => {
   },
-  keyPress: () => {},
+  keyPress: () => {
+  },
   children: null
 };
-useModals.propTypes = {
+Modal.propTypes = {
   modal: PropTypes.bool,
-  closeModal: PropTypes.func,
+  closeModals: PropTypes.func,
   keyPress: PropTypes.func,
   children: PropTypes.node
 };
-export default useModals;
+export default Modal;

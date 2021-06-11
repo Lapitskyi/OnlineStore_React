@@ -13,7 +13,7 @@ const Rating = ({ pathProduct, rating }) => {
           <button
             type="button"
             className="rating__btn btn"
-            onClick=""
+            // onClick=""
           >
             <svg className="rating__icon">
               <use href={`${sprite}#rating`} />
@@ -24,7 +24,7 @@ const Rating = ({ pathProduct, rating }) => {
           <button
             type="button"
             className="rating__btn btn"
-            onClick=""
+            // onClick=""
           >
             <svg className="rating__icon">
               <use href={`${sprite}#rating`} />
@@ -35,7 +35,7 @@ const Rating = ({ pathProduct, rating }) => {
           <button
             type="button"
             className="rating__btn btn"
-            onClick=""
+            // onClick=""
           >
             <svg className="rating__icon">
               <use href={`${sprite}#rating`} />
@@ -46,7 +46,7 @@ const Rating = ({ pathProduct, rating }) => {
           <button
             type="button"
             className="rating__btn btn"
-            onClick=""
+            // onClick=""/>
           >
             <svg className="rating__icon">
               <use href={`${sprite}#rating`} />
@@ -57,7 +57,7 @@ const Rating = ({ pathProduct, rating }) => {
           <button
             type="button"
             className="rating__btn btn"
-            onClick=""
+            // onClick=""
           >
             <svg className="rating__icon">
               <use href={`${sprite}#rating`} />

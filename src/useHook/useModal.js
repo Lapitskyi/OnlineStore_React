@@ -1,21 +1,24 @@
 import { useState } from 'react';
 
-const useModal = ({ initial }) => {
+const useModal = (initial) => {
   const [modal, setModal] = useState(initial);
+
   const openModal = () => {
     setModal(true);
   };
-  const closeModal = () => {
+
+  const closeModals = () => {
     setModal(false);
   };
   const keyPress = (e) => {
+    e.preventDefault();
     if (e.key === 'Escape' && modal) {
       setModal(false);
     }
   };
 
   return {
-    modal, closeModal, openModal, keyPress
+    modal, closeModals, openModal, keyPress
   };
 };
 export default useModal;
