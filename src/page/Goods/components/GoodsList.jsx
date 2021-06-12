@@ -14,7 +14,10 @@ const GoodsList = ({
         goods.map((product) => (
           <li className="goods__list-item" key={product.id}>
             <div className="goods__list-header">
-              <Favorites />
+              <div className="goods__list-favorite">
+                <Favorites />
+              </div>
+
               <NavLink to={`/goods/${product.id}`}>
                 <div className="goods__list-photo">
                   <img className="goods__list-img" src={product.photo} alt="product" />

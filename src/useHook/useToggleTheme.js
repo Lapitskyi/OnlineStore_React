@@ -1,10 +1,9 @@
 import { useState } from 'react';
 
-const useToggleTheme = (initionalTheme) => {
-  const [theme, setTheme] = useState(initionalTheme);
-
+const useToggleTheme = (initial) => {
+  const [theme, setTheme] = useState(initial);
   const toggleTheme = () => {
-    setTheme({ theme: !!theme === false });
+    setTheme(!!theme === false);
   };
   return {
     theme,

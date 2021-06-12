@@ -2,20 +2,28 @@
   &__list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    grid-gap: 10px;
+    grid-gap: 15px;
     justify-content: center;
+
   }
 
   &__list-item {
-    padding: 10px;
     position: relative;
+    border: 1px solid #d2d2d2;
   }
 
   &__list-header {
   }
 
+  &__list-favorite {
+    position: absolute;
+    z-index: 10;
+    top: 5px;
+    right: 5px;
+  }
+
   &__list-footer {
-    margin-top: 10px;
+    padding: 10px;
   }
 
   &__list-photo {

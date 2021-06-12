@@ -4,6 +4,7 @@ import './index.scss';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import AppContainer from './AppContainer';
+import './i18n/index';
 
 import reportWebVitals from './reportWebVitals';
 import store from './redux/store';

@@ -11,14 +11,12 @@ import {
   SET_GOODS,
   TOGGLE_ISFETCHING,
   SET_CURRENT_PAGE,
-  SET_GOODS_TOTAL_COUNT,
-  PRODUCT_DECRIMENT_INCRIMENT
+  SET_GOODS_TOTAL_COUNT
 } from './type';
 
 // goods, product
 export const setGoods = (goods) => ({ type: SET_GOODS, goods });
 export const setProduct = (product) => ({ type: SET_PRODUCT, product });
-export const productPrice = (productId, countType) => ({ type: PRODUCT_DECRIMENT_INCRIMENT, productId, countType });
 
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_ISFETCHING, isFetching });
 

@@ -9,18 +9,18 @@ import userPhoto from '../../assets/images/userPhoto.svg';
 
 const NavAction = ({
   products,
-  langT,
-  langToggle,
-  themeT,
+  theme,
+  lang,
+  toggleLang,
   toggleTheme,
   isAuth
 }) => (
   <ul className="action__list">
     <li className="action__list-item">
-      <ThemeToggle toggleTheme={toggleTheme} themeT={themeT} />
+      <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
     </li>
     <li className="action__list-item">
-      <LangToggle langT={langT} langToggle={langToggle} />
+      <LangToggle lang={lang} toggleLang={toggleLang} />
     </li>
 
     <li className="action__list-item">
@@ -50,20 +50,20 @@ const NavAction = ({
 );
 NavAction.defaultProps = {
   products: [],
-  langT: [],
-  themeT: false,
-  langToggle: () => {
-  },
+  theme: false,
+  lang: [],
   toggleTheme: () => {
+  },
+  toggleLang: () => {
   },
   isAuth: false
 };
 NavAction.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object),
-  themeT: PropTypes.bool,
-  langT: PropTypes.arrayOf(PropTypes.object),
-  langToggle: PropTypes.func,
+  theme: PropTypes.bool,
+  lang: PropTypes.arrayOf(PropTypes.object),
   toggleTheme: PropTypes.func,
+  toggleLang: PropTypes.func,
   isAuth: PropTypes.bool,
 };
 

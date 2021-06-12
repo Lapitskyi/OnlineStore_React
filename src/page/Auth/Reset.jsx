@@ -7,13 +7,13 @@ import LinkAuth from './components/LinkAuth';
 import './scss/Reset.scss';
 
 const Reset = ({
-  auth: {
-    reset: {
-      input,
-      name,
-      link
-    }
-  }
+  reset: {
+    input,
+    name,
+    link
+  },
+  t
+
 }) => {
   const validationSchema = Yup.object({
     email: Yup.string()
@@ -26,7 +26,7 @@ const Reset = ({
       <div className="container">
         <div className="auth__inner">
           <Logo />
-          <h2 className="auth__title">{name}</h2>
+          <h2 className="auth__title">{t(`${name}`)}</h2>
           <Formik
             initialValues={{
               email: ''
@@ -44,7 +44,7 @@ const Reset = ({
               <form className="auth__form">
                 {input.map((inputItem) => (
                   <label className="auth__form-label" htmlFor={inputItem.id} key={inputItem.id}>
-                    {inputItem.label}
+                    {t(`${inputItem.label}`)}
                     <input
                       className="auth__form-input"
                       type={inputItem.type}
@@ -53,7 +53,7 @@ const Reset = ({
                       onChange={handleChange}
                       onBlur={handleBlur}
                       value={values[`${inputItem.id}`]}
-                      placeholder={inputItem.placeholder}
+                      placeholder={t(`${inputItem.placeholder}`)}
                     />
                     {touched[`${inputItem.id}`] && errors[`${inputItem.id}`]
                     && <div className="error">{errors[`${inputItem.id}`]}</div>}
@@ -66,12 +66,12 @@ const Reset = ({
                   disabled={!isValid && !dirty}
                   onClick={handleSubmit}
                 >
-                  {name}
+                  {t(`${name}`)}
                 </button>
               </form>
             )}
           </Formik>
-          <LinkAuth link={link} />
+          <LinkAuth link={link} t={t} />
         </div>
       </div>
     </div>
@@ -79,21 +79,20 @@ const Reset = ({
 };
 
 Reset.defaultProps = {
-  auth: {
-    reset: {
-      input: [],
-      name: '',
-      link: []
-    }
-  }
+  reset: {
+    input: [],
+    name: '',
+    link: []
+  },
+  t: () => {}
+
 };
 Reset.propTypes = {
-  auth: PropTypes.shape({
-    reset: PropTypes.shape({
-      input: PropTypes.arrayOf(PropTypes.object),
-      name: PropTypes.string,
-      link: PropTypes.arrayOf(PropTypes.object)
-    })
-  })
+  reset: PropTypes.shape({
+    input: PropTypes.arrayOf(PropTypes.object),
+    name: PropTypes.string,
+    link: PropTypes.arrayOf(PropTypes.object)
+  }),
+  t: PropTypes.func
 };
 export default Reset;

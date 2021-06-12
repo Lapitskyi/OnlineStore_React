@@ -1,4 +1,4 @@
-const state = {
+const constant = {
   nav: [
     {
       id: 1,
@@ -7,15 +7,14 @@ const state = {
     },
     {
       id: 2,
-      name: 'auth.aboutMe ',
+      name: 'nav.aboutMe',
       link: '/about'
     },
     {
       id: 3,
-      name: 'auth.goods',
+      name: 'nav.goods',
       link: '/goods'
     }
-
   ],
   auth: {
     login: {
@@ -101,7 +100,24 @@ const state = {
         }
       ]
     },
-  }
+  },
+  productNav: [
+    {
+      id: 1,
+      name: 'productNav.about',
+      link: '/aboutProduct'
+    },
+    {
+      id: 2,
+      name: 'productNav.characteristics',
+      link: '/characteristics'
+    },
+    {
+      id: 3,
+      name: 'productNav.feedback',
+      link: '/feedback'
+    },
+  ]
 };
 
-export default state;
+export default constant;

@@ -1,26 +1,32 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import App from './App';
+import useToggleTheme from './useHook/useToggleTheme';
+import useToggleLang from './useHook/useToggleLang';
 
-const AppContainer = ({ themeT }) => {
+const AppContainer = () => {
+  const { theme, toggleTheme } = useToggleTheme(false);
+  const { lang, toggleLang } = useToggleLang();
   return (
-    <App themeT={themeT} />
+    <App
+      theme={theme}
+      lang={lang}
+      toggleTheme={toggleTheme}
+      toggleLang={toggleLang}
+    />
   );
 };
 
-const mapStateToProps = ({ showAction }) => ({
-  themeT: showAction.themeT
-});
+const mapStateToProps = () => ({});
 
 export default compose(
   connect(mapStateToProps, {})
 )(AppContainer);
 
 AppContainer.defaultProps = {
-  themeT: false,
+
 };
 AppContainer.propTypes = {
-  themeT: PropTypes.bool,
+
 };

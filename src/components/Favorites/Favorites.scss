@@ -1,16 +1,17 @@
 .favorites {
   &__btn {
-    width: 24px;
-    height: 24px;
-    position: absolute;
+    width: 34px;
+    height: 34px;
+    position: relative;
     z-index: 10;
-    top: 20px;
-    right: 20px;
     padding: 0;
   }
 
   &__icon {
-
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     width: 24px;
     height: 24px;
   }

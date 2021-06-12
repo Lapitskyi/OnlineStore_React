@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 
 import '../scss/Auth.scss';
 
-const LinkAuth = ({ link }) => {
+const LinkAuth = ({ link, t }) => {
   return (
     <ul className="auth-link__list">
       {
         link.map((item) => (
           <li className="auth-link__list-item" key={item.id}>
-            <NavLink className="auth-link__list-link" to={item.path}>{item.title}</NavLink>
+            <NavLink className="auth-link__list-link" to={item.path}>{t(`${item.title}`)}</NavLink>
           </li>
         ))
       }
@@ -19,10 +19,12 @@ const LinkAuth = ({ link }) => {
 };
 
 LinkAuth.defaultProps = {
-  link: []
+  link: [],
+  t: () => {}
 };
 LinkAuth.propTypes = {
-  link: PropTypes.arrayOf(PropTypes.object)
+  link: PropTypes.arrayOf(PropTypes.object),
+  t: PropTypes.func,
 };
 
 export default LinkAuth;

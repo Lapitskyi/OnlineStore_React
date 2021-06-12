@@ -3,8 +3,7 @@ import {
   SET_GOODS,
   TOGGLE_ISFETCHING,
   SET_CURRENT_PAGE,
-  SET_GOODS_TOTAL_COUNT,
-  PRODUCT_DECRIMENT_INCRIMENT
+  SET_GOODS_TOTAL_COUNT
 } from '../type';
 
 const initialState = {
@@ -112,11 +111,7 @@ const goodsReducer = (state = initialState, action) => {
         ...state, product: action.product
       };
     }
-    case PRODUCT_DECRIMENT_INCRIMENT: {
-      return {
-        ...state
-      };
-    }
+
     case TOGGLE_ISFETCHING: {
       return {
         ...state, isFetching: action.isFetching

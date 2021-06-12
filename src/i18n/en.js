@@ -23,4 +23,9 @@ export default {
     aboutMe: 'About me',
     goods: 'Goods'
   },
+  productNav: {
+    about: 'About product',
+    characteristics: 'Characteristics',
+    feedback: 'feedback'
+  }
 };

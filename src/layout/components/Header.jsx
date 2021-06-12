@@ -10,10 +10,9 @@ const Header = ({
   showMenu,
   onShowMenu,
   closeMenu,
-  menu,
-  langT,
-  langToggle,
-  themeT,
+  theme,
+  lang,
+  toggleLang,
   toggleTheme,
   products
 }) => {
@@ -22,13 +21,13 @@ const Header = ({
       <div className="container">
         <div className="header__inner">
           <Logo />
-          <Menu showMenu={showMenu} onShowMenu={onShowMenu} closeMenu={closeMenu} menu={menu} />
+          <Menu showMenu={showMenu} onShowMenu={onShowMenu} closeMenu={closeMenu} />
 
           <NavAction
-            langT={langT}
-            langToggle={langToggle}
+            theme={theme}
+            lang={lang}
             toggleTheme={toggleTheme}
-            themeT={themeT}
+            toggleLang={toggleLang}
             products={products}
           />
 
@@ -39,31 +38,28 @@ const Header = ({
 };
 Header.defaultProps = {
   products: [],
-  menu: [],
-  langT: [],
-  themeT: false,
   showMenu: false,
-  langToggle: () => {
-  },
   onShowMenu: () => {
   },
   closeMenu: () => {
   },
+  theme: false,
+  lang: [],
   toggleTheme: () => {
-  }
+  },
+  toggleLang: () => {
+  },
 };
 Header.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object),
-  themeT: PropTypes.bool,
   showMenu: PropTypes.bool,
 
-  menu: PropTypes.arrayOf(PropTypes.object),
-  langT: PropTypes.arrayOf(PropTypes.object),
-
-  langToggle: PropTypes.func,
   onShowMenu: PropTypes.func,
   closeMenu: PropTypes.func,
-  toggleTheme: PropTypes.func
+  theme: PropTypes.bool,
+  lang: PropTypes.arrayOf(PropTypes.object),
+  toggleTheme: PropTypes.func,
+  toggleLang: PropTypes.func
 };
 
 export default Header;

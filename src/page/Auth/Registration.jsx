@@ -7,13 +7,12 @@ import LinkAuth from './components/LinkAuth';
 import './scss/Registration.scss';
 
 const Registration = ({
-  auth: {
-    registration: {
-      input,
-      name,
-      link
-    }
-  }
+  registration: {
+    input,
+    name,
+    link
+  },
+  t
 }) => {
   const validationSchema = Yup.object({
     email: Yup.string()
@@ -34,7 +33,7 @@ const Registration = ({
       <div className="container">
         <div className="auth__inner">
           <Logo />
-          <h2 className="auth__title">{name}</h2>
+          <h2 className="auth__title">{t(`${name}`)}</h2>
           <Formik
             initialValues={{
               email: '',
@@ -54,7 +53,7 @@ const Registration = ({
               <form className="auth__form">
                 {input.map((inputItem) => (
                   <label className="auth__form-label" htmlFor={inputItem.id} key={inputItem.id}>
-                    {inputItem.label}
+                    {t(`${inputItem.label}`)}
                     <input
                       className="auth__form-input"
                       type={inputItem.type}
@@ -63,7 +62,7 @@ const Registration = ({
                       onChange={handleChange}
                       onBlur={handleBlur}
                       value={values[`${inputItem.id}`]}
-                      placeholder={inputItem.placeholder}
+                      placeholder={t(`${inputItem.placeholder}`)}
                     />
                     {touched[`${inputItem.id}`] && errors[`${inputItem.id}`]
                     && <div className="error">{errors[`${inputItem.id}`]}</div>}
@@ -76,12 +75,12 @@ const Registration = ({
                   disabled={!isValid && !dirty}
                   onClick={handleSubmit}
                 >
-                  {name}
+                  {t(`${name}`)}
                 </button>
               </form>
             )}
           </Formik>
-          <LinkAuth link={link} />
+          <LinkAuth link={link} t={t} />
         </div>
       </div>
     </div>
@@ -89,21 +88,20 @@ const Registration = ({
 };
 
 Registration.defaultProps = {
-  auth: {
-    registration: {
-      input: [],
-      name: '',
-      link: []
-    }
-  }
+  registration: {
+    input: [],
+    name: '',
+    link: []
+  },
+  t: () => {}
 };
+
 Registration.propTypes = {
-  auth: PropTypes.shape({
-    registration: PropTypes.shape({
-      input: PropTypes.arrayOf(PropTypes.object),
-      name: PropTypes.string,
-      link: PropTypes.arrayOf(PropTypes.object)
-    })
-  })
+  registration: PropTypes.shape({
+    input: PropTypes.arrayOf(PropTypes.object),
+    name: PropTypes.string,
+    link: PropTypes.arrayOf(PropTypes.object)
+  }),
+  t: PropTypes.func
 };
 export default Registration;

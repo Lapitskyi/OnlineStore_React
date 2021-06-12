@@ -15,12 +15,19 @@ import Home from '../page/Home/Home';
 import Cabinet from '../page/Profile/Cabinet';
 import './scss/MainLayout.scss';
 
-const MainLayout = ({ themeT }) => (
-  <div className={!themeT
+const MainLayout = ({
+  theme, lang, toggleLang, toggleTheme
+}) => (
+  <div className={!theme
     ? 'wrapper wrapper__white'
     : 'wrapper wrapper__dark'}
   >
-    <HeaderContainer />
+    <HeaderContainer
+      theme={theme}
+      lang={lang}
+      toggleTheme={toggleTheme}
+      toggleLang={toggleLang}
+    />
     <div className="content">
       <Switch>
         <Route path="/" exact render={() => <Home />} />
@@ -40,10 +47,18 @@ const MainLayout = ({ themeT }) => (
 );
 
 MainLayout.defaultProps = {
-  themeT: false,
+  theme: false,
+  lang: [],
+  toggleTheme: () => {
+  },
+  toggleLang: () => {
+  }
 };
 
 MainLayout.propTypes = {
-  themeT: PropTypes.bool,
+  theme: PropTypes.bool,
+  lang: PropTypes.arrayOf(PropTypes.object),
+  toggleTheme: PropTypes.func,
+  toggleLang: PropTypes.func
 };
 export default MainLayout;
