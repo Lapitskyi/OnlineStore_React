@@ -3,9 +3,14 @@ import './Rating.scss';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import sprite from '../../assets/spriteSvg/sprite.svg';
+import useRating from '../../useHook/useRating';
 
 const Rating = ({ pathProduct, rating }) => {
   const path = `${pathProduct}`;
+  const { ratingCount, addRating } = useRating(rating || 0);
+  const stars = Array.from({ length: 5 }, () => '🟊');
+  console.log(stars);
+
   return (
     <div className="rating">
       <ul className="rating__list">
@@ -13,7 +18,7 @@ const Rating = ({ pathProduct, rating }) => {
           <button
             type="button"
             className="rating__btn btn"
-            // onClick=""
+            onClick={() => addRating}
           >
             <svg className="rating__icon">
               <use href={`${sprite}#rating`} />
@@ -68,7 +73,7 @@ const Rating = ({ pathProduct, rating }) => {
 
       <div className="rating__num">
         <NavLink to={path}>
-          {` ${rating || 0} отзывов`}
+          {` ${ratingCount} отзывов`}
         </NavLink>
       </div>
     </div>

@@ -93,7 +93,7 @@ const initialState = {
   },
   pageSize: 5,
   portionSize: 10,
-  totalCount: 6,
+  totalCount: 5,
   currentPage: 1,
   isFetching: false,
 };
