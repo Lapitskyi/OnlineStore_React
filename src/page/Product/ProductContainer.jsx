@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import {
+  useParams, useLocation
+} from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { addProductOrder, requestProduct } from '../../redux/actions';
 import Product from './Product';
@@ -13,16 +15,11 @@ import constant from '../../assets/constants/constant';
 const ProductContainer = ({
   isFetching,
   product,
-  match: {
-    params: {
-      productId
-    }
-  },
-  location: {
-    pathname
-  },
   ...props
 }) => {
+  const { productId } = useParams();
+  const { pathname } = useLocation();
+
   const { t } = useTranslation();
   requestProduct(productId);
   const addProductBasket = (item) => {
@@ -53,19 +50,10 @@ const mapStateToProps = ({ goods }) => ({
 
 export default compose(
   connect(mapStateToProps, { addProductOrder, requestProduct, }),
-  withRouter
 )(ProductContainer);
 
 ProductContainer.defaultProps = {
   isFetching: false,
-  match: {
-    params: {
-      productId: 0
-    }
-  },
-  location: {
-    pathname: ''
-  },
   product: {},
   addProductOrder: () => {
   },
@@ -75,14 +63,7 @@ ProductContainer.defaultProps = {
 
 ProductContainer.propTypes = {
   isFetching: PropTypes.bool,
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      productId: PropTypes.string
-    })
-  }),
-  location: PropTypes.shape({
-    pathname: PropTypes.string
-  }),
+
   product: PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
