@@ -9,7 +9,7 @@ import AboutProduct from './components/AboutProduct';
 import './scss/Product.scss';
 
 const Product = ({
-  product, addProductBasket, pathname, productCounterPrice, productNav, t
+  product, addProductBasket, pathname, productNav, t, priceProduct
 }) => {
   return (
     <>
@@ -24,7 +24,7 @@ const Product = ({
               <AboutProduct
                 product={product}
                 addProductBasket={addProductBasket}
-                productCounterPrice={productCounterPrice}
+                priceProduct={priceProduct}
               />
             )}
           />
@@ -41,7 +41,7 @@ Product.defaultProps = {
   t: {},
   addProductBasket: () => {
   },
-  productCounterPrice: () => {
+  priceProduct: () => {
   },
   pathname: ''
 };
@@ -57,10 +57,10 @@ Product.propTypes = {
     description: PropTypes.arrayOf(PropTypes.string),
   }),
   addProductBasket: PropTypes.func,
-  productCounterPrice: PropTypes.func,
   pathname: PropTypes.string,
   productNav: PropTypes.arrayOf(PropTypes.object),
   t: PropTypes.func,
+  priceProduct: PropTypes.func,
 };
 
 export default Product;

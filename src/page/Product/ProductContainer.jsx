@@ -6,7 +6,9 @@ import {
   useParams, useLocation
 } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { addProductOrder, requestProduct } from '../../redux/actions';
+import {
+  addProductOrder, productPrice, requestProduct, updateProduct
+} from '../../redux/actions';
 import Product from './Product';
 import Preloader from '../../components/Preloader/Preloader';
 import { getIsFetching, getProduct } from '../../redux/selector';
@@ -25,6 +27,11 @@ const ProductContainer = () => {
 
   requestProduct(productId);
 
+  const priceProduct = (count) => {
+    dispatch(productPrice(count));
+    dispatch(updateProduct(+productId));
+  };
+
   const addProductBasket = (item) => {
     dispatch(addProductOrder(item));
   };
@@ -35,9 +42,10 @@ const ProductContainer = () => {
         ? <Preloader />
         : (
           <Product
+            t={t}
             product={product}
             productNav={constant.productNav}
-            t={t}
+            priceProduct={priceProduct}
             addProductBasket={addProductBasket}
             pathname={pathname}
           />

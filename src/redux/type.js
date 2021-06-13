@@ -3,8 +3,10 @@ export const SET_AUTH_USER_DATA = 'SET_AUTH_USER_DATA';
 
 // goods
 export const SET_PRODUCT = 'SET_PRODUCT';
+export const SET_PRODUCT_PRICE = 'SET_PRODUCT_PRICE';
 export const SET_GOODS = 'SET_PRODUCT';
 
+// loader
 export const TOGGLE_ISFETCHING = 'SET_ISFETCHING';
 
 // page

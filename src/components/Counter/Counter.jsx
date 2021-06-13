@@ -1,12 +1,18 @@
-import React from 'react';
-import './scss/useCounter.scss';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import sprite from '../../assets/spriteSvg/sprite.svg';
 import useCounter from '../../useHook/useCounter';
+import './scss/useCounter.scss';
 
-const Counter = () => {
+const Counter = ({ initialCount, priceProduct }) => {
   const {
     count, increment, decrement, changeValue
-  } = useCounter(1);
+  } = useCounter(initialCount);
+
+  useEffect(() => {
+    priceProduct(count);
+  }, [count]);
+
   return (
     <div className="counter">
       <button
@@ -43,7 +49,13 @@ const Counter = () => {
   );
 };
 
-Counter.defaultProps = {};
-Counter.propTypes = {};
+Counter.defaultProps = {
+  initialCount: 1,
+  priceProduct: () => {}
+};
+Counter.propTypes = {
+  initialCount: PropTypes.number,
+  priceProduct: PropTypes.func
+};
 
 export default Counter;

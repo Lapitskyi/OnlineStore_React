@@ -9,7 +9,7 @@ import useModal from '../../../useHook/useModal';
 import Counter from '../../../components/Counter/Counter';
 
 const AboutProduct = ({
-  product, addProductBasket
+  product, addProductBasket, priceProduct
 }) => {
   const [inBasket, setInBasket] = useState(false);
   const [poster, setPoster] = useState(product.photo);
@@ -78,7 +78,7 @@ const AboutProduct = ({
                 ))}
               </ul>
 
-              <Counter />
+              <Counter initialCount={product.count} priceProduct={priceProduct} />
 
               <div className="product__table-size">
                 Таблица размеров
@@ -138,6 +138,8 @@ AboutProduct.defaultProps = {
   product: {},
   addProductBasket: () => {
   },
+  priceProduct: () => {
+  },
 };
 AboutProduct.propTypes = {
   product: PropTypes.shape({
@@ -151,6 +153,7 @@ AboutProduct.propTypes = {
     description: PropTypes.arrayOf(PropTypes.string),
   }),
   addProductBasket: PropTypes.func,
+  priceProduct: PropTypes.func,
 };
 
 export default AboutProduct;

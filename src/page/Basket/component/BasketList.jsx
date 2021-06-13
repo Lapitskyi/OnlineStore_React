@@ -38,7 +38,7 @@ const BasketList = ({
             </div>
 
             <div className="basket__list-footer">
-              <Counter />
+              <Counter initialCount={productItem.product.count} />
 
               <div className="basket__list-total">{`${productItem.product.price} UAH`}</div>
             </div>

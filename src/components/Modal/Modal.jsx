@@ -11,7 +11,7 @@ const Modal = ({
   <div
     className={modal ? 'modal active' : 'modal'}
     role="presentation"
-    tabIndex="-1"
+    tabIndex={-1}
     onClick={closeModals}
     onKeyDown={keyPress}
   >

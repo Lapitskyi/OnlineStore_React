@@ -3,7 +3,8 @@ import {
   SET_GOODS,
   TOGGLE_ISFETCHING,
   SET_CURRENT_PAGE,
-  SET_GOODS_TOTAL_COUNT
+  SET_GOODS_TOTAL_COUNT,
+  SET_PRODUCT_PRICE
 } from '../type';
 
 const initialState = {
@@ -72,8 +73,8 @@ const initialState = {
   product: {
     id: 1,
     name: 'Name product',
-    price: 500,
-    count: 2,
+    price: 0,
+    count: 1,
     photo: 'https://via.placeholder.com/400x350',
     photoCollection: [
       'https://via.placeholder.com/200',
@@ -109,6 +110,17 @@ const goodsReducer = (state = initialState, action) => {
     case SET_PRODUCT: {
       return {
         ...state, product: action.product
+      };
+    }
+    case SET_PRODUCT_PRICE: {
+      return {
+        ...state,
+        product: {
+          ...state.product,
+          count: action.productCount,
+          // price: state.product.count * action.product.price
+          price: action.productCount * 500
+        }
       };
     }
 

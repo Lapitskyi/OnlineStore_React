@@ -11,13 +11,16 @@ import {
   SET_GOODS,
   TOGGLE_ISFETCHING,
   SET_CURRENT_PAGE,
-  SET_GOODS_TOTAL_COUNT
+  SET_GOODS_TOTAL_COUNT,
+  SET_PRODUCT_PRICE
 } from './type';
 
 // goods, product
 export const setGoods = (goods) => ({ type: SET_GOODS, goods });
 export const setProduct = (product) => ({ type: SET_PRODUCT, product });
+export const productPrice = (productCount, product) => ({ type: SET_PRODUCT_PRICE, productCount, product });
 
+// Loader
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_ISFETCHING, isFetching });
 
 // page goods
@@ -53,6 +56,12 @@ export const requestGoods = (currentPage, pageSize) => async (dispatch) => {
 export const requestProduct = (productId) => async (dispatch) => {
   const data = await goodsApi.getProduct(productId);
   dispatch(setProduct(data));
+};
+
+// !!!!!!complete the functionality(Доделать/проверить функционал)
+export const updateProduct = (productId) => async (dispatch) => {
+  const data = await goodsApi.getProduct(productId);
+  dispatch(productPrice(data));
 };
 
 export const requestCurrentPage = (pageNumber, pageSize) => async (dispatch) => {

@@ -11,8 +11,7 @@ const useModal = (initial) => {
     setModal(false);
   };
   const keyPress = (e) => {
-    e.preventDefault();
-    if (e.key === 'Escape' && modal) {
+    if ((e.key || e.which || e.keyCode) === ('27' && 'Escape') && modal) {
       setModal(false);
     }
   };
