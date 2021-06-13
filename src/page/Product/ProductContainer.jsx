@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   useParams, useLocation
 } from 'react-router-dom';
@@ -12,18 +12,21 @@ import Preloader from '../../components/Preloader/Preloader';
 import { getIsFetching, getProduct } from '../../redux/selector';
 import constant from '../../assets/constants/constant';
 
-const ProductContainer = ({
-  isFetching,
-  product,
-  ...props
-}) => {
+const ProductContainer = () => {
+  const { t } = useTranslation();
+
   const { productId } = useParams();
   const { pathname } = useLocation();
 
-  const { t } = useTranslation();
+  const product = useSelector(({ goods }) => getProduct(goods));
+  const isFetching = useSelector(({ goods }) => getIsFetching(goods));
+
+  const dispatch = useDispatch();
+
   requestProduct(productId);
+
   const addProductBasket = (item) => {
-    props.addProductOrder(item);
+    dispatch(addProductOrder(item));
   };
 
   return (
@@ -43,27 +46,14 @@ const ProductContainer = ({
   );
 };
 
-const mapStateToProps = ({ goods }) => ({
-  product: getProduct(goods),
-  isFetching: getIsFetching(goods),
-});
-
 export default compose(
-  connect(mapStateToProps, { addProductOrder, requestProduct, }),
 )(ProductContainer);
 
 ProductContainer.defaultProps = {
-  isFetching: false,
   product: {},
-  addProductOrder: () => {
-  },
-  productPrice: () => {
-  }
 };
 
 ProductContainer.propTypes = {
-  isFetching: PropTypes.bool,
-
   product: PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
@@ -74,6 +64,4 @@ ProductContainer.propTypes = {
     size: PropTypes.shape({}),
     description: PropTypes.arrayOf(PropTypes.string),
   }),
-  addProductOrder: PropTypes.func,
-  productPrice: PropTypes.func,
 };
