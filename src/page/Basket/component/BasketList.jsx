@@ -12,6 +12,7 @@ const BasketList = ({
   orderProduct,
   continueShopping
 }) => {
+  console.log(products);
   return (
     <>
       <ul className="basket__list">
@@ -19,11 +20,11 @@ const BasketList = ({
           <li className="basket__list-item" key={productItem.id}>
             <div className="basket__list-header">
               <div className="basket__list-photo">
-                <img className="basket__list-img" src={`${productItem.product.photo}`} alt="product" />
+                <img className="basket__list-img" src={`${productItem.photo}`} alt="product" />
               </div>
-              <NavLink className="basket__list-link" to={`/goods/:${productItem.product.id}`}>
+              <NavLink className="basket__list-link" to={`/goods/:${productItem.id}`}>
                 <div className="basket__list-name">
-                  {productItem.product.name}
+                  {productItem.name}
                 </div>
               </NavLink>
               <button
@@ -38,9 +39,9 @@ const BasketList = ({
             </div>
 
             <div className="basket__list-footer">
-              <Counter initialCount={productItem.product.count} />
+              <Counter initialCount={productItem.count} />
 
-              <div className="basket__list-total">{`${productItem.product.price} UAH`}</div>
+              <div className="basket__list-total">{`${productItem.price} UAH`}</div>
             </div>
 
           </li>

@@ -14,15 +14,40 @@ const initialState = {
 
 const basketReducer = (state = initialState, action) => {
   switch (action.type) {
+    // Проверить при рабочей базе ADD_PRODUCT_ORDER
     case ADD_PRODUCT_ORDER: {
+      if (state.goodsOrder.products.length !== 0) {
+        return {
+          ...state,
+          goodsOrder: {
+            ...state.goodsOrder,
+            products: state.goodsOrder.products.map((productsItem) => {
+              if (productsItem.id === action.product.id) {
+                return {
+                  ...productsItem,
+                  count: productsItem.count + action.product.count,
+                  price: productsItem.price + action.product.price
+                };
+              }
+              return productsItem;
+            }),
+            goodsTotalPrice:
+              state.goodsOrder.products.reduce((accum, item) => {
+                return accum.price + item.price;
+              }, 0)
+          }
+        };
+      }
+
       return {
         ...state,
         goodsOrder: {
           ...state.goodsOrder,
-          products: [...state.goodsOrder.products, { id: 2, product: action.product }],
+          products: [...state.goodsOrder.products, action.product],
           goodsTotalPrice:
-            [...state.goodsOrder.products]
-              .reduce((prevPrice, currentPrice) => prevPrice + currentPrice.product.price, 0)
+            state.goodsOrder.products.reduce((accum, item) => {
+              return accum.price + item.price;
+            }, 0)
         }
       };
     }

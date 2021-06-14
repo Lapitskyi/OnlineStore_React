@@ -47,6 +47,7 @@ const ProductContainer = () => {
             productNav={constant.productNav}
             priceProduct={priceProduct}
             addProductBasket={addProductBasket}
+            productId={productId}
             pathname={pathname}
           />
         )}

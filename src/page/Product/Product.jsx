@@ -9,7 +9,9 @@ import AboutProduct from './components/AboutProduct';
 import './scss/Product.scss';
 
 const Product = ({
-  product, addProductBasket, pathname, productNav, t, priceProduct
+  product, addProductBasket, pathname, productNav, t, priceProduct,
+  // eslint-disable-next-line no-unused-vars
+  productId
 }) => {
   return (
     <>
@@ -18,7 +20,7 @@ const Product = ({
         <ProductNav productNav={productNav} t={t} />
         <Switch>
           <Route
-            path="/goods/:productId"
+            path={`${pathname}`}
             exact
             render={() => (
               <AboutProduct
@@ -43,7 +45,8 @@ Product.defaultProps = {
   },
   priceProduct: () => {
   },
-  pathname: ''
+  pathname: '',
+  productId: ''
 };
 Product.propTypes = {
   product: PropTypes.shape({
@@ -58,6 +61,7 @@ Product.propTypes = {
   }),
   addProductBasket: PropTypes.func,
   pathname: PropTypes.string,
+  productId: PropTypes.string,
   productNav: PropTypes.arrayOf(PropTypes.object),
   t: PropTypes.func,
   priceProduct: PropTypes.func,
