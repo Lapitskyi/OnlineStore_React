@@ -78,8 +78,6 @@ const AboutProduct = ({
                 ))}
               </ul>
 
-              <Counter initialCount={product.count} priceProduct={priceProduct} />
-
               <div className="product__table-size">
                 Таблица размеров
                 <span
@@ -96,6 +94,8 @@ const AboutProduct = ({
                   alt=""
                 />
               </Modal>
+
+              <Counter initialCount={product.count} priceProduct={priceProduct} />
               <>
                 {!inBasket ? (
                   <button

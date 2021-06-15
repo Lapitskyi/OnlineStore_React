@@ -71,10 +71,11 @@ const initialState = {
     },
   ],
   product: {
-    id: 1,
+    id: 2,
     name: 'Name product',
     price: 0,
     count: 1,
+    quantityStock: 0,
     photo: 'https://via.placeholder.com/400x350',
     photoCollection: [
       'https://via.placeholder.com/200',
