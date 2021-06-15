@@ -9,9 +9,7 @@ import AboutProduct from './components/AboutProduct';
 import './scss/Product.scss';
 
 const Product = ({
-  product, addProductBasket, pathname, productNav, t, priceProduct,
-  // eslint-disable-next-line no-unused-vars
-  productId
+  product, addProductBasket, pathname, productNav, t, priceProduct
 }) => {
   return (
     <>
@@ -45,8 +43,7 @@ Product.defaultProps = {
   },
   priceProduct: () => {
   },
-  pathname: '',
-  productId: ''
+  pathname: ''
 };
 Product.propTypes = {
   product: PropTypes.shape({
@@ -61,7 +58,6 @@ Product.propTypes = {
   }),
   addProductBasket: PropTypes.func,
   pathname: PropTypes.string,
-  productId: PropTypes.string,
   productNav: PropTypes.arrayOf(PropTypes.object),
   t: PropTypes.func,
   priceProduct: PropTypes.func,

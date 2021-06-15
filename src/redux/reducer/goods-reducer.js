@@ -118,9 +118,9 @@ const goodsReducer = (state = initialState, action) => {
         ...state,
         product: {
           ...state.product,
-          count: action.productCount,
+          count: +action.productCount,
           // price: state.product.count * action.product.price
-          price: action.productCount * 500
+          price: +action.productCount * 500
         }
       };
     }
