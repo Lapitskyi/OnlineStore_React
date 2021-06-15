@@ -12,7 +12,6 @@ const Counter = ({ initialCount, priceProduct }) => {
   useEffect(() => {
     priceProduct(count);
   }, [count]);
-
   return (
     <div className="counter">
       <button

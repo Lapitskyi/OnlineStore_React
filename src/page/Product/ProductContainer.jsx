@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { useDispatch, useSelector } from 'react-redux';
@@ -28,9 +28,15 @@ const ProductContainer = () => {
   requestProduct(productId);
 
   const priceProduct = (count) => {
-    dispatch(productPrice(count));
-    dispatch(updateProduct(+productId));
+    if (count !== undefined) {
+      dispatch(productPrice(count));
+      dispatch(updateProduct(+productId));
+    }
   };
+
+  useEffect(() => {
+    priceProduct();
+  }, []);
 
   const addProductBasket = (item) => {
     dispatch(addProductOrder(item));
