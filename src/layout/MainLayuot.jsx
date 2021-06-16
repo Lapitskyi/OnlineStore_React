@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import HeaderContainer from './components/HeaderContainer';
 import AuthContainer from '../page/Auth/AuthContainer';
@@ -38,7 +38,7 @@ const MainLayout = ({
         <Route path="/auth" render={() => <AuthContainer />} />
         <Route path="/cart" render={() => <BasketContainer product="text" />} />
         <Route path="/cabinet" render={() => <Cabinet />} />
-        <Redirect to="/" />
+
       </Switch>
     </div>
     <Footer />

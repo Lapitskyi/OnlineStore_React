@@ -1,9 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { requestCurrentPage, requestGoods, setCurrentPage } from '../../redux/actions';
+import { useDispatch, useSelector } from 'react-redux';
 import Goods from './Goods';
 import Preloader from '../../components/Preloader/Preloader';
 import {
@@ -14,21 +12,23 @@ import {
   getPortionSize,
   getTotalCount
 } from '../../redux/selector';
+import { requestCurrentPage, requestGoods, setCurrentPage } from '../../redux/goods/goods-action';
 
-const GoodsContainer = ({
-  pageSize,
-  portionSize,
-  totalCount,
-  currentPage,
-  goods,
-  isFetching,
-  ...props
-}) => {
+const GoodsContainer = () => {
+  const products = useSelector(({ goods }) => getGoods(goods));
+  const isFetching = useSelector(({ goods }) => getIsFetching(goods));
+  const pageSize = useSelector(({ goods }) => getPageSize(goods));
+  const totalCount = useSelector(({ goods }) => getTotalCount(goods));
+  const currentPage = useSelector(({ goods }) => getCurrentPage(goods));
+  const portionSize = useSelector(({ goods }) => getPortionSize(goods));
+
+  const dispatch = useDispatch();
+
   requestGoods(currentPage, pageSize);
 
   const onPageChanged = (pageNumber) => {
-    props.setCurrentPage(pageNumber);
-    props.requestCurrentPage(pageNumber, pageSize);
+    dispatch(setCurrentPage(pageNumber));
+    dispatch(requestCurrentPage(pageNumber, pageSize));
   };
 
   return (
@@ -37,7 +37,7 @@ const GoodsContainer = ({
         ? <Preloader />
         : (
           <Goods
-            goods={goods}
+            goods={products}
             pageSize={pageSize}
             portionSize={portionSize}
             totalCount={totalCount}
@@ -49,39 +49,12 @@ const GoodsContainer = ({
   );
 };
 
-const mapStateToProps = ({ goods }) => ({
-  goods: getGoods(goods),
-  isFetching: getIsFetching(goods),
-  pageSize: getPageSize(goods),
-  totalCount: getTotalCount(goods),
-  currentPage: getCurrentPage(goods),
-  portionSize: getPortionSize(goods)
-});
-
 export default compose(
-  connect(mapStateToProps,
-    { requestGoods, setCurrentPage, requestCurrentPage }),
   withRouter
 )(GoodsContainer);
 
 GoodsContainer.defaultProps = {
-  goods: [],
-  pageSize: 0,
-  portionSize: 0,
-  totalCount: 0,
-  currentPage: 1,
-  isFetching: false,
-  setCurrentPage: () => {},
-  requestCurrentPage: () => {}
+
 };
 GoodsContainer.propTypes = {
-  pageSize: PropTypes.number,
-  portionSize: PropTypes.number,
-  totalCount: PropTypes.number,
-  currentPage: PropTypes.number,
-  isFetching: PropTypes.bool,
-  goods: PropTypes.arrayOf(PropTypes.object),
-
-  setCurrentPage: PropTypes.func,
-  requestCurrentPage: PropTypes.func
 };

@@ -1,11 +1,11 @@
 import {
   SET_PRODUCT,
   SET_GOODS,
-  TOGGLE_ISFETCHING,
   SET_CURRENT_PAGE,
   SET_GOODS_TOTAL_COUNT,
-  SET_PRODUCT_PRICE
-} from '../type';
+  SET_PRODUCT_PRICE,
+  TOGGLE_IS_FETCHING
+} from './goods-type';
 
 const initialState = {
   goods: [
@@ -73,7 +73,7 @@ const initialState = {
   product: {
     id: 2,
     name: 'Name product',
-    price: 0,
+    price: 500,
     count: 1,
     quantityStock: 0,
     photo: 'https://via.placeholder.com/400x350',
@@ -125,7 +125,7 @@ const goodsReducer = (state = initialState, action) => {
       };
     }
 
-    case TOGGLE_ISFETCHING: {
+    case TOGGLE_IS_FETCHING: {
       return {
         ...state, isFetching: action.isFetching
       };

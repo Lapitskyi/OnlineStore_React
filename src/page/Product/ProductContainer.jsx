@@ -6,9 +6,8 @@ import {
   useParams, useLocation
 } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import {
-  addProductOrder, productPrice, requestProduct, updateProduct
-} from '../../redux/actions';
+import { productPrice, requestProduct, updateProduct } from '../../redux/goods/goods-action';
+import { addProductOrder } from '../../redux/basket/basket-action';
 import Product from './Product';
 import Preloader from '../../components/Preloader/Preloader';
 import { getIsFetching, getProduct } from '../../redux/selector';

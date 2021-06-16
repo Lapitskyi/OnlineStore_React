@@ -6,6 +6,10 @@ export const getProduct = (goods) => (
   goods.product
 );
 
+export const getBasketProduct = (goodsOrder) => (
+  goodsOrder.products
+);
+
 export const getIsFetching = (goods) => (
   goods.isFetching
 );

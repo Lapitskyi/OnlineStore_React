@@ -9,6 +9,7 @@ import Registration from './Registration';
 import Reset from './Reset';
 import './scss/Auth.scss';
 import constant from '../../assets/constants/constant';
+import { getAuthUserData } from '../../redux/auth/auth-action';
 
 const AuthContainer = () => {
   const { t } = useTranslation();
@@ -34,7 +35,7 @@ const mapStateToProps = () => ({
 });
 
 export default compose(
-  connect(mapStateToProps, {})
+  connect(mapStateToProps, { getAuthUserData })
 )(AuthContainer);
 
 AuthContainer.defaultProps = {

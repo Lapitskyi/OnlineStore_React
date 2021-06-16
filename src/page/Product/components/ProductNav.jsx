@@ -9,7 +9,7 @@ const ProductNav = ({ productNav, t }) => (
       {productNav.map((productNavItem) => (
         <li className="productNav__list-item" key={productNavItem.id}>
           <NavLink className="productNav__list-link" to={productNavItem.link}>
-            {t(`${productNavItem.name}`)}
+            {t(productNavItem.name)}
           </NavLink>
         </li>
       ))}

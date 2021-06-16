@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
+import { useSelector } from 'react-redux';
 import Header from './Header';
 import useShowMenu from '../../useHook/useShowMenu';
+import { getBasketProduct } from '../../redux/selector';
 
 const HeaderContainer = ({
-  products,
   theme, lang, toggleLang, toggleTheme
 }) => {
   const { showMenu, onShowMenu, closeMenu } = useShowMenu(false);
-
+  const products = useSelector(({ basket: { goodsOrder } }) => getBasketProduct(goodsOrder));
+  
   return (
     <Header
       products={products}
@@ -25,16 +25,9 @@ const HeaderContainer = ({
   );
 };
 
-const mapStateToProps = ({ basket }) => ({
-  products: basket.goodsOrder.products
-});
-
-export default compose(
-  connect(mapStateToProps, {})
-)(HeaderContainer);
+export default HeaderContainer;
 
 HeaderContainer.defaultProps = {
-  products: [],
   theme: false,
   lang: [],
   toggleTheme: () => {
@@ -44,8 +37,6 @@ HeaderContainer.defaultProps = {
 };
 
 HeaderContainer.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.object),
-
   theme: PropTypes.bool,
   lang: PropTypes.arrayOf(PropTypes.object),
   toggleTheme: PropTypes.func,

@@ -8,8 +8,7 @@ import useRating from '../../useHook/useRating';
 const Rating = ({ pathProduct, rating }) => {
   const path = `${pathProduct}`;
   const { ratingCount, addRating } = useRating(rating || 0);
-  const stars = Array.from({ length: 5 }, () => '🟊');
-  console.log(stars);
+  // const stars = Array.from({ length: 5 }, () => '🟊');
 
   return (
     <div className="rating">

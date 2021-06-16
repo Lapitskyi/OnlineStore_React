@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import Basket from './Basket';
-import { deleteProductOrder } from '../../redux/actions';
 import { getGoodsOrder } from '../../redux/selector';
+import { deleteProductOrder } from '../../redux/basket/basket-action';
 
 const BasketContainer = ({ goodsOrder, ...props }) => {
   const deleteProduct = (productId) => {

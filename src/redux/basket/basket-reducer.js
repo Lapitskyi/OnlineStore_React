@@ -3,7 +3,7 @@ import {
   UPDATE_PRODUCT_ORDER,
   DELETE_PRODUCT_ORDER,
   TOTAL_PRODUCT
-} from '../type';
+} from './basket-type';
 
 const initialState = {
   goodsOrder: {
