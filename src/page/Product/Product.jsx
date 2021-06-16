@@ -11,7 +11,6 @@ import './scss/Product.scss';
 const Product = ({
   product, addProductBasket, pathname, productNav, t, priceProduct
 }) => {
-  console.log(product);
   return (
     <>
       <div className="container">

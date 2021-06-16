@@ -19,12 +19,12 @@ const SliderSwiper = ({ slider }) => {
   return (
     <Swiper
       spaceBetween={10}
-      slidesPerView={2}
+      slidesPerView={1}
       navigation
       pagination={{ clickable: true }}
       breakpoints={{
         992: {
-          slidesPerView: 3,
+          slidesPerView: 1,
         },
         768: {
           slidesPerView: 1,

@@ -1,27 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
+import cn from 'classnames';
 
 import HeaderContainer from './components/HeaderContainer';
 import AuthContainer from '../page/Auth/AuthContainer';
 import GoodsContainer from '../page/Goods/GoodsContainer';
 import BasketContainer from '../page/Basket/BasketConteiner';
 import ProductContainer from '../page/Product/ProductContainer';
-
 import Footer from './components/Footer';
 import Delivery from '../page/Delivery/Delivery';
 import About from '../page/About/About';
 import Home from '../page/Home/Home';
 import Cabinet from '../page/Profile/Cabinet';
+
 import './scss/MainLayout.scss';
 
 const MainLayout = ({
   theme, lang, toggleLang, toggleTheme
 }) => (
-  <div className={!theme
-    ? 'wrapper wrapper__white'
-    : 'wrapper wrapper__dark'}
-  >
+  <div className={cn({ 'wrapper wrapper__white': !theme, 'wrapper wrapper__dark': theme })}>
     <HeaderContainer
       theme={theme}
       lang={lang}

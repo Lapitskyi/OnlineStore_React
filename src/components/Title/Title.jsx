@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './scss/Title.scss';
 
 export const H1 = ({ title }) => (
   <div className="title">{title}</div>
 );
 
 export const H2 = ({ title }) => (
-  <div className="title">{title}</div>
+  <div className="title__h2">{title}</div>
 );
 
 const propTypes = {

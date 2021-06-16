@@ -117,6 +117,28 @@ const constant = {
       name: 'productNav.feedback',
       link: '/feedback'
     },
+  ],
+  navSideBar: [
+    {
+      id: 1,
+      name: 'navSideBar.product category1',
+      link: '/product category1'
+    },
+    {
+      id: 2,
+      name: 'navSideBar.product category2',
+      link: '/product category2'
+    },
+    {
+      id: 3,
+      name: 'navSideBar.product category3',
+      link: '/product category3'
+    },
+    {
+      id: 4,
+      name: 'navSideBar.product category4',
+      link: '/product category4'
+    },
   ]
 };
 

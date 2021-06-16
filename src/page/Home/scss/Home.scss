@@ -1,5 +1,9 @@
-.popular {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+.home {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+  grid-template-areas:
+    "slidear homeContent";
+  grid-template-rows: 1fr;
+  min-height: 100vh;
+  grid-gap: 20px;
 }
