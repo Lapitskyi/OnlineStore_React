@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import Logo from '../../components/Logo/Logo';
 import LinkAuth from './components/LinkAuth';
 import './scss/Registration.scss';
+import AuthSocial from './components/AuthSocial';
 
 const Registration = ({
   registration: {
@@ -80,6 +81,7 @@ const Registration = ({
               </form>
             )}
           </Formik>
+          <AuthSocial />
           <LinkAuth link={link} t={t} />
         </div>
       </div>
