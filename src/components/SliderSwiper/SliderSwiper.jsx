@@ -1,6 +1,6 @@
 import React from 'react';
 import SwiperCore, {
-  Navigation, Pagination, A11y
+  Navigation, Pagination, A11y,
 } from 'swiper';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -55,19 +55,19 @@ export default SliderSwiper;
 SliderSwiper.defaultProps = {
   slider: [
     {
-      id: 1, img: 'https://via.placeholder.com/500', alt: 'promo', path: ''
+      id: 1, img: 'https://via.placeholder.com/500', alt: 'promo', path: '',
     },
     {
-      id: 2, img: 'https://via.placeholder.com/700', alt: 'promo', path: ''
+      id: 2, img: 'https://via.placeholder.com/700', alt: 'promo', path: '',
     },
     {
-      id: 3, img: 'https://via.placeholder.com/800', alt: 'promo', path: ''
+      id: 3, img: 'https://via.placeholder.com/800', alt: 'promo', path: '',
     },
     {
-      id: 4, img: 'https://via.placeholder.com/1000', alt: 'promo', path: ''
+      id: 4, img: 'https://via.placeholder.com/1000', alt: 'promo', path: '',
     },
-  ]
+  ],
 };
 SliderSwiper.propTypes = {
-  slider: PropTypes.arrayOf(PropTypes.object)
+  slider: PropTypes.arrayOf(PropTypes.object),
 };

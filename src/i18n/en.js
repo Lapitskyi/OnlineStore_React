@@ -21,11 +21,14 @@ export default {
   nav: {
     home: 'Home',
     aboutMe: 'About me',
-    goods: 'Goods'
+    goods: 'Goods',
   },
   productNav: {
     about: 'About product',
     characteristics: 'Characteristics',
-    feedback: 'feedback'
-  }
+    feedback: 'feedback',
+  },
+  navSideBar: {
+    name: 'Category',
+  },
 };

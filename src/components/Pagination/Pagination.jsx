@@ -7,7 +7,7 @@ const Pagination = ({
   totalCount,
   currentPage,
   onPageChanged,
-  portionSize
+  portionSize,
 }) => {
   const [portionNumber, setPortionNumber] = useState(Math.ceil(currentPage / portionSize));
 
@@ -75,14 +75,14 @@ Pagination.defaultProps = {
   currentPage: 0,
   portionSize: 0,
   onPageChanged: () => {
-  }
+  },
 };
 Pagination.propTypes = {
   pageSize: PropTypes.number,
   portionSize: PropTypes.number,
   totalCount: PropTypes.number,
   currentPage: PropTypes.number,
-  onPageChanged: PropTypes.func
+  onPageChanged: PropTypes.func,
 };
 
 export default Pagination;

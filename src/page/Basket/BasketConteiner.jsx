@@ -32,22 +32,22 @@ const BasketContainer = ({ goodsOrder, ...props }) => {
 };
 
 const mapStateToProps = ({ basket }) => ({
-  goodsOrder: getGoodsOrder(basket)
+  goodsOrder: getGoodsOrder(basket),
 });
 
 export default compose(
-  connect(mapStateToProps, { deleteProductOrder })
+  connect(mapStateToProps, { deleteProductOrder }),
 )(BasketContainer);
 
 BasketContainer.defaultProps = {
   goodsOrder: {},
   deleteProductOrder: () => {
-  }
+  },
 };
 BasketContainer.propTypes = {
   goodsOrder: PropTypes.shape({
     product: PropTypes.arrayOf(PropTypes.object),
-    goodsTotalPrice: PropTypes.number
+    goodsTotalPrice: PropTypes.number,
   }),
-  deleteProductOrder: PropTypes.func
+  deleteProductOrder: PropTypes.func,
 };

@@ -10,9 +10,9 @@ const Reset = ({
   reset: {
     input,
     name,
-    link
+    link,
   },
-  t
+  t,
 
 }) => {
   const validationSchema = Yup.object({
@@ -29,7 +29,7 @@ const Reset = ({
           <h2 className="auth__title">{t(`${name}`)}</h2>
           <Formik
             initialValues={{
-              email: ''
+              email: '',
             }}
             validateOnBlur
             validationSchema={validationSchema}
@@ -38,7 +38,7 @@ const Reset = ({
             }}
           >
             {({
-              values, errors, touched, handleChange, handleBlur, isValid, handleSubmit, dirty
+              values, errors, touched, handleChange, handleBlur, isValid, handleSubmit, dirty,
             }) => (
 
               <form className="auth__form">
@@ -82,17 +82,17 @@ Reset.defaultProps = {
   reset: {
     input: [],
     name: '',
-    link: []
+    link: [],
   },
-  t: () => {}
+  t: () => {},
 
 };
 Reset.propTypes = {
   reset: PropTypes.shape({
     input: PropTypes.arrayOf(PropTypes.object),
     name: PropTypes.string,
-    link: PropTypes.arrayOf(PropTypes.object)
+    link: PropTypes.arrayOf(PropTypes.object),
   }),
-  t: PropTypes.func
+  t: PropTypes.func,
 };
 export default Reset;

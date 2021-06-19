@@ -10,18 +10,18 @@ const useToggleLang = () => {
     {
       id: 'en',
       lang: true,
-      imgLang: en
+      imgLang: en,
     },
     {
       id: 'ua',
       lang: false,
-      imgLang: ua
+      imgLang: ua,
     },
     {
       id: 'ru',
       lang: false,
-      imgLang: ru
-    }
+      imgLang: ru,
+    },
   ]);
   const { i18n } = useTranslation();
 
@@ -33,22 +33,22 @@ const useToggleLang = () => {
         if (itemLang.id === id) {
           return {
             ...itemLang,
-            lang: true
+            lang: true,
           };
         }
         if (itemLang.id !== id) {
           return {
             ...itemLang,
-            lang: false
+            lang: false,
           };
         }
         return itemLang;
-      })
+      }),
     );
   };
   return {
     lang,
-    toggleLang
+    toggleLang,
   };
 };
 export default useToggleLang;

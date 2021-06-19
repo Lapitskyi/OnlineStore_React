@@ -14,7 +14,7 @@ const Header = ({
   lang,
   toggleLang,
   toggleTheme,
-  products
+  products,
 }) => {
   return (
     <section className="header">
@@ -59,7 +59,7 @@ Header.propTypes = {
   theme: PropTypes.bool,
   lang: PropTypes.arrayOf(PropTypes.object),
   toggleTheme: PropTypes.func,
-  toggleLang: PropTypes.func
+  toggleLang: PropTypes.func,
 };
 
 export default Header;

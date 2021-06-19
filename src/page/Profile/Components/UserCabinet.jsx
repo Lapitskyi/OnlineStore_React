@@ -9,9 +9,9 @@ const UserCabinet = ({
     id,
     lastName,
     firstName,
-    email
+    email,
   },
-  cabinetNav
+  cabinetNav,
 
 }) => (
 
@@ -44,28 +44,28 @@ UserCabinet.defaultProps = {
     lastName: 'LastName',
     firstName: 'firstName',
     email: 'mail@.com.ua',
-    role: 'ADMIN'
+    role: 'ADMIN',
   },
   cabinetNav: [
     {
-      id: '1', name: 'Мои заказы', icon: '', path: '/cabinet/order'
+      id: '1', name: 'Мои заказы', icon: '', path: '/cabinet/order',
     },
     {
-      id: '2', name: 'Список желаний', icon: '', path: '/cabinet/withlist'
+      id: '2', name: 'Список желаний', icon: '', path: '/cabinet/withlist',
     },
     {
-      id: '3', name: 'Просмотренные товары', icon: '', path: '/cabinet/recently-viewed'
+      id: '3', name: 'Просмотренные товары', icon: '', path: '/cabinet/recently-viewed',
     },
     {
-      id: '4', name: 'Розсылка', icon: '', path: '/cabinet/subscribes'
+      id: '4', name: 'Розсылка', icon: '', path: '/cabinet/subscribes',
     },
     {
-      id: '5', name: 'Мои отзывы', icon: '', path: '/cabinet/reviews'
+      id: '5', name: 'Мои отзывы', icon: '', path: '/cabinet/reviews',
     },
     {
-      id: '6', name: 'Мои письма', icon: '', path: '/cabinet/message'
+      id: '6', name: 'Мои письма', icon: '', path: '/cabinet/message',
     },
-  ]
+  ],
 };
 UserCabinet.propTypes = {
   cabinetNav: PropTypes.arrayOf(PropTypes.object),
@@ -75,7 +75,7 @@ UserCabinet.propTypes = {
     firstName: PropTypes.string,
     email: PropTypes.string,
     role: PropTypes.string,
-  })
+  }),
 };
 
 export default UserCabinet;

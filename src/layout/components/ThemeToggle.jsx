@@ -5,7 +5,7 @@ import sprite from '../../assets/spriteSvg/sprite.svg';
 
 const ThemeToggle = ({
   theme,
-  toggleTheme
+  toggleTheme,
 }) => {
   return (
     <div className="theme">
@@ -34,12 +34,12 @@ const ThemeToggle = ({
 ThemeToggle.defaultProps = {
   theme: false,
   toggleTheme: () => {
-  }
+  },
 
 };
 ThemeToggle.propTypes = {
   theme: PropTypes.bool,
-  toggleTheme: PropTypes.func
+  toggleTheme: PropTypes.func,
 
 };
 

@@ -7,7 +7,7 @@ const AdminCabinet = ({
     id,
     lastName,
     firstName,
-    email
+    email,
   },
 
 }) => (
@@ -45,8 +45,8 @@ AdminCabinet.defaultProps = {
     lastName: 'LastName',
     firstName: 'firstName',
     email: 'mail@.com.ua',
-    role: 'user'
-  }
+    role: 'user',
+  },
 };
 AdminCabinet.propTypes = {
 
@@ -56,6 +56,6 @@ AdminCabinet.propTypes = {
     firstName: PropTypes.string,
     email: PropTypes.string,
     role: PropTypes.string,
-  })
+  }),
 };
 export default AdminCabinet;

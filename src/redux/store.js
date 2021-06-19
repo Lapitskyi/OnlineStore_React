@@ -7,7 +7,7 @@ import basketReducer from './basket/basket-reducer';
 const reducers = combineReducers({
   goods: goodsReducer,
   basket: basketReducer,
-  auth: authReducer
+  auth: authReducer,
 });
 
 const store = createStore(reducers, applyMiddleware(thunkMiddleware));

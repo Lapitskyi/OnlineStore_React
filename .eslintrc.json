@@ -5,12 +5,26 @@
     "es6": true,
     "jest/globals": true
   },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "project": "./tsconfig.eslint.json"
+  },
   "plugins": [
+    "@typescript-eslint",
+    "react-hooks",
     "jest"
   ],
-  "parser": "babel-eslint",
-  "extends": "airbnb",
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "airbnb-typescript"
+  ],
   "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/prop-types": "off",
     "react/jsx-filename-extension": 0,
     "arrow-body-style": 0,
     "react/prefer-stateless-function": 0,
@@ -27,5 +41,11 @@
     "jsx-a11y/label-has-for": 0,
     "class-methods-use-this": 0,
     "jsx-a11y/no-autofocus": 0
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    }
   }
 }

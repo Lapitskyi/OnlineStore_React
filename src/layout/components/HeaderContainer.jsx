@@ -6,7 +6,7 @@ import useShowMenu from '../../useHook/useShowMenu';
 import { getBasketProduct } from '../../redux/selector';
 
 const HeaderContainer = ({
-  theme, lang, toggleLang, toggleTheme
+  theme, lang, toggleLang, toggleTheme,
 }) => {
   const { showMenu, onShowMenu, closeMenu } = useShowMenu(false);
   const products = useSelector(({ basket: { goodsOrder } }) => getBasketProduct(goodsOrder));
@@ -33,12 +33,12 @@ HeaderContainer.defaultProps = {
   toggleTheme: () => {
   },
   toggleLang: () => {
-  }
+  },
 };
 
 HeaderContainer.propTypes = {
   theme: PropTypes.bool,
   lang: PropTypes.arrayOf(PropTypes.object),
   toggleTheme: PropTypes.func,
-  toggleLang: PropTypes.func
+  toggleLang: PropTypes.func,
 };

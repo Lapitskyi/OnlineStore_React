@@ -18,7 +18,7 @@ const useCounter = (initial) => {
   };
 
   return {
-    count, increment, decrement, changeValue
+    count, increment, decrement, changeValue,
   };
 };
 

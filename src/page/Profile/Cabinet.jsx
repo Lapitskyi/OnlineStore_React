@@ -12,8 +12,8 @@ const Cabinet = ({
     lastName,
     firstName,
     email,
-    role
-  }
+    role,
+  },
 
 }) => {
   return (
@@ -26,7 +26,7 @@ const Cabinet = ({
                 {role === 'ADMIN'
                 && (
                 <AdminCabinet user={{
-                  id, lastName, firstName, email 
+                  id, lastName, firstName, email, 
                 }}
                 />
                 )}
@@ -34,7 +34,7 @@ const Cabinet = ({
                 {role === 'USER'
                 && (
                   <UserCabinet user={{
-                    id, lastName, firstName, email
+                    id, lastName, firstName, email,
                   }}
                   />
                 )}
@@ -58,8 +58,8 @@ Cabinet.defaultProps = {
     lastName: 'LastName',
     firstName: 'firstName',
     email: 'mail@.com.ua',
-    role: 'USER'
-  }
+    role: 'USER',
+  },
 };
 Cabinet.propTypes = {
   user: PropTypes.shape({
@@ -68,7 +68,7 @@ Cabinet.propTypes = {
     firstName: PropTypes.string,
     email: PropTypes.string,
     role: PropTypes.string,
-  })
+  }),
 };
 
 export default Cabinet;

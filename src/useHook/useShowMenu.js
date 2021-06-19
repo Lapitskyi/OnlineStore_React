@@ -12,7 +12,7 @@ const useShowMenu = (initial) => {
   return {
     showMenu,
     onShowMenu,
-    closeMenu
+    closeMenu,
   };
 };
 

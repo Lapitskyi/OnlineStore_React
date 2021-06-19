@@ -13,7 +13,7 @@ const NavAction = ({
   lang,
   toggleLang,
   toggleTheme,
-  isAuth
+  isAuth,
 }) => (
   <ul className="action__list">
     <li className="action__list-item">
@@ -56,7 +56,7 @@ NavAction.defaultProps = {
   },
   toggleLang: () => {
   },
-  isAuth: false
+  isAuth: false,
 };
 NavAction.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object),

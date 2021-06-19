@@ -18,6 +18,6 @@ const promotionsApi = {
       .then((response) => {
         return response.data;
       });
-  }
+  },
 };
 export default promotionsApi;

@@ -12,6 +12,6 @@ const authAPI = {
       .then((response) => {
         return response.data;
       });
-  }
+  },
 };
 export default authAPI;

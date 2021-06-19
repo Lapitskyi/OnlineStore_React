@@ -10,7 +10,7 @@ import {
   getIsFetching,
   getPageSize,
   getPortionSize,
-  getTotalCount
+  getTotalCount,
 } from '../../redux/selector';
 import { requestCurrentPage, requestGoods, setCurrentPage } from '../../redux/goods/goods-action';
 
@@ -50,7 +50,7 @@ const GoodsContainer = () => {
 };
 
 export default compose(
-  withRouter
+  withRouter,
 )(GoodsContainer);
 
 GoodsContainer.defaultProps = {

@@ -20,7 +20,7 @@ const LinkAuth = ({ link, t }) => {
 
 LinkAuth.defaultProps = {
   link: [],
-  t: () => {}
+  t: () => {},
 };
 LinkAuth.propTypes = {
   link: PropTypes.arrayOf(PropTypes.object),

@@ -9,7 +9,7 @@ import AboutProduct from './components/AboutProduct';
 import './scss/Product.scss';
 
 const Product = ({
-  product, addProductBasket, pathname, productNav, t, priceProduct
+  product, addProductBasket, pathname, productNav, t, priceProduct,
 }) => {
   return (
     <>
@@ -43,7 +43,7 @@ Product.defaultProps = {
   },
   priceProduct: () => {
   },
-  pathname: ''
+  pathname: '',
 };
 Product.propTypes = {
   product: PropTypes.shape({

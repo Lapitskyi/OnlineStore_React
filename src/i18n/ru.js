@@ -21,11 +21,14 @@ export default {
   nav: {
     home: 'Главная',
     aboutMe: 'Обо мне',
-    goods: 'Товар'
+    goods: 'Товар',
   },
   productNav: {
     about: 'О товаре',
     characteristics: 'Характеристики',
-    feedback: 'Оставить отзыв'
-  }
+    feedback: 'Оставить отзыв',
+  },
+  navSideBar: {
+    name: 'Категория',
+  },
 };

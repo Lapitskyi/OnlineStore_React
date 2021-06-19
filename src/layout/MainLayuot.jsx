@@ -17,7 +17,7 @@ import Cabinet from '../page/Profile/Cabinet';
 import './scss/MainLayout.scss';
 
 const MainLayout = ({
-  theme, lang, toggleLang, toggleTheme
+  theme, lang, toggleLang, toggleTheme,
 }) => (
   <div className={cn({ 'wrapper wrapper__white': !theme, 'wrapper wrapper__dark': theme })}>
     <HeaderContainer
@@ -50,13 +50,13 @@ MainLayout.defaultProps = {
   toggleTheme: () => {
   },
   toggleLang: () => {
-  }
+  },
 };
 
 MainLayout.propTypes = {
   theme: PropTypes.bool,
   lang: PropTypes.arrayOf(PropTypes.object),
   toggleTheme: PropTypes.func,
-  toggleLang: PropTypes.func
+  toggleLang: PropTypes.func,
 };
 export default MainLayout;

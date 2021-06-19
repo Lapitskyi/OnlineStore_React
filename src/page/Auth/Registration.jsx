@@ -11,9 +11,9 @@ const Registration = ({
   registration: {
     input,
     name,
-    link
+    link,
   },
-  t
+  t,
 }) => {
   const validationSchema = Yup.object({
     email: Yup.string()
@@ -39,7 +39,7 @@ const Registration = ({
             initialValues={{
               email: '',
               password: '',
-              confirmPassword: ''
+              confirmPassword: '',
             }}
             validateOnBlur
             validationSchema={validationSchema}
@@ -48,7 +48,7 @@ const Registration = ({
             }}
           >
             {({
-              values, errors, touched, handleChange, handleBlur, isValid, handleSubmit, dirty
+              values, errors, touched, handleChange, handleBlur, isValid, handleSubmit, dirty,
             }) => (
 
               <form className="auth__form">
@@ -93,17 +93,17 @@ Registration.defaultProps = {
   registration: {
     input: [],
     name: '',
-    link: []
+    link: [],
   },
-  t: () => {}
+  t: () => {},
 };
 
 Registration.propTypes = {
   registration: PropTypes.shape({
     input: PropTypes.arrayOf(PropTypes.object),
     name: PropTypes.string,
-    link: PropTypes.arrayOf(PropTypes.object)
+    link: PropTypes.arrayOf(PropTypes.object),
   }),
-  t: PropTypes.func
+  t: PropTypes.func,
 };
 export default Registration;

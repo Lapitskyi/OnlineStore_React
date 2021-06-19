@@ -35,7 +35,7 @@ const mapStateToProps = () => ({
 });
 
 export default compose(
-  connect(mapStateToProps, { getAuthUserData })
+  connect(mapStateToProps, { getAuthUserData }),
 )(AuthContainer);
 
 AuthContainer.defaultProps = {

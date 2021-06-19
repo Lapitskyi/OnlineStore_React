@@ -7,7 +7,7 @@ const useToggleTheme = (initial) => {
   };
   return {
     theme,
-    toggleTheme
+    toggleTheme,
   };
 };
 

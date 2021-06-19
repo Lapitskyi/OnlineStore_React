@@ -11,7 +11,7 @@ const Goods = ({
   portionSize,
   totalCount,
   currentPage,
-  onPageChanged
+  onPageChanged,
 }) => {
   return (
     <section className="goods">
@@ -40,7 +40,7 @@ Goods.defaultProps = {
   portionSize: 10,
   totalCount: 0,
   currentPage: 1,
-  onPageChanged: () => {}
+  onPageChanged: () => {},
 };
 
 Goods.propTypes = {
@@ -49,7 +49,7 @@ Goods.propTypes = {
   portionSize: PropTypes.number,
   totalCount: PropTypes.number,
   currentPage: PropTypes.number,
-  onPageChanged: PropTypes.func
+  onPageChanged: PropTypes.func,
 };
 
 export default Goods;

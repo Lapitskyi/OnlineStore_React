@@ -1,2 +1,0 @@
-export const SET_PROMOTIONS = 'SET_PROMOTIONS';
-export const SET_NEW_PRODUCTS = 'SET_NEW_PRODUCTS';

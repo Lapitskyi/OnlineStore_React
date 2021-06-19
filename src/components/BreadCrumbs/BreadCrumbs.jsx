@@ -24,7 +24,7 @@ const BreadCrumbs = ({ pathname, name }) => (
 
 BreadCrumbs.defaultProps = {
   pathname: '',
-  name: ''
+  name: '',
 };
 BreadCrumbs.propTypes = {
   pathname: PropTypes.string,

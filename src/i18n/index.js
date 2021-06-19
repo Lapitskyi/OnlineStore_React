@@ -9,7 +9,7 @@ import ru from './ru';
 const resources = {
   en: { translation: en },
   ua: { translation: ua },
-  ru: { translation: ru }
+  ru: { translation: ru },
 };
 
 i18n
@@ -21,11 +21,11 @@ i18n
     fallbackLng: 'en',
     debug: false,
     react: {
-      useSuspense: false
+      useSuspense: false,
     },
     detection: {
       order: ['cookie', 'localStorage'],
-      caches: ['cookie', 'localStorage']
-    }
+      caches: ['cookie', 'localStorage'],
+    },
   });
 export default i18n;

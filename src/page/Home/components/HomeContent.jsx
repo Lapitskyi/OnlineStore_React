@@ -33,19 +33,19 @@ const HomeContent = ({ popular }) => (
 HomeContent.defaultProps = {
   popular: [
     {
-      id: 1, img: 'https://via.placeholder.com/500', alt: 'promo', path: '', name: 'product', price: 500, val: 'грн'
+      id: 1, img: 'https://via.placeholder.com/500', alt: 'promo', path: '', name: 'product', price: 500, val: 'грн',
     },
     {
-      id: 2, img: 'https://via.placeholder.com/700', alt: 'promo', path: '', name: 'product', price: 600, val: 'грн'
+      id: 2, img: 'https://via.placeholder.com/700', alt: 'promo', path: '', name: 'product', price: 600, val: 'грн',
     },
     {
-      id: 3, img: 'https://via.placeholder.com/800', alt: 'promo', path: '', name: 'product', price: 700, val: 'грн'
+      id: 3, img: 'https://via.placeholder.com/800', alt: 'promo', path: '', name: 'product', price: 700, val: 'грн',
     },
     {
-      id: 4, img: 'https://via.placeholder.com/1000', alt: 'promo', path: '', name: 'product', price: 800, val: 'грн'
+      id: 4, img: 'https://via.placeholder.com/1000', alt: 'promo', path: '', name: 'product', price: 800, val: 'грн',
     },
     {
-      id: 5, img: 'https://via.placeholder.com/1000', alt: 'promo', path: '', name: 'product', price: 800, val: 'грн'
+      id: 5, img: 'https://via.placeholder.com/1000', alt: 'promo', path: '', name: 'product', price: 800, val: 'грн',
     },
   ],
 };

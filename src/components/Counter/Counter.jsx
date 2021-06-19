@@ -6,7 +6,7 @@ import './scss/useCounter.scss';
 
 const Counter = ({ initialCount, priceProduct }) => {
   const {
-    count, increment, decrement, changeValue
+    count, increment, decrement, changeValue,
   } = useCounter(initialCount);
 
   useEffect(() => {
@@ -50,11 +50,11 @@ const Counter = ({ initialCount, priceProduct }) => {
 
 Counter.defaultProps = {
   initialCount: 1,
-  priceProduct: () => {}
+  priceProduct: () => {},
 };
 Counter.propTypes = {
   initialCount: PropTypes.number,
-  priceProduct: PropTypes.func
+  priceProduct: PropTypes.func,
 };
 
 export default Counter;

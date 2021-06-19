@@ -10,7 +10,7 @@ const BasketList = ({
   goodsTotalPrice,
   deleteProduct,
   orderProduct,
-  continueShopping
+  continueShopping,
 }) => {
   console.log(products);
   return (

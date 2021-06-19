@@ -9,12 +9,12 @@ import useModal from '../../../useHook/useModal';
 import Counter from '../../../components/Counter/Counter';
 
 const AboutProduct = ({
-  product, addProductBasket, priceProduct
+  product, addProductBasket, priceProduct,
 }) => {
   const [inBasket, setInBasket] = useState(false);
   const [poster, setPoster] = useState(product.photo);
   const {
-    modal, closeModals, openModal, keyPress
+    modal, closeModals, openModal, keyPress,
   } = useModal(false);
 
   const chooseSize = (sizeItem) => {

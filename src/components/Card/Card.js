@@ -11,7 +11,7 @@ const Card = ({
   cardAlt,
   cardName, 
   cardPrice,
-  cardVal
+  cardVal,
 }) => (
   <div className="card">
     <div className="card__header">
@@ -42,7 +42,7 @@ Card.defaultProps = {
   cardAlt: '',
   cardName: '',
   cardPrice: 1,
-  cardVal: '\u20B4'
+  cardVal: '\u20B4',
 };
 Card.propTypes = {
   cardPath: PropTypes.string,
@@ -50,7 +50,7 @@ Card.propTypes = {
   cardAlt: PropTypes.string,
   cardName: PropTypes.string,
   cardPrice: PropTypes.number,
-  cardVal: PropTypes.string
+  cardVal: PropTypes.string,
 };
 
 export default Card;

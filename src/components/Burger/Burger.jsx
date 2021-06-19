@@ -11,11 +11,11 @@ const Burger = ({ showMenu, onShowMenu }) => (
 Burger.defaultProps = {
   showMenu: false,
   onShowMenu: () => {
-  }
+  },
 };
 Burger.propTypes = {
   showMenu: PropTypes.bool,
-  onShowMenu: PropTypes.func
+  onShowMenu: PropTypes.func,
 };
 
 export default Burger;

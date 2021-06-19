@@ -81,11 +81,11 @@ const Rating = ({ pathProduct, rating }) => {
 
 Rating.defaultProps = {
   pathProduct: '',
-  rating: 0
+  rating: 0,
 };
 Rating.propTypes = {
   pathProduct: PropTypes.string,
-  rating: PropTypes.number
+  rating: PropTypes.number,
 };
 
 export default Rating;

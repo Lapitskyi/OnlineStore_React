@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const LangToggle = ({
   toggleLang,
-  lang
+  lang,
 }) => {
   const langSelect = lang.filter((item) => item.lang);
   const langNotSelect = lang.filter((item) => !item.lang);
@@ -35,12 +35,12 @@ const LangToggle = ({
 LangToggle.defaultProps = {
   toggleLang: () => {
   },
-  lang: []
+  lang: [],
 };
 
 LangToggle.propTypes = {
   toggleLang: PropTypes.func,
-  lang: PropTypes.arrayOf(PropTypes.object)
+  lang: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default LangToggle;

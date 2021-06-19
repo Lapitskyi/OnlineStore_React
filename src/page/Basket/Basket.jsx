@@ -7,7 +7,7 @@ import BasketEmpty from './component/BasketEmpty';
 const Basket = ({
   goodsOrder: {
     products,
-    goodsTotalPrice
+    goodsTotalPrice,
   },
   deleteProduct,
   orderProduct,
@@ -42,7 +42,7 @@ const Basket = ({
 Basket.defaultProps = {
   goodsOrder: {
     products: [],
-    goodsTotalPrice: null
+    goodsTotalPrice: null,
   },
   deleteProduct: () => {
   },
@@ -55,7 +55,7 @@ Basket.defaultProps = {
 Basket.propTypes = {
   goodsOrder: PropTypes.shape({
     products: PropTypes.arrayOf(PropTypes.object),
-    goodsTotalPrice: PropTypes.number
+    goodsTotalPrice: PropTypes.number,
   }),
   deleteProduct: PropTypes.func,
   orderProduct: PropTypes.func,

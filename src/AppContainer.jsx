@@ -21,7 +21,7 @@ const AppContainer = () => {
 const mapStateToProps = () => ({});
 
 export default compose(
-  connect(mapStateToProps, {})
+  connect(mapStateToProps, {}),
 )(AppContainer);
 
 AppContainer.defaultProps = {

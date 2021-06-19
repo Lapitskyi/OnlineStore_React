@@ -10,7 +10,7 @@ import '../scss/Menu.scss';
 const Menu = ({
   showMenu,
   onShowMenu,
-  closeMenu
+  closeMenu,
 }) => {
   const { t } = useTranslation();
   return (
@@ -40,12 +40,12 @@ Menu.defaultProps = {
   onShowMenu: () => {
   },
   closeMenu: () => {
-  }
+  },
 };
 Menu.propTypes = {
   showMenu: PropTypes.bool,
   onShowMenu: PropTypes.func,
-  closeMenu: PropTypes.func
+  closeMenu: PropTypes.func,
 };
 
 export default Menu;

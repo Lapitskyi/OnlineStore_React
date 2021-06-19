@@ -1,13 +1,6 @@
-import {
-  SET_PRODUCT,
-  SET_GOODS,
-  SET_CURRENT_PAGE,
-  SET_GOODS_TOTAL_COUNT,
-  SET_PRODUCT_PRICE,
-  TOGGLE_IS_FETCHING
-} from './goods-type';
+import { GoodsState, GoodsActionType, GoodsAction } from './goods-type';
 
-const initialState = {
+const initialState:GoodsState = {
   goods: [
     {
       id: 1,
@@ -17,7 +10,7 @@ const initialState = {
       photo: 'https://via.placeholder.com/400x350',
       photoCollection: ['img1', 'img2', 'img3', 'img4'],
       size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
-      description: {}
+      description: {},
     },
     {
       id: 2,
@@ -27,7 +20,7 @@ const initialState = {
       photo: 'https://via.placeholder.com/400',
       photoCollection: ['img1', 'img2', 'img3', 'img4'],
       size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
-      description: {}
+      description: {},
     },
     {
       id: 3,
@@ -37,7 +30,7 @@ const initialState = {
       photo: 'https://via.placeholder.com/350',
       photoCollection: ['img1', 'img2', 'img3', 'img4'],
       size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
-      description: {}
+      description: {},
     },
     {
       id: 4,
@@ -47,7 +40,7 @@ const initialState = {
       photo: 'https://via.placeholder.com/400x350',
       photoCollection: ['img1', 'img2', 'img3', 'img4'],
       size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
-      description: {}
+      description: {},
     },
     {
       id: 5,
@@ -57,7 +50,7 @@ const initialState = {
       photo: 'https://via.placeholder.com/400',
       photoCollection: ['img1', 'img2', 'img3', 'img4'],
       size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
-      description: {}
+      description: {},
     },
     {
       id: 6,
@@ -67,7 +60,7 @@ const initialState = {
       photo: 'https://via.placeholder.com/350',
       photoCollection: ['img1', 'img2', 'img3', 'img4'],
       size: ['s', 'm', 'l', 'xl', 'xxl', 'xxxl'],
-      description: {}
+      description: {},
     },
   ],
   product: {
@@ -81,7 +74,7 @@ const initialState = {
       'https://via.placeholder.com/200',
       'https://via.placeholder.com/300',
       '',
-      'https://via.placeholder.com/400'
+      'https://via.placeholder.com/400',
     ],
     size: {
       s: true,
@@ -100,44 +93,44 @@ const initialState = {
   isFetching: false,
 };
 
-const goodsReducer = (state = initialState, action) => {
+const goodsReducer = (state = initialState, action:GoodsAction):GoodsState => {
   switch (action.type) {
-    case SET_GOODS: {
+    case GoodsActionType.SET_GOODS: {
       return {
-        ...state, goods: action.goods
+        ...state, goods: action.payload,
       };
     }
 
-    case SET_PRODUCT: {
+    case GoodsActionType.SET_PRODUCT: {
       return {
-        ...state, product: action.product
+        ...state, product: action.payload,
       };
     }
-    case SET_PRODUCT_PRICE: {
+    case GoodsActionType.SET_PRODUCT_PRICE: {
       return {
         ...state,
         product: {
           ...state.product,
-          count: action.productCount,
-          // price: state.product.count * action.product.price
-          price: action.productCount * 500
-        }
+          count: action.payload.productCount,
+          // price: state.product.count * action.payload.product.price
+          price: action.payload.productCount * 500,
+        },
       };
     }
 
-    case TOGGLE_IS_FETCHING: {
+    case GoodsActionType.TOGGLE_IS_FETCHING: {
       return {
-        ...state, isFetching: action.isFetching
+        ...state, isFetching: action.payload,
       };
     }
 
-    case SET_CURRENT_PAGE: {
-      return { ...state, currentPage: action.PageNumber };
+    case GoodsActionType.SET_CURRENT_PAGE: {
+      return { ...state, currentPage: action.payload };
     }
 
-    case SET_GOODS_TOTAL_COUNT: {
+    case GoodsActionType.SET_GOODS_TOTAL_COUNT: {
       return {
-        ...state, totalCount: action.totalCount
+        ...state, totalCount: action.payload,
       };
     }
 

@@ -8,7 +8,7 @@ const useRating = (initial) => {
   };
   return {
     ratingCount,
-    addRating
+    addRating,
   };
 };
 

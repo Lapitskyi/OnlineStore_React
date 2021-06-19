@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  useParams, useLocation
+  useParams, useLocation,
 } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { productPrice, requestProduct, updateProduct } from '../../redux/goods/goods-action';

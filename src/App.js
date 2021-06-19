@@ -4,7 +4,7 @@ import './App.scss';
 import MainLayout from './layout/MainLayuot';
 
 const App = ({
-  theme, lang, toggleLang, toggleTheme
+  theme, lang, toggleLang, toggleTheme,
 }) => (
   <MainLayout
     theme={theme}
@@ -20,14 +20,14 @@ App.defaultProps = {
   toggleTheme: () => {
   },
   toggleLang: () => {
-  }
+  },
 };
 
 App.propTypes = {
   theme: PropTypes.bool,
   lang: PropTypes.arrayOf(PropTypes.object),
   toggleTheme: PropTypes.func,
-  toggleLang: PropTypes.func
+  toggleLang: PropTypes.func,
 };
 
 export default App;

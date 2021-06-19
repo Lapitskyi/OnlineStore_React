@@ -6,7 +6,7 @@ const Modal = ({
   modal,
   closeModals,
   keyPress,
-  children
+  children,
 }) => (
   <div
     className={modal ? 'modal active' : 'modal'}
@@ -32,12 +32,12 @@ Modal.defaultProps = {
   },
   keyPress: () => {
   },
-  children: null
+  children: null,
 };
 Modal.propTypes = {
   modal: PropTypes.bool,
   closeModals: PropTypes.func,
   keyPress: PropTypes.func,
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 export default Modal;
