@@ -5,7 +5,7 @@ import './scss/useCounter.scss';
 
 interface CounterProps {
   initialCount: number,
-  priceProduct: (count: number) => void
+  priceProduct: (count: unknown) => void
 }
 
 const Counter: FC<CounterProps> = ({ initialCount, priceProduct }) => {
@@ -16,6 +16,7 @@ const Counter: FC<CounterProps> = ({ initialCount, priceProduct }) => {
   useEffect(() => {
     priceProduct(count);
   }, [count]);
+
   return (
     <div className="counter">
       <button

@@ -14,7 +14,7 @@
 
   &__list-link {
     display: block;
-    color: #0b6623;
+    color: var(--link-success);
     width: 35px;
     height: 35px;
     position: relative;
@@ -25,7 +25,7 @@
   }
 
   &__list-icon {
-    fill: #0b6623;
+    fill:var(--bg-success);
     width: 100%;
     height: 100%;
     position: absolute;
@@ -52,7 +52,7 @@
     padding-right: 4px;
     border-radius: 50px;
     font-size: 10px;
-    color: #fff;
-    background-color: #FF0000;
+    color: var(--text-white);
+    background-color: var(--bg-danger);
   }
 }

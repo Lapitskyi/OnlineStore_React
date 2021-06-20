@@ -11,8 +11,8 @@ const BasketList = ({
   deleteProduct,
   orderProduct,
   continueShopping,
+  priceProduct,
 }) => {
-  console.log(products);
   return (
     <>
       <ul className="basket__list">
@@ -39,7 +39,7 @@ const BasketList = ({
             </div>
 
             <div className="basket__list-footer">
-              <Counter initialCount={productItem.count} />
+              <Counter initialCount={productItem.count} priceProduct={priceProduct} />
 
               <div className="basket__list-total">{`${productItem.price} UAH`}</div>
             </div>
@@ -78,7 +78,7 @@ const BasketList = ({
   );
 };
 BasketList.defaultProps = {
-
+  priceProduct: () => {},
   products: [],
   goodsTotalPrice: null,
 
@@ -96,5 +96,6 @@ BasketList.propTypes = {
   deleteProduct: PropTypes.func,
   orderProduct: PropTypes.func,
   continueShopping: PropTypes.func,
+  priceProduct: PropTypes.func,
 };
 export default BasketList;

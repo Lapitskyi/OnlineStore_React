@@ -2,7 +2,6 @@
 @import "./assets/scss/global.scss";
 @import "./assets/scss/vars.scss";
 
-$orange_color: #ffa900;
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
@@ -14,8 +13,8 @@ body {
   font-size: 14px;
   letter-spacing: normal;
   line-height: 1.2;
-  color: $black_color;
-  background: $white_color;
+  color: var(--text-dark);
+  background: var(--bg-white);
   scroll-behavior: smooth;
   min-width: 320px;
   overflow-x: hidden;

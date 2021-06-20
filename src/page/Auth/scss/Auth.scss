@@ -7,7 +7,8 @@
   align-items: center;
 
   &__inner {
-    box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5), 2px 2px 5px rgba(154, 147, 140, 0.5);
+    box-shadow: inset 2px 2px 5px rgba(var(--bg-rgb), var(--alpha-rgb-50)),
+    2px 2px 5px rgba(var(--bg-rgb), var(--alpha-rgb-50));
     width: 400px;
     padding: 20px;
     display: flex;
@@ -43,7 +44,7 @@
     margin-top: 10px;
     width: 100%;
     font-size: 16px;
-    border: 1px solid rgba(#000000, 0.3);
+    border: 1px solid var(--bg-gray-light);
     border-radius: 20px;
 
     &:focus {
@@ -60,7 +61,7 @@
   }
 
   &__form-btn:disabled {
-    background-color: grey;
+    background-color: var(--bg-gray-light);
   }
 
   &__form-link {
@@ -82,18 +83,18 @@
   }
 
   &__list-link {
-    color: #000000;
+    color: var(--link-dark);
     font-size: 12px;
 
     &:hover {
       text-decoration: underline;
-      color: #00a4e5;
+      color: var(--link-success);
     }
   }
 }
 
 .error {
-  color: #FF0000;
+  color: var(--text-danger);
 }
 
 @media (max-width:450px) {

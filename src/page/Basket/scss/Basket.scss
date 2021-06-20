@@ -14,7 +14,7 @@
     max-height: 100%;
 
     border-radius: 8px;
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 40px rgba(var(--bg-dark), var(--alpha-rgb-50));
   }
 
   &__header {
@@ -26,14 +26,14 @@
   }
 
   &__title {
-    color: #000000;
+    color: var(--text-dark);
     font-weight: 600;
     font-size: 20px;
   }
 
   &__img {
     text-align: center;
-    color: #0b6623;
+    color: var(--text-success);
   }
 
 }

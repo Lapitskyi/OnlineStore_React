@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FC } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import cn from 'classnames';
 
@@ -16,10 +15,21 @@ import Cabinet from '../page/Profile/Cabinet';
 
 import './scss/MainLayout.scss';
 
-const MainLayout = ({
-  theme, lang, toggleLang, toggleTheme,
+interface MainLayoutProps {
+  theme: boolean,
+  lang: any [],
+  toggleLang: () => void,
+  toggleTheme: () => void
+}
+
+const MainLayout: FC<MainLayoutProps> = ({
+  theme,
+  lang,
+  toggleLang,
+  toggleTheme,
 }) => (
-  <div className={cn({ 'wrapper wrapper__white': !theme, 'wrapper wrapper__dark': theme })}>
+  <div className={cn('wrapper', { wrapper__white: !theme, wrapper__dark: theme })}>
+
     <HeaderContainer
       theme={theme}
       lang={lang}
@@ -34,9 +44,8 @@ const MainLayout = ({
         <Route path="/goods/:productId" render={() => <ProductContainer />} />
         <Route path="/delivery" render={() => <Delivery />} />
         <Route path="/auth" render={() => <AuthContainer />} />
-        <Route path="/cart" render={() => <BasketContainer product="text" />} />
+        <Route path="/cart" render={() => <BasketContainer />} />
         <Route path="/cabinet" render={() => <Cabinet />} />
-
       </Switch>
     </div>
     <Footer />
@@ -44,19 +53,4 @@ const MainLayout = ({
 
 );
 
-MainLayout.defaultProps = {
-  theme: false,
-  lang: [],
-  toggleTheme: () => {
-  },
-  toggleLang: () => {
-  },
-};
-
-MainLayout.propTypes = {
-  theme: PropTypes.bool,
-  lang: PropTypes.arrayOf(PropTypes.object),
-  toggleTheme: PropTypes.func,
-  toggleLang: PropTypes.func,
-};
 export default MainLayout;

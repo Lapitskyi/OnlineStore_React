@@ -17,9 +17,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 2px solid #999;
+    border: 2px solid var(--bg-gray-light);
     border-radius: 25px;
-    background-color: #fff;
+    background-color: var(--bg-white);
   }
 
   &__icon {
@@ -30,7 +30,7 @@
   }
 
   &__ball {
-    background-color: #999;
+    background-color: var(--bg-gray-light);
     position: absolute;
     z-index: 2;
     height: 15px;

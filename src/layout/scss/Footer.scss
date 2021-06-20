@@ -1,5 +1,5 @@
 .footer{
-  box-shadow: inset 0px 1px 5px rgba(154, 147, 140, 0.5), 0px 1px 5px rgba(154, 147, 140, 0.5);
+  box-shadow: inset 0px 1px 5px rgba(var(--bg-rgb), var(--alpha-rgb-50)), 0px 1px 5px rgba(var(--bg-rgb), var(--alpha-rgb-50));
   &__inner{
     padding: 10px 0;
     display: flex;

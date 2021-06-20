@@ -14,8 +14,8 @@
   }
 
   &__list-btn {
-    border: 1px solid #888888;
+    border: 1px solid var(--bg-gray-light);
     font-size: 16px;
-    color: #333333;
+    color: var(--bg-gray-dark);
   }
 }

@@ -107,6 +107,7 @@ const goodsReducer = (state = initialState, action:GoodsAction):GoodsState => {
       };
     }
     case GoodsActionType.SET_PRODUCT_PRICE: {
+      console.log(action);
       return {
         ...state,
         product: {

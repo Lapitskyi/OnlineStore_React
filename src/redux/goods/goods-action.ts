@@ -5,8 +5,8 @@ export const toggleIsFetching = (payload: boolean) => ({ type: GoodsActionType.T
 
 export const setGoods = (payload: any) => ({ type: GoodsActionType.SET_GOODS, payload });
 export const setProduct = (payload: any) => ({ type: GoodsActionType.SET_PRODUCT, payload });
-export const productPrice = (payload: { productCount: number, product: any }) => (
-  { type: GoodsActionType.SET_PRODUCT_PRICE, payload });
+export const productPrice = (productCount: number, product: any) => (
+  { type: GoodsActionType.SET_PRODUCT_PRICE, payload: { productCount, product } });
 
 // page goods
 export const setCurrentPage = (payload: number) => ({ type: GoodsActionType.SET_CURRENT_PAGE, payload });
@@ -27,7 +27,7 @@ export const requestProduct = (productId: number) => async (dispatch: any) => {
 // !!!!!!complete the functionality(Доделать/проверить функционал)
 export const updateProduct = (productId: number) => async (dispatch:any) => {
   const data = await goodsApi.getProduct(productId);
-  dispatch(productPrice(data));
+  dispatch(productPrice(1, data));
 };
 
 export const requestCurrentPage = (pageNumber: number, pageSize: number) => async (dispatch: any) => {
