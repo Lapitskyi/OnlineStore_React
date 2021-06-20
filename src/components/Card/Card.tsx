@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import Favorites from '../Favorites/Favorites';
 import Rating from '../Rating/Rating';
 import './Card.scss';
 
-const Card = ({
+interface CardProps {
+  cardPath: string,
+  cardPhoto: string,
+  cardAlt: string,
+  cardName: string,
+  cardPrice: number,
+  cardVal: string,
+  rating: number
+}
+
+const Card: FC<CardProps> = ({
   cardPath, 
   cardPhoto,
   cardAlt,
   cardName, 
   cardPrice,
   cardVal,
+  rating,
 }) => (
   <div className="card">
     <div className="card__header">
@@ -27,30 +37,17 @@ const Card = ({
     </div>
 
     <div className="card__footer">
-      <Rating />
+      <Rating
+        pathProduct={cardPath}
+        rating={rating}
+      />
       <div className="card__name">{cardName}</div>
       <div className="card__price">
-        {` ${cardPrice || 0} ${cardVal}`}
+        {` ${cardPrice || 0} ${cardVal || '\u20B4'}`}
       </div>
     </div>
   </div>
 
 );
-Card.defaultProps = {
-  cardPath: '',
-  cardPhoto: '',
-  cardAlt: '',
-  cardName: '',
-  cardPrice: 1,
-  cardVal: '\u20B4',
-};
-Card.propTypes = {
-  cardPath: PropTypes.string,
-  cardPhoto: PropTypes.string,
-  cardAlt: PropTypes.string,
-  cardName: PropTypes.string,
-  cardPrice: PropTypes.number,
-  cardVal: PropTypes.string,
-};
 
 export default Card;

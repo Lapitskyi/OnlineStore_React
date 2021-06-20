@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { FC, useState } from 'react';
 import './Pagination.scss';
 
-const Pagination = ({
+interface PaginationProps {
+  pageSize: number,
+  totalCount: number,
+  currentPage: number,
+  onPageChanged: (page:number)=> void,
+  portionSize: number,
+}
+const Pagination: FC<PaginationProps> = ({
   pageSize,
   totalCount,
   currentPage,
@@ -67,22 +73,6 @@ const Pagination = ({
       </ul>
     </div>
   );
-};
-
-Pagination.defaultProps = {
-  pageSize: 0,
-  totalCount: 0,
-  currentPage: 0,
-  portionSize: 0,
-  onPageChanged: () => {
-  },
-};
-Pagination.propTypes = {
-  pageSize: PropTypes.number,
-  portionSize: PropTypes.number,
-  totalCount: PropTypes.number,
-  currentPage: PropTypes.number,
-  onPageChanged: PropTypes.func,
 };
 
 export default Pagination;

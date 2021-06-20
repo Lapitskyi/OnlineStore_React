@@ -23,10 +23,3 @@ const mapStateToProps = () => ({});
 export default compose(
   connect(mapStateToProps, {}),
 )(AppContainer);
-
-AppContainer.defaultProps = {
-
-};
-AppContainer.propTypes = {
-
-};

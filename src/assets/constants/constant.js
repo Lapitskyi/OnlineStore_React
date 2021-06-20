@@ -1,3 +1,5 @@
+import sprite from '../spriteSvg/sprite.svg';
+
 const constant = {
   nav: [
     {
@@ -139,6 +141,12 @@ const constant = {
       name: 'navSideBar.name',
       link: '/product category4',
     },
+  ],
+  social: [
+    { id: 'mail', path: 'mailto:mail@gmail.com', icon: `${sprite}#email` },
+    { id: 'facebook', path: 'https://www.facebook.com', icon: `${sprite}#facebook` },
+    { id: 'instagram', path: 'https://www.instagram.com', icon: `${sprite}#instagram` },
+    { id: 'yuotube', path: 'https://www.yuotube.com', icon: `${sprite}#yuotube` },
   ],
 };
 

@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import './BreadCrumbs.scss';
 
-const BreadCrumbs = ({ pathname, name }) => (
+interface BreadCrumbsProps {
+  pathname: string,
+  name: string
+}
+
+const BreadCrumbs: FC <BreadCrumbsProps> = ({ pathname, name }) => (
   <div className="breadCrumbs">
     <div className="container">
       <ul className="breadCrumbs__list">
@@ -21,14 +25,5 @@ const BreadCrumbs = ({ pathname, name }) => (
     </div>
   </div>
 );
-
-BreadCrumbs.defaultProps = {
-  pathname: '',
-  name: '',
-};
-BreadCrumbs.propTypes = {
-  pathname: PropTypes.string,
-  name: PropTypes.string,
-};
 
 export default BreadCrumbs;

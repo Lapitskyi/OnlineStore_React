@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import SwiperCore, {
   Navigation, Pagination, A11y,
 } from 'swiper';
@@ -15,7 +15,10 @@ import './SliderSwiper.scss';
 
 SwiperCore.use([Navigation, Pagination, A11y]);
 
-const SliderSwiper = ({ slider }) => {
+interface SliderSwiperProps {
+  slider: any []
+}
+const SliderSwiper: FC<SliderSwiperProps> = ({ slider }) => {
   return (
     <Swiper
       spaceBetween={10}
@@ -68,6 +71,4 @@ SliderSwiper.defaultProps = {
     },
   ],
 };
-SliderSwiper.propTypes = {
-  slider: PropTypes.arrayOf(PropTypes.object),
-};
+

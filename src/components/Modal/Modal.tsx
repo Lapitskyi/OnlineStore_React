@@ -1,8 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FC } from 'react';
 import './Modal.scss';
 
-const Modal = ({
+interface ModalProps {
+  modal: boolean,
+  closeModals: () => void,
+  keyPress: () => void,
+  children: React.ReactNode,
+}
+const Modal: FC<ModalProps> = ({
   modal,
   closeModals,
   keyPress,
@@ -26,18 +31,4 @@ const Modal = ({
   </div>
 );
 
-Modal.defaultProps = {
-  modal: false,
-  closeModals: () => {
-  },
-  keyPress: () => {
-  },
-  children: null,
-};
-Modal.propTypes = {
-  modal: PropTypes.bool,
-  closeModals: PropTypes.func,
-  keyPress: PropTypes.func,
-  children: PropTypes.node,
-};
 export default Modal;
