@@ -1,13 +1,23 @@
-import React from 'react';
-import '../scss/NavAction.scss';
+import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import sprite from '../../assets/spriteSvg/sprite.svg';
 import LangToggle from './LangToggle';
 import ThemeToggle from './ThemeToggle';
 import userPhoto from '../../assets/images/userPhoto.svg';
 
-const NavAction = ({
+import '../scss/NavAction.scss';
+
+interface NavActionProps {
+  theme: boolean,
+  isAuth?: boolean,
+  products: any [],
+  lang: any [],
+
+  toggleLang: (id: string) => void,
+  toggleTheme: (theme: boolean) => void,
+}
+
+const NavAction: FC<NavActionProps> = ({
   products,
   theme,
   lang,
@@ -48,23 +58,5 @@ const NavAction = ({
     </li>
   </ul>
 );
-NavAction.defaultProps = {
-  products: [],
-  theme: false,
-  lang: [],
-  toggleTheme: () => {
-  },
-  toggleLang: () => {
-  },
-  isAuth: false,
-};
-NavAction.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.object),
-  theme: PropTypes.bool,
-  lang: PropTypes.arrayOf(PropTypes.object),
-  toggleTheme: PropTypes.func,
-  toggleLang: PropTypes.func,
-  isAuth: PropTypes.bool,
-};
 
 export default NavAction;

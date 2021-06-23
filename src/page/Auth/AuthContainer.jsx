@@ -15,7 +15,7 @@ const AuthContainer = () => {
   const { t } = useTranslation();
   return (
     <Switch>
-      <Route exact path="/auth/login" render={() => <Login login={constant.auth.login} t={t} />} />
+      <Route exact path="/auth/login" render={() => <Login login={constant.auth.login} />} />
       <Route
         path="/auth/registration"
         render={() => (

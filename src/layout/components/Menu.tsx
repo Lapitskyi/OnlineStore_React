@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
@@ -7,7 +6,12 @@ import Burger from '../../components/Burger/Burger';
 import constant from '../../assets/constants/constant';
 import '../scss/Menu.scss';
 
-const Menu = ({
+interface MenuProps {
+  showMenu:boolean,
+  onShowMenu: () => void,
+  closeMenu: () => void,
+}
+const Menu: FC <MenuProps> = ({
   showMenu,
   onShowMenu,
   closeMenu,
@@ -33,19 +37,6 @@ const Menu = ({
       <Burger showMenu={showMenu} onShowMenu={onShowMenu} />
     </>
   );
-};
-
-Menu.defaultProps = {
-  showMenu: false,
-  onShowMenu: () => {
-  },
-  closeMenu: () => {
-  },
-};
-Menu.propTypes = {
-  showMenu: PropTypes.bool,
-  onShowMenu: PropTypes.func,
-  closeMenu: PropTypes.func,
 };
 
 export default Menu;

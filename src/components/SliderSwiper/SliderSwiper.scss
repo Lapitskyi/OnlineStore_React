@@ -1,8 +1,12 @@
 .slider {
+  display: grid;
   &__inner {
-    padding-bottom: 50px;
+    width: 100%;
   }
 
+  &__list {
+    padding-bottom: 50px;
+  }
   &__photo {
     position: relative;
     padding: 0 0 50% 0;

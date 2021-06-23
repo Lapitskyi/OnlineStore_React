@@ -1,16 +1,23 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import Header from './Header';
 import useShowMenu from '../../useHook/useShowMenu';
 import { getBasketProduct } from '../../redux/selector';
+import { AppStateType } from '../../redux/store';
 
-const HeaderContainer = ({
+interface HeaderContainerProps {
+  theme: boolean,
+  lang: any[],
+  toggleTheme: (theme: boolean) => void,
+  toggleLang: (id: string) => void,
+
+}
+const HeaderContainer: FC<HeaderContainerProps> = ({
   theme, lang, toggleLang, toggleTheme,
 }) => {
   const { showMenu, onShowMenu, closeMenu } = useShowMenu(false);
-  const products = useSelector(({ basket: { goodsOrder } }) => getBasketProduct(goodsOrder));
-  
+  const products = useSelector(({ basket: { goodsOrder } }: AppStateType) => getBasketProduct(goodsOrder));
+
   return (
     <Header
       products={products}
@@ -26,19 +33,3 @@ const HeaderContainer = ({
 };
 
 export default HeaderContainer;
-
-HeaderContainer.defaultProps = {
-  theme: false,
-  lang: [],
-  toggleTheme: () => {
-  },
-  toggleLang: () => {
-  },
-};
-
-HeaderContainer.propTypes = {
-  theme: PropTypes.bool,
-  lang: PropTypes.arrayOf(PropTypes.object),
-  toggleTheme: PropTypes.func,
-  toggleLang: PropTypes.func,
-};

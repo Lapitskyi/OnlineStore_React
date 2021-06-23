@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 import '../scss/Auth.scss';
+import { useTranslation } from 'react-i18next';
 
-const LinkAuth = ({ link, t }) => {
+interface LinkProps {
+  link: any[]
+}
+
+const LinkAuth: FC<LinkProps> = ({ link }) => {
+  const { t } = useTranslation();
   return (
     <ul className="auth-link__list">
       {
@@ -16,15 +21,6 @@ const LinkAuth = ({ link, t }) => {
       }
     </ul>
   );
-};
-
-LinkAuth.defaultProps = {
-  link: [],
-  t: () => {},
-};
-LinkAuth.propTypes = {
-  link: PropTypes.arrayOf(PropTypes.object),
-  t: PropTypes.func,
 };
 
 export default LinkAuth;

@@ -11,7 +11,7 @@ interface CardProps {
   cardName: string,
   cardPrice: number,
   cardVal: string,
-  rating: number
+  rating?: number
 }
 
 const Card: FC<CardProps> = ({

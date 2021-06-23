@@ -9,66 +9,53 @@ import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
-import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import './SliderSwiper.scss';
 
 SwiperCore.use([Navigation, Pagination, A11y]);
 
 interface SliderSwiperProps {
-  slider: any []
+  slider?: any [] | null
 }
+
 const SliderSwiper: FC<SliderSwiperProps> = ({ slider }) => {
   return (
-    <Swiper
-      spaceBetween={10}
-      slidesPerView={1}
-      navigation
-      pagination={{ clickable: true }}
-      breakpoints={{
-        992: {
-          slidesPerView: 1,
-        },
-        768: {
-          slidesPerView: 1,
-        },
-        568: {
-          slidesPerView: 1,
-        },
-      }}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
-    >
-      {slider.map((sliderItem) => (
-        <SwiperSlide key={sliderItem.id} className="slider">
-          <div className="slider__inner">
-            <NavLink className="slider__link" to={sliderItem.path}>
-              <div className="slider__photo">
-                <img className="slider__img" src={sliderItem.img} alt={sliderItem.alt} />
-              </div>
-            </NavLink>
+    <>
+      <div className="slider">
+        <Swiper
+          className="slider__inner"
+          spaceBetween={10}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          breakpoints={{
+            992: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 1,
+            },
+            568: {
+              slidesPerView: 1,
+            },
+          }}
+          onSlideChange={() => console.log('slide change')}
+          onSwiper={(swiper) => console.log(swiper)}
+        >
+          <div>
+            {slider?.map((sliderItem) => (
+              <SwiperSlide key={sliderItem.id}>
+                <NavLink className="slider__link" to={sliderItem.path}>
+                  <div className="slider__photo">
+                    <img className="slider__img" src={sliderItem.img} alt={sliderItem.alt} />
+                  </div>
+                </NavLink>        
+              </SwiperSlide>
+            ))} 
           </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+        </Swiper>
+      </div>
+    </>
   );
 };
 export default SliderSwiper;
-
-SliderSwiper.defaultProps = {
-  slider: [
-    {
-      id: 1, img: 'https://via.placeholder.com/500', alt: 'promo', path: '',
-    },
-    {
-      id: 2, img: 'https://via.placeholder.com/700', alt: 'promo', path: '',
-    },
-    {
-      id: 3, img: 'https://via.placeholder.com/800', alt: 'promo', path: '',
-    },
-    {
-      id: 4, img: 'https://via.placeholder.com/1000', alt: 'promo', path: '',
-    },
-  ],
-};
-

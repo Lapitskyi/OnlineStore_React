@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 import '../scss/LangToggle.scss';
-import PropTypes from 'prop-types';
 
-const LangToggle = ({
+interface LangToggleProps {
+  toggleLang: (id: string) => void,
+  lang: any [],
+}
+
+const LangToggle: FC<LangToggleProps> = ({
   toggleLang,
   lang,
 }) => {
@@ -30,17 +34,6 @@ const LangToggle = ({
       </ul>
     </div>
   );
-};
-
-LangToggle.defaultProps = {
-  toggleLang: () => {
-  },
-  lang: [],
-};
-
-LangToggle.propTypes = {
-  toggleLang: PropTypes.func,
-  lang: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default LangToggle;

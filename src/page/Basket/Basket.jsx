@@ -12,6 +12,8 @@ const Basket = ({
   deleteProduct,
   orderProduct,
   continueShopping,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  quantityProduct,
 }) => {
   return (
     <div className="basket">
@@ -50,6 +52,8 @@ Basket.defaultProps = {
   },
   continueShopping: () => {
   },
+  quantityProduct: () => {
+  },
 
 };
 Basket.propTypes = {
@@ -60,6 +64,7 @@ Basket.propTypes = {
   deleteProduct: PropTypes.func,
   orderProduct: PropTypes.func,
   continueShopping: PropTypes.func,
+  quantityProduct: PropTypes.func,
 };
 
 export default Basket;

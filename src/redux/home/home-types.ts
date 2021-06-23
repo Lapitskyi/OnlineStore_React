@@ -1,5 +1,6 @@
 export interface HomeState {
   promotions: any [],
+  popular: any [],
   newProduct: {
     title: string,
     products: any [],

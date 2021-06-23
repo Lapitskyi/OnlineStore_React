@@ -1,5 +1,6 @@
+import { Dispatch } from 'redux';
 import goodsApi from '../../service/goodsApi';
-import { GoodsActionType } from './goods-type';
+import { GoodsAction, GoodsActionType } from './goods-type';
 
 export const toggleIsFetching = (payload: boolean) => ({ type: GoodsActionType.TOGGLE_IS_FETCHING, payload });
 
@@ -12,10 +13,10 @@ export const productPrice = (productCount: number, product: any) => (
 export const setCurrentPage = (payload: number) => ({ type: GoodsActionType.SET_CURRENT_PAGE, payload });
 export const setGoodsTotalCount = (payload: number) => ({ type: GoodsActionType.SET_GOODS_TOTAL_COUNT, payload });
 
-export const requestGoods = (currentPage:number, pageSize: number) => async (dispatch: any) => {
-  dispatch(toggleIsFetching(true));
+export const requestGoods = (currentPage:number, pageSize: number) => async (dispatch:Dispatch<GoodsAction>) => {
+  dispatch({ type: GoodsActionType.TOGGLE_IS_FETCHING, payload: true });
   const data = await goodsApi.getGoods(currentPage, pageSize);
-  dispatch(toggleIsFetching(false));
+  dispatch({ type: GoodsActionType.TOGGLE_IS_FETCHING, payload: false });
   dispatch(setGoods(data));
 };
 

@@ -1,9 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FC } from 'react';
 import '../scss/ThemeToggle.scss';
 import sprite from '../../assets/spriteSvg/sprite.svg';
 
-const ThemeToggle = ({
+interface ThemeToggleProps {
+  theme: boolean,
+  toggleTheme: (theme: boolean) => void,
+}
+const ThemeToggle: FC<ThemeToggleProps> = ({
   theme,
   toggleTheme,
 }) => {
@@ -31,16 +34,4 @@ const ThemeToggle = ({
     </div>
   );
 };
-ThemeToggle.defaultProps = {
-  theme: false,
-  toggleTheme: () => {
-  },
-
-};
-ThemeToggle.propTypes = {
-  theme: PropTypes.bool,
-  toggleTheme: PropTypes.func,
-
-};
-
 export default ThemeToggle;

@@ -6,7 +6,7 @@ import useRating from '../../useHook/useRating';
 
 interface RatingProps {
   pathProduct: string,
-  rating: number
+  rating?: number
 }
 
 const Rating: FC<RatingProps> = ({ pathProduct, rating }) => {

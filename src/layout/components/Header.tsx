@@ -1,12 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FC } from 'react';
 import Logo from '../../components/Logo/Logo';
 import NavAction from './NavAction';
 import Menu from './Menu';
 
 import '../scss/Header.scss';
 
-const Header = ({
+interface HeaderProps {
+  showMenu: boolean,
+  theme: boolean,
+  products: any [],
+  lang: any [],
+
+  onShowMenu: () => void,
+  closeMenu: () => void,
+  toggleLang: (id: string) => void,
+  toggleTheme: (theme: boolean) => void,
+}
+const Header: FC<HeaderProps> = ({
   showMenu,
   onShowMenu,
   closeMenu,
@@ -35,31 +45,6 @@ const Header = ({
       </div>
     </section>
   );
-};
-Header.defaultProps = {
-  products: [],
-  showMenu: false,
-  onShowMenu: () => {
-  },
-  closeMenu: () => {
-  },
-  theme: false,
-  lang: [],
-  toggleTheme: () => {
-  },
-  toggleLang: () => {
-  },
-};
-Header.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.object),
-  showMenu: PropTypes.bool,
-
-  onShowMenu: PropTypes.func,
-  closeMenu: PropTypes.func,
-  theme: PropTypes.bool,
-  lang: PropTypes.arrayOf(PropTypes.object),
-  toggleTheme: PropTypes.func,
-  toggleLang: PropTypes.func,
 };
 
 export default Header;

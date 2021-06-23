@@ -3,13 +3,17 @@ import thunkMiddleware from 'redux-thunk';
 import goodsReducer from './goods/goods-reducer';
 import authReducer from './auth/auth-reducer';
 import basketReducer from './basket/basket-reducer';
+import homeReducer from './home/home-reducer';
 
-const reducers = combineReducers({
+const reducer = combineReducers({
   goods: goodsReducer,
   basket: basketReducer,
   auth: authReducer,
+  home: homeReducer,
 });
 
-const store = createStore(reducers, applyMiddleware(thunkMiddleware));
+export type AppStateType = ReturnType<typeof reducer>;
+
+const store = createStore(reducer, applyMiddleware(thunkMiddleware));
 
 export default store;

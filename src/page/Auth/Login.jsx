@@ -1,12 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import { useTranslation } from 'react-i18next';
 
-import './scss/Login.scss';
 import LinkAuth from './components/LinkAuth';
 import Logo from '../../components/Logo/Logo';
 import AuthSocial from './components/AuthSocial';
+import './scss/Login.scss';
 
 const Login = ({
   login: {
@@ -14,8 +14,9 @@ const Login = ({
     name,
     link,
   },
-  t,
 }) => {
+  const { t } = useTranslation();
+
   const validationSchema = Yup.object({
     email: Yup.string()
       .email('Invalid email address')
@@ -78,28 +79,11 @@ const Login = ({
             )}
           </Formik>
           <AuthSocial />
-          <LinkAuth link={link} t={t} />
+          <LinkAuth link={link} />
         </div>
       </div>
     </div>
   );
-};
-
-Login.defaultProps = {
-  login: {
-    input: [],
-    name: '',
-    link: [],
-  },
-  t: () => {},
-};
-Login.propTypes = {
-  login: PropTypes.shape({
-    input: PropTypes.arrayOf(PropTypes.object),
-    name: PropTypes.string,
-    link: PropTypes.arrayOf(PropTypes.object),
-  }),
-  t: PropTypes.func,
 };
 
 export default Login;
